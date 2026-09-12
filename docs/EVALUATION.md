@@ -1,4 +1,4 @@
-﻿# Evaluation record
+# Evaluation record
 
 All fault injections are deterministic application tests, not measured spontaneous Gemini mistakes. The real PDF renderer runs during integration tests.
 
@@ -31,8 +31,13 @@ The mock reviewer verifies only exact approved excerpts. The live reviewer adapt
 
 Frontend checks use real FastAPI endpoints and the actual static export, at 1440px and 390px. They test keyboard activation, source drawer dismissal, evidence review, build, real PDF/report responses, source comparison, changes, event log, refresh recovery, invalid files and session clearing.
 
-PDF visual inspections cover the fictional example and the private single-page local rehearsal. The latter is not an AI-tailored live result; its selected excerpts require user review before application use. Desktop and mobile UI captures are inspected, but no Stitch fidelity comparison is possible without the missing references.
+PDF visual inspections cover the fictional example and the private single-page local rehearsal. The latter is not an AI-tailored live result; its selected excerpts require user review before application use. All six Stitch desktop screenshots and HTML exports were retrieved on 2026-09-13. Adapted desktop/mobile captures were inspected against them; system fonts and mobile layout differ intentionally, and no separate mobile reference was returned. The latest browser suite also checks actual final-claim/source comparison and scroll restoration.
 
 ## Final local result (2026-09-12)
 
 Backend: 50 passed in 84.40 seconds; one upstream deprecation warning. Strict frontend typecheck and static export passed. Browser acceptance: six tests passed, including real clarification resume and pasted-resume/mobile validation; one attention-state test uses an explicitly controlled result fixture. Actual one-page PDF renderings were inspected. No real Gemini generation or Linux container execution occurred; neither is counted as a pass.
+
+
+## Stitch adaptation validation (2026-09-13)
+
+Strict TypeScript and static export passed. The final browser suite passed seven scenarios in 24.0 seconds against the actual local service. Added assertions for final claim/original source comparison and view scroll restoration, plus a delayed-session regression that verifies source submission is unavailable until the cookie exists. A bootstrap race discovered during visual adaptation was fixed; no backend or PDF-template code changed. All six retrieved desktop references and the 1440px/390px application captures were inspected.

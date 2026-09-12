@@ -7,15 +7,17 @@ for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
   await page.goto('/');await expect(page.getByRole('button',{name:'Load fictional sample',exact:true})).toBeEnabled();
   await page.screenshot({path:`${output}/prepare-${viewport.width}.png`,fullPage:true});
   const sample=page.getByRole('button',{name:'Load fictional sample',exact:true});await sample.focus();await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading',{name:'Every claim starts here.'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Here is what your documents support.'})).toBeVisible();
   await page.locator('.source-link').first().click();await expect(page.getByRole('dialog')).toBeVisible();
   await page.screenshot({path:`${output}/source-${viewport.width}.png`});
   await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();
   await page.getByRole('button',{name:'Approve supported excerpts'}).click();
   await expect(page.getByRole('button',{name:'Build my resume'})).toBeEnabled();
+  await page.evaluate(()=>window.scrollTo(0,0));
   await page.screenshot({path:`${output}/evidence-${viewport.width}.png`});
   await page.getByRole('button',{name:'Build my resume'}).click();
-  await expect(page.getByRole('heading',{name:'A resume you can stand behind.'})).toBeVisible({timeout:30000});
+  await expect(page.getByRole('heading',{name:'Your application package is ready.'})).toBeVisible({timeout:30000});
+  await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBe(0);
   await expect(page.locator('.result-metrics')).toContainText('92');
   await expect(page.locator('.resume-image')).toBeVisible();
   expect(await page.locator('.resume-image').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBeTruthy();
@@ -24,16 +26,16 @@ for(const viewport of [{width:1440,height:1000},{width:390,height:844}]){
   for(const name of ['Download resume','JSON report','Evidence report']){
    const url=await page.getByRole('link',{name,exact:true}).getAttribute('href');const response=await page.request.get(url!);expect(response.status()).toBe(200);expect(response.headers()['content-disposition']).toContain('attachment');
   }
-  await page.getByRole('button',{name:'Claim sources',exact:true}).click();await page.locator('.claim .source-link').first().click();await expect(page.getByRole('dialog')).toBeVisible();await page.keyboard.press('Escape');
+  await page.getByRole('button',{name:'Claim sources',exact:true}).click();await page.locator('.claim .source-link').first().click();await expect(page.getByRole('dialog')).toBeVisible();await expect(page.getByRole('heading',{name:'Final draft claim',exact:true})).toBeVisible();await expect(page.getByRole('heading',{name:'Original document evidence',exact:true})).toBeVisible();await page.keyboard.press('Escape');
   await page.getByRole('button',{name:'Changes',exact:true}).click();await expect(page.getByRole('heading',{name:'What changed, and why'})).toBeVisible();
   await page.getByRole('button',{name:'Inspect activity log'}).click();await expect(page.getByRole('heading',{name:'Activity log'})).toBeVisible();
   await page.screenshot({path:`${output}/build-${viewport.width}.png`,fullPage:true});
-  await page.reload();await expect(page.getByRole('heading',{name:'A resume you can stand behind.'})).toBeVisible();
+  await page.reload();await expect(page.getByRole('heading',{name:'Your application package is ready.'})).toBeVisible();
   expect(errors).toEqual([]);
  });
 }
 test('invalid upload exposes useful error and clear session recovers',async({page})=>{
- await page.goto('/');await page.getByLabel('Upload base resume').setInputFiles({name:'broken.pdf',mimeType:'application/pdf',buffer:Buffer.from('not a PDF')});
+ await page.goto('/');await expect(page.getByLabel('Upload base resume')).toBeEnabled();await page.getByLabel('Upload base resume').setInputFiles({name:'broken.pdf',mimeType:'application/pdf',buffer:Buffer.from('not a PDF')});
  await expect(page.locator('.alert.error')).toContainText('could not be parsed');
  await page.getByRole('button',{name:'Clear temporary session'}).click();
  await expect(page.getByRole('button',{name:'Load fictional sample',exact:true})).toBeEnabled();
@@ -69,7 +71,7 @@ test('company clarification resumes to a checked result in the UI',async({page})
  await expect(page.getByRole('heading',{name:'Company research needed'})).toBeVisible({timeout:20000});
  await page.getByLabel('Company knowledge',{exact:true}).fill('Fictional supplied knowledge: CedarWorks builds booking software and values accessible frontend forms.');
  await page.getByRole('button',{name:'Continue with this source'}).click();
- await expect(page.getByRole('heading',{name:'A resume you can stand behind.'})).toBeVisible({timeout:30000});
+ await expect(page.getByRole('heading',{name:'Your application package is ready.'})).toBeVisible({timeout:30000});
 });
 
 test('controlled needs-review UI hides verified downloads',async({page})=>{
@@ -82,4 +84,20 @@ test('controlled needs-review UI hides verified downloads',async({page})=>{
  await expect(page.getByRole('link',{name:'Download resume',exact:true})).toHaveCount(0);
  await expect(page.getByText('Controlled UI fixture: 40% time saving is unsupported.')).toBeVisible();
  await page.screenshot({path:`${output}/needs-review-controlled.png`,fullPage:true});
+});
+
+
+test('source submission waits for the session cookie',async({page})=>{
+ let release:()=>void=()=>{};
+ const ready=new Promise<void>(resolve=>{release=resolve});
+ await page.route('**/api/sessions',async route=>{await ready;await route.continue()});
+ await page.goto('/');
+ await page.getByText('Or paste resume text',{exact:true}).click();
+ await page.getByLabel('Base resume text',{exact:true}).fill('SKILLS\nReact, TypeScript, Git.');
+ await expect(page.getByRole('button',{name:'Save resume text',exact:true})).toBeDisabled();
+ await expect(page.getByLabel('Upload base resume')).toBeDisabled();
+ release();
+ await page.getByRole('button',{name:'Save resume text',exact:true}).click();
+ await expect(page.getByText('Base resume added',{exact:true})).toBeVisible();
+ await expect(page.locator('.alert.error')).toHaveCount(0);
 });

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-bright":"#f1fcf7","on-surface-variant":"#3f4944","on-error-container":"#93000a","on-primary-fixed-variant":"#00513b","on-tertiary-fixed":"#2c1600","inverse-primary":"#89d6b6","surface-container-high":"#dfebe6","error":"#ba1a1a","secondary":"#58605c","primary-container":"#176b51","surface-container-highest":"#dae5e0","secondary-fixed":"#dce5df","surface-container":"#e5f0eb","on-tertiary-container":"#ffd1a6","surface":"#f1fcf7","on-primary-container":"#9be9c8","on-tertiary-fixed-variant":"#693c00","surface-variant":"#dae5e0","surface-container-lowest":"#ffffff","outline-variant":"#bec9c2","on-error":"#ffffff","surface-container-low":"#ebf6f1","tertiary-fixed-dim":"#ffb870","outline":"#6f7973","on-secondary-fixed-variant":"#404945","on-secondary-fixed":"#151d1a","background":"#f1fcf7","on-background":"#141e1b","tertiary-container":"#8b5100","on-primary":"#ffffff","on-secondary":"#ffffff","primary-fixed-dim":"#89d6b6","primary-fixed":"#a4f2d1","error-container":"#ffdad6","primary":"#00513b","secondary-container":"#dce5df","inverse-surface":"#28332f","on-tertiary":"#ffffff","surface-dim":"#d1ddd7","on-secondary-container":"#5e6662","tertiary-fixed":"#ffdcbe","on-primary-fixed":"#002116","inverse-on-surface":"#e8f3ee","surface-tint":"#176b51","tertiary":"#6a3c00","on-surface":"#141e1b","secondary-fixed-dim":"#c0c9c3"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-md":"2rem","margin-lg":"3rem","space-xs":"0.25rem","gutter":"1rem","gutter-lg":"1.5rem","space-lg":"1.5rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-2xl":"3rem","margin":"1rem"},"fontFamily":{"display-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"],"body-md":["Inter"],"metric-tabular":["Inter"]},"fontSize":{"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"metric-tabular":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter lg:px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span></div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">ProofApply</span><span class="px-space-sm py-space-xs rounded-full bg-surface-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Beta</span></div><nav class="hidden md:flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="prepare" href="#">1. Prepare</a><a aria-current="page" class="px-space-md py-space-xs rounded transition-colors bg-primary-container text-on-primary font-semibold" data-path="review-evidence" href="#">2. Review Evidence</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="build" href="#">3. Build</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="results" href="#">4. Results</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full"><span class="w-2 h-2 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Temporary session (in-memory)</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px]">help</span><span>Help &amp; Docs</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background"><div class="max-w-7xl mx-auto px-gutter lg:px-gutter-lg py-margin-md min-h-[calc(100vh-10rem)]"><div class="flex flex-col w-full">
+<!-- Page Header Area with Academic Precision -->
+<div class="mb-margin-md flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-3xl">
+<div class="flex items-center gap-space-xs text-primary mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider bg-surface-container px-space-sm py-space-xs rounded-full text-primary font-semibold">Stage 02 • Audit &amp; Validation</span>
+<span class="text-secondary text-body-sm">•</span>
+<span class="font-label-sm text-label-sm text-secondary">Verified against 3 uploaded files</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight font-semibold">Here is what your documents support.</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
+        Review extracted claims across your documents before drafting. Source support confirms your provided text describes this experience; it does not replace external credential verification.
+      </p>
+</div>
+<!-- Live Evidence Score Spark / Micro Visualizer -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md shrink-0">
+<div class="relative w-14 h-14 flex items-center justify-center">
+<!-- SVG Donut Chart for Evidence Ratio (14 verified out of 18) -->
+<svg class="w-14 h-14 -rotate-90" viewbox="0 0 40 40">
+<circle class="text-surface-container" cx="20" cy="20" fill="transparent" r="15.9155" stroke="currentColor" stroke-width="3.5"></circle>
+<circle class="text-primary-container" cx="20" cy="20" fill="transparent" r="15.9155" stroke="currentColor" stroke-dasharray="77.7 22.3" stroke-linecap="round" stroke-width="3.5"></circle>
+</svg>
+<span class="absolute font-label-md text-label-md font-semibold text-primary">78%</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Verification Index</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">14 of 18 claims anchored</div>
+</div>
+</div>
+</div>
+<!-- Main Asymmetric Workspace Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-lg items-start">
+<!-- Left Column (8 cols): Filters & Interactive Evidence Table -->
+<div class="xl:col-span-8 flex flex-col gap-space-md min-w-0">
+<!-- Primary Status Filter Bar -->
+<div class="bg-surface-container-lowest p-space-xs rounded-xl shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-xs" id="statusFilterGroup">
+<button class="status-tab px-space-md py-space-xs rounded font-label-md text-label-md bg-primary-container text-on-primary font-semibold transition-all" type="button">
+            All <span class="ml-1 opacity-90">(18)</span>
+</button>
+<button class="status-tab px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button">
+            Supported by source <span class="ml-1 opacity-70">(14)</span>
+</button>
+<button class="status-tab px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button">
+            Self-reported <span class="ml-1 opacity-70">(2)</span>
+</button>
+<button class="status-tab px-space-md py-space-xs rounded font-label-md text-label-md text-tertiary hover:bg-surface-container transition-all" type="button">
+            Needs clarification <span class="ml-1 px-1.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-semibold">1</span>
+</button>
+<button class="status-tab px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" type="button">
+            Excluded <span class="ml-1 opacity-70">(1)</span>
+</button>
+</div>
+<div class="px-space-sm text-secondary font-label-sm text-label-sm hidden sm:block">
+          Sorted by: <span class="text-on-surface font-medium">Draft Position</span>
+</div>
+</div>
+<!-- Secondary Filter Row: Search & Category Chips -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[18px]">search</span>
+<input class="w-full pl-9 pr-space-md py-space-xs bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Search claims, repositories, or skills..." type="text"/>
+</div>
+<!-- Category Dropdown / Filters -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 sm:pb-0">
+<button class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold shrink-0" type="button">
+            All categories
+          </button>
+<button class="px-space-sm py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container text-label-sm font-label-sm shrink-0 transition-colors" type="button">
+            Technical skills
+          </button>
+<button class="px-space-sm py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container text-label-sm font-label-sm shrink-0 transition-colors" type="button">
+            Project work
+          </button>
+<button class="px-space-sm py-space-xs rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container text-label-sm font-label-sm shrink-0 transition-colors" type="button">
+            Metrics
+          </button>
+</div>
+</div>
+<!-- Evidence Claims Interactive Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1: Supported by source (Active Inspection State) -->
+<div class="claim-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-200 ring-2 ring-primary-container relative">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold shrink-0">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                Supported by source
+              </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Technical Skills / Project
+              </span>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[15px]">visibility</span>
+                Inspecting
+              </span>
+</div>
+</div>
+<div class="mt-space-sm">
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-snug">
+              "Developed interactive booking and schedule views using React and TypeScript for campus room-reservation portal."
+            </p>
+</div>
+<!-- Document Anchor & Attribution -->
+<div class="mt-space-sm pt-space-xs flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low/60 -mx-space-md -mb-space-md px-space-md py-space-sm rounded-b-xl">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span class="font-metric-tabular text-metric-tabular font-medium text-on-surface">Campus_RoomBooking_Repo_README.md</span>
+<span class="text-secondary">•</span>
+<span class="text-secondary">§2.1 Architecture</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xs rounded font-label-sm text-label-sm text-secondary hover:text-error hover:bg-error-container/20 transition-colors" type="button">
+                Exclude
+              </button>
+</div>
+</div>
+</div>
+<!-- Item 2: Supported by source -->
+<div class="claim-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all duration-200 group">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold shrink-0">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+                Supported by source
+              </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Technical Skills
+              </span>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto opacity-80 group-hover:opacity-100">
+<button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm transition-colors" onclick="inspectItem('Campus_RoomBooking_Repo_README.md', '§3.4 API Layer', 'Implemented API calls with Axios client wrapper handling automated token refreshes and pending optimistic updates on UI tables.', 'Integrated REST APIs for availability queries with Axios and optimistic UI state handling.')" type="button">
+                Inspect source
+              </button>
+<button class="px-space-sm py-space-xs rounded text-secondary hover:text-error transition-colors font-label-sm text-label-sm" type="button">
+                Exclude
+              </button>
+</div>
+</div>
+<div class="mt-space-sm">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+              "Integrated REST APIs for availability queries with Axios and optimistic UI state handling."
+            </p>
+</div>
+<div class="mt-space-sm flex flex-wrap items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">description</span>
+<span class="font-metric-tabular text-metric-tabular text-secondary">Campus_RoomBooking_Repo_README.md</span>
+<span class="text-secondary">•</span>
+<span class="text-secondary">§3.4 API Layer</span>
+</div>
+</div>
+<!-- Item 3: Needs Clarification (Callout Card) -->
+<div class="claim-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm border-l-4 border-l-tertiary hover:shadow-md transition-all">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold shrink-0">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                Needs clarification
+              </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Leadership &amp; Metrics
+              </span>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<button class="px-space-sm py-space-xs rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm hover:opacity-90 transition-opacity font-semibold" type="button">
+                Clarify claim
+              </button>
+<button class="px-space-sm py-space-xs rounded text-secondary hover:text-error transition-colors font-label-sm text-label-sm" type="button">
+                Exclude
+              </button>
+</div>
+</div>
+<div class="mt-space-sm">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+              "Led a team of 4 engineers and reduced room booking turnaround time by 40% across campus."
+            </p>
+</div>
+<!-- Discrepancy Note Area -->
+<div class="mt-space-sm p-space-sm bg-tertiary-fixed/30 rounded-lg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5 shrink-0">info</span>
+<div class="font-body-sm text-body-sm text-on-surface">
+<span class="font-semibold text-tertiary">Extraction audit warning:</span> Source mentions team contribution to UI, but no team lead title or measured 40% metric found in uploaded files.
+            </div>
+</div>
+<div class="mt-space-sm flex flex-wrap items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">notes</span>
+<span class="font-metric-tabular text-metric-tabular text-secondary">Cedar_Internship_Notes.txt</span>
+<span class="text-secondary">•</span>
+<span class="text-secondary">§Line 14</span>
+</div>
+</div>
+<!-- Item 4: Self-reported -->
+<div class="claim-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-all group">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold shrink-0">
+<span class="material-symbols-outlined text-[13px]">person_outline</span>
+                Self-reported
+              </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+                Quality &amp; Testing
+              </span>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<button class="px-space-sm py-space-xs rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+                Inspect source
+              </button>
+<button class="px-space-sm py-space-xs rounded text-primary hover:bg-surface-container font-label-sm text-label-sm transition-colors" type="button">
+                Clarify
+              </button>
+</div>
+</div>
+<div class="mt-space-sm">
+<p class="font-body-lg text-body-lg text-on-surface leading-snug">
+              "Wrote automated unit and integration tests using Jest and React Testing Library."
+            </p>
+</div>
+<div class="mt-space-sm flex flex-wrap items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">picture_as_pdf</span>
+<span class="font-metric-tabular text-metric-tabular text-secondary">Mira_Rao_Base_Resume_2024.pdf</span>
+<span class="text-secondary">•</span>
+<span class="text-secondary italic">Skills Section (Self-reported without repo artifact)</span>
+</div>
+</div>
+<!-- Item 5: Excluded Claim -->
+<div class="claim-card bg-surface-container-low rounded-xl p-space-md opacity-75 shadow-none">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm font-semibold shrink-0 line-through">
+                Excluded
+              </span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm">
+                Infrastructure
+              </span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xs rounded font-label-sm text-label-sm text-primary hover:underline" type="button">
+                Re-include
+              </button>
+</div>
+</div>
+<div class="mt-space-sm">
+<p class="font-body-md text-body-md text-secondary line-through">
+              "Containerized frontend services using Docker Compose."
+            </p>
+</div>
+<div class="mt-space-sm flex items-center justify-between text-secondary font-body-sm text-body-sm">
+<span>Identified as role gap: No matching source found in files. Excluded from draft.</span>
+<span class="font-metric-tabular text-metric-tabular text-[12px]">Target Role Gap</span>
+</div>
+</div>
+</div>
+<!-- Active Inspection Drawer (Directly under primary inspection on mobile, docked & responsive) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md border-l-4 border-l-primary-container mt-space-sm" id="inspectorPanel">
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">quick_reference</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold" id="inspectHeader">Source Excerpt: Campus_RoomBooking_Repo_README.md</h3>
+</div>
+<span class="px-space-sm py-space-xs rounded font-metric-tabular text-metric-tabular bg-surface-container text-on-surface-variant font-medium text-[12px]" id="inspectLocator">
+            Paragraph 12, lines 45-52
+          </span>
+</div>
+<div class="mt-space-md grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Raw verified quote -->
+<div class="bg-surface-container-low p-space-md rounded-lg">
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mb-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">menu_book</span>
+              Raw Verified Quote in File
+            </div>
+<blockquote class="font-body-md text-body-md text-on-surface italic pl-space-sm border-l-2 border-primary-container" id="inspectQuote">
+              "Frontend was constructed with React 18 and TypeScript. Built responsive room grid and calendar selector components with keyboard navigation."
+            </blockquote>
+</div>
+<!-- Matched claim in draft -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm">
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-secondary mb-space-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-container">edit_note</span>
+              Matched Claim for Resume Draft
+            </div>
+<p class="font-body-md text-body-md text-on-surface font-medium" id="inspectClaim">
+              "Built React and TypeScript screens for a campus room-booking project with accessible keyboard navigation."
+            </p>
+<div class="mt-space-sm flex items-center gap-space-xs text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              High semantic confidence (0.94)
+            </div>
+</div>
+</div>
+<!-- Detail Actions -->
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center justify-between gap-space-sm border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-space-xs bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg transition-colors" type="button">
+              Exclude from draft
+            </button>
+<button class="px-space-md py-space-xs bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md rounded-lg transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+              Clarify extraction
+            </button>
+</div>
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm underline" type="button">
+            Review contact details separately
+          </button>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols): Target Role Summary & Action Gate -->
+<div class="xl:col-span-4 flex flex-col gap-space-md sticky top-20">
+<!-- Target Role Spec & Requirement Alignment Checklist -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Target Alignment</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary-container/10 text-primary-container font-label-sm text-label-sm font-semibold">6 of 7 Match</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">
+          Junior Frontend Developer
+        </h2>
+<div class="font-body-sm text-body-sm text-secondary mt-0.5">CedarWorks Labs • Engineering Team</div>
+<!-- Mini Visual Bar -->
+<div class="w-full bg-surface-container h-2 rounded-full mt-space-md overflow-hidden flex">
+<div class="bg-primary-container h-full" style="width: 72%;"></div>
+<div class="bg-secondary-fixed-dim h-full" style="width: 14%;"></div>
+<div class="bg-tertiary-fixed-dim h-full" style="width: 14%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-label-sm text-secondary mt-1">
+<span>72% Proven</span>
+<span>14% Self-reported</span>
+<span>14% Clarify</span>
+</div>
+<!-- Requirements List Checkbox Matrix -->
+<div class="mt-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">React</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Supported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">TypeScript</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Supported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">REST Integration</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Supported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">info</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Automated testing</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Self-reported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Git workflows</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Supported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Accessible interfaces (WCAG)</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Supported</span>
+</div>
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low rounded-lg opacity-85">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">warning</span>
+<span class="font-body-md text-body-md text-on-surface line-through">Docker</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm">Missing / Excluded</span>
+</div>
+</div>
+<!-- Guardrail Advisory Notice -->
+<div class="mt-space-md p-space-sm bg-tertiary-fixed/20 rounded-lg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px] mt-0.5 shrink-0">policy</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-tight">
+<span class="font-semibold text-tertiary">1 item</span> needs clarification or will default to safe exclusion during build.
+          </p>
+</div>
+<!-- Workflow Decision Buttons -->
+<div class="mt-space-lg flex flex-col gap-space-sm">
+<button class="w-full py-space-sm px-space-md bg-primary-container text-on-primary font-headline-sm text-headline-sm font-semibold rounded-lg hover:bg-primary transition-all flex items-center justify-center gap-space-xs shadow-sm hover:shadow" type="button">
+<span>Build my application</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="w-full py-space-sm px-space-md bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back to inputs</span>
+</button>
+</div>
+</div>
+<!-- Scholarly Transparency Badge -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm text-on-surface-variant flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">verified_user</span>
+<div class="text-body-sm font-body-sm leading-relaxed">
+<span class="font-medium text-on-surface">Audit Transparency Principle</span>: All bullet points generated in Stage 3 will display click-to-trace source indicators.
+        </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function inspectItem(source, locator, quote, claim) {
+    const inspector = document.getElementById('inspectorPanel');
+    const header = document.getElementById('inspectHeader');
+    const locElem = document.getElementById('inspectLocator');
+    const quoteElem = document.getElementById('inspectQuote');
+    const claimElem = document.getElementById('inspectClaim');
+
+    if (inspector && header && locElem && quoteElem && claimElem) {
+      header.innerText = 'Source Excerpt: ' + source;
+      locElem.innerText = locator;
+      quoteElem.innerText = '"' + quote + '"';
+      claimElem.innerText = '"' + claim + '"';
+      
+      inspector.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      inspector.classList.add('ring-2', 'ring-primary-container');
+      setTimeout(() => {
+        inspector.classList.remove('ring-2', 'ring-primary-container');
+      }, 1000);
+    }
+  }
+
+  // Quick tab switching visual behavior
+  const tabs = document.querySelectorAll('#statusFilterGroup .status-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('bg-primary-container', 'text-on-primary', 'font-semibold');
+        t.classList.add('text-on-surface-variant');
+      });
+      tab.classList.add('bg-primary-container', 'text-on-primary', 'font-semibold');
+      tab.classList.remove('text-on-surface-variant');
+    });
+  });
+</script></div></main><footer class="w-full bg-surface-container-lowest py-space-lg shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-gutter lg:px-gutter-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px] text-secondary">lock</span><span>Temporary session. Contact information excluded from model requests. No external credential verification.</span></div><div class="font-label-sm text-label-sm text-secondary">© ProofApply Editorial Assistant</div></div></footer></body></html>

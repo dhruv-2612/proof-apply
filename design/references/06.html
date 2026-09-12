@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-bright":"#f1fcf7","on-surface-variant":"#3f4944","on-error-container":"#93000a","on-primary-fixed-variant":"#00513b","on-tertiary-fixed":"#2c1600","inverse-primary":"#89d6b6","surface-container-high":"#dfebe6","error":"#ba1a1a","secondary":"#58605c","primary-container":"#176b51","surface-container-highest":"#dae5e0","secondary-fixed":"#dce5df","surface-container":"#e5f0eb","on-tertiary-container":"#ffd1a6","surface":"#f1fcf7","on-primary-container":"#9be9c8","on-tertiary-fixed-variant":"#693c00","surface-variant":"#dae5e0","surface-container-lowest":"#ffffff","outline-variant":"#bec9c2","on-error":"#ffffff","surface-container-low":"#ebf6f1","tertiary-fixed-dim":"#ffb870","outline":"#6f7973","on-secondary-fixed-variant":"#404945","on-secondary-fixed":"#151d1a","background":"#f1fcf7","on-background":"#141e1b","tertiary-container":"#8b5100","on-primary":"#ffffff","on-secondary":"#ffffff","primary-fixed-dim":"#89d6b6","primary-fixed":"#a4f2d1","error-container":"#ffdad6","primary":"#00513b","secondary-container":"#dce5df","inverse-surface":"#28332f","on-tertiary":"#ffffff","surface-dim":"#d1ddd7","on-secondary-container":"#5e6662","tertiary-fixed":"#ffdcbe","on-primary-fixed":"#002116","inverse-on-surface":"#e8f3ee","surface-tint":"#176b51","tertiary":"#6a3c00","on-surface":"#141e1b","secondary-fixed-dim":"#c0c9c3"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-md":"2rem","margin-lg":"3rem","space-xs":"0.25rem","gutter":"1rem","gutter-lg":"1.5rem","space-lg":"1.5rem","space-xl":"2rem","space-md":"1rem","space-sm":"0.5rem","space-2xl":"3rem","margin":"1rem"},"fontFamily":{"display-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"],"body-md":["Inter"],"metric-tabular":["Inter"]},"fontSize":{"display-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"metric-tabular":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"500"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-gutter lg:px-gutter-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">assignment_turned_in</span></div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">ProofApply</span><span class="px-space-sm py-space-xs rounded-full bg-surface-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">Beta</span></div><nav class="hidden md:flex items-center gap-space-xs bg-surface-container-low p-space-xs rounded-lg" data-active-classes="bg-primary-container text-on-primary font-semibold"><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="prepare" href="#">1. Prepare</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="review-evidence" href="#">2. Review Evidence</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="build" href="#">3. Build</a><a class="px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="results" href="#">4. Results</a></nav><div class="flex items-center gap-space-sm shrink-0"><div class="hidden sm:flex items-center gap-space-xs bg-surface-container px-space-sm py-space-xs rounded-full"><span class="w-2 h-2 rounded-full bg-primary-container"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Temporary session (in-memory)</span></div><button class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" type="button"><span class="material-symbols-outlined text-[16px]">help</span><span>Help &amp; Docs</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background"><div class="max-w-7xl mx-auto px-gutter lg:px-gutter-lg py-margin-md min-h-[calc(100vh-10rem)]"><div class="flex flex-col w-full">
+<!-- Top Archival Editorial Header -->
+<header class="relative w-full rounded-2xl bg-surface-container-low p-space-lg lg:p-space-xl mb-space-xl overflow-hidden shadow-sm">
+<div class="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute left-1/3 -bottom-10 w-80 h-32 rounded-full bg-tertiary/5 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-3xl space-y-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
+<span>Fault-Tolerant Architecture</span>
+<span class="text-outline-variant">/</span>
+<span>Resilience Suite</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">System status &amp; attention resolution</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Graceful recovery states for external boundaries, rate limits, and ambiguous inputs. Work is preserved across sessions.</p>
+</div>
+<!-- Quick Telemetry Micro-Badge -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-xl shadow-sm shrink-0">
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Active State Store</span>
+<span class="font-metric-tabular text-metric-tabular text-on-surface font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            100% In-Memory Sync
+          </span>
+</div>
+<div class="h-8 w-px bg-surface-container-high mx-space-xs"></div>
+<button class="flex items-center gap-1 px-space-sm py-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md transition-colors" id="globalExportBtn" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span>
+<span>Snapshot</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Interactive State Selector Bar -->
+<section class="flex items-center justify-between gap-space-sm mb-space-lg flex-wrap">
+<div class="flex items-center gap-space-xs bg-surface-container p-1 rounded-xl">
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all" onclick="focusState('state-a')" type="button">
+        State A: Credential Ambiguity
+      </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" onclick="focusState('state-b')" type="button">
+        State B: Rate Limit Quota
+      </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" onclick="focusState('state-c')" type="button">
+        State C: URL Boundary
+      </button>
+<button class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" onclick="focusState('state-d')" type="button">
+        State D: Validation Matrix
+      </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">verified_user</span>
+<span>Zero data loss policy active</span>
+</div>
+</section>
+<!-- Main Recovery Matrix Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-2xl items-start">
+<!-- LEFT PANE: Critical In-flight Attention & Rate Limits (7 Cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- STATE A: Ambiguous Credential or Metric Clarification -->
+<article class="relative rounded-2xl bg-surface-container-lowest p-space-lg lg:p-space-xl shadow-md transition-all duration-300" id="state-a">
+<!-- Amber Alert Overline Banner -->
+<div class="rounded-xl bg-tertiary-fixed/40 p-space-md mb-space-lg flex items-start gap-space-sm text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container mt-0.5">warning</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-tertiary-fixed">Clarification needed to proceed with Revision 1</h2>
+<span class="px-space-sm py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm uppercase tracking-wider">In-flight pause</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Source documents conflict with candidate drafted achievement metrics. Automated claim anchoring suspended.</p>
+</div>
+</div>
+<!-- Discrepancy Evidence Trace Comparison -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mb-space-lg bg-surface-container-low p-space-md rounded-xl">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">description</span> Unofficial Notes / Transcript
+            </span>
+<div class="p-space-sm bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface-variant italic">
+              "...assisted with migration of core internal forms..."
+            </div>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_note</span> Base Input Draft
+            </span>
+<div class="p-space-sm bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-error font-medium">
+              "Led migration to TypeScript across all frontend repos."
+            </div>
+</div>
+</div>
+<!-- Question Prompt -->
+<div class="mb-space-md">
+<label class="font-headline-sm text-headline-sm text-on-surface block mb-space-xs font-semibold">
+            Your internship notes mention “assisted with migration”, but your base resume lists “Led migration to TypeScript”. How would you like this represented?
+          </label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Editorial guidance: Overstated ownership without supporting evidence creates high interview exposure risk.</p>
+</div>
+<!-- Interactive Radio Options -->
+<form class="space-y-space-sm mb-space-lg" id="clarificationForm">
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input checked="" class="mt-1 accent-primary shrink-0" name="credential_choice" type="radio" value="grounded"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Contributed to TypeScript migration alongside senior engineers</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">Recommended • Grounded</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Preserves accuracy against evidence trail while clearly indicating hands-on production code familiarity.</p>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input class="mt-1 accent-primary shrink-0" name="credential_choice" type="radio" value="exclude"/>
+<div class="flex-1 min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Exclude mention of migration from this 1-page draft</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Reallocates vertical space to high-confidence verifiable metrics in academic research.</p>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors group">
+<input class="mt-1 accent-primary shrink-0" name="credential_choice" type="radio" value="custom"/>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Clarify with custom note</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-secondary font-label-sm text-label-sm">Self-Reported Tag</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Append candidate-attested context. Flags bullet with transparent attribution footnote.</p>
+<!-- Conditional Custom Input -->
+<div class="mt-space-sm hidden" id="customNoteField">
+<textarea class="w-full rounded-lg bg-surface-container-lowest p-space-sm text-on-surface font-body-sm text-body-sm outline-none focus:bg-surface-bright transition-all" placeholder="e.g., Sole intern on 4-person refactor pod; authored 18 pull requests for typed auth payloads." rows="2"></textarea>
+</div>
+</div>
+</label>
+</form>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-sm">
+<div class="flex items-center gap-2">
+<button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all flex items-center gap-2 shadow-sm" id="saveClarificationBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Save clarification &amp; Continue</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="excludeClarificationBtn" type="button">
+              Exclude &amp; Proceed
+            </button>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">Step 3 of 4 • Auto-saved</span>
+</div>
+</article>
+<!-- STATE B: Rate Limit / API Quota Boundary Reached -->
+<article class="relative rounded-2xl bg-surface-container-lowest p-space-lg lg:p-space-xl shadow-md overflow-hidden" id="state-b">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-tertiary-container"></div>
+<div class="flex flex-col gap-space-md">
+<!-- Calm Status Banner -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center shrink-0 text-tertiary-container">
+<span class="material-symbols-outlined text-[24px]">cloud_off</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface tracking-tight">External Model Quota Reached — Visible Work Safely Preserved</h2>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm px-space-sm py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">HTTP 429: Too Many Requests</span>
+<span class="font-label-sm text-label-sm text-secondary">• Document State Locked</span>
+</div>
+</div>
+</div>
+<span class="hidden sm:inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Memory Cache Intact
+            </span>
+</div>
+<!-- Explanation Details & In-Memory Snapshot Status -->
+<div class="bg-surface-container-low rounded-xl p-space-md space-y-space-sm">
+<p class="font-body-md text-body-md text-on-surface">
+              The cloud processing limit was reached during document drafting. Your uploaded files and extracted claims are cached in memory. No typed drafts or verified bullet states have been discarded.
+            </p>
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary block">Cached Snippets</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">14 items</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary block">Draft Bullets</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">6 approved</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-secondary block">Target Layout</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">Single-Page Safe</span>
+</div>
+</div>
+</div>
+<!-- Two Clear Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
+<button class="px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Start offline demonstration (Fictional mock data pipeline)</span>
+</button>
+<span class="inline-flex items-center justify-center px-space-sm py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm self-center">
+                Separately Labeled Demonstration Mode
+              </span>
+</div>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5 shrink-0" id="retryCountdownBtn" type="button">
+<span class="material-symbols-outlined text-[16px] animate-spin">sync</span>
+<span>Retry connection in <span class="font-metric-tabular font-bold" id="countdownTimer">28s</span></span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- RIGHT PANE: External Boundary & Edge Case Validation Grid (5 Cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<!-- STATE C: External Company URL Unreachable -->
+<article class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-md flex flex-col gap-space-md" id="state-c">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-error">
+<span class="material-symbols-outlined text-[22px]">link_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Target URL Unreachable</h2>
+<span class="px-2 py-0.5 rounded text-error bg-error-container/40 font-label-sm text-label-sm uppercase font-semibold">HTTP 403</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">CedarWorks Labs scraping boundary triggered protection rules.</p>
+</div>
+</div>
+<!-- Warning Callout Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low space-y-space-xs">
+<div class="flex items-center gap-2 text-on-surface font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">domain_disabled</span>
+<code class="font-mono text-body-sm text-primary">cedarworks-labs.example.com</code>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Target server refused document inspection or timed out after 5,000ms. Job analysis cannot infer unlisted engineering values.
+          </p>
+</div>
+<!-- Direct Actions -->
+<div class="space-y-space-sm">
+<button class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">article</span>
+<span>Continue with supplied job description only</span>
+</button>
+<div class="relative flex py-1 items-center">
+<div class="flex-grow bg-surface-container-highest h-px"></div>
+<span class="flex-shrink mx-3 text-secondary font-label-sm text-label-sm uppercase">Or manual input</span>
+<div class="flex-grow bg-surface-container-highest h-px"></div>
+</div>
+<div class="space-y-2">
+<div class="relative">
+<input class="w-full px-space-md py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm outline-none focus:bg-surface-container" placeholder="https://alternate-posting-host.org/listing" type="text" value="https://cedarworks.greenhouse.io/jobs/48201"/>
+</div>
+<button class="w-full px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_document</span>
+<span>Update URL or paste company text directly</span>
+</button>
+</div>
+</div>
+</article>
+<!-- STATE D: Input & File Validation Grid -->
+<article class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-md flex flex-col gap-space-md" id="state-d">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">checklist_rtl</span>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Input &amp; File Validation Matrix</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">3 active mitigations</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deterministic fallback routines protecting early-career applicants against document rejection.</p>
+<!-- Compact Reference Chips & Edge Cases -->
+<div class="space-y-space-sm">
+<!-- Case 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">document_scanner</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Scanned/Image PDF detected</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Optical Rule</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Prompts for text version or offers local OCR fallback without sending raw image artifacts outward.</p>
+</div>
+</div>
+<!-- Case 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[18px]">format_line_spacing</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Single-page overflow (&gt;54 lines)</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Layout Guard</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Triggers automated tightening in Revision 1; flags for review if still overflowing 1-page standard.</p>
+</div>
+</div>
+<!-- Case 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-start gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Session timeout warning</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Volatile Mem</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">In-memory data indicator with 1-click JSON snapshot download before browser refresh clearance.</p>
+</div>
+</div>
+</div>
+<!-- Accessibility Guarantee Callout -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">accessibility_new</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            All error states maintain accessible ARIA live announcements, keyboard navigation, and zero data loss.
+          </p>
+</div>
+</article>
+</div>
+</div>
+<!-- Recovery Telemetry & Event Log Drawer -->
+<section class="w-full rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Recovery Ledger &amp; State Audit Trail</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time log of graceful degradation triggers during the active verification session.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-1 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-mono">Channel: Local_Worker_01</span>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm transition-colors" onclick="clearLogs()" type="button">Clear Log</button>
+</div>
+</div>
+<div class="space-y-2 font-mono text-body-sm" id="logContainer">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="text-tertiary-container font-semibold">[14:02:11]</span>
+<span class="text-on-surface">PAUSE_IN_FLIGHT: Candidate input conflict on ‘migration’ keyword.</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed">Pending Resolution</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="text-error font-semibold">[14:01:45]</span>
+<span class="text-on-surface">NETWORK_BOUNDARY: cedarworks-labs.example.com returned 403 Forbidden.</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-secondary">Bypassed to manual</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="text-primary font-semibold">[13:58:02]</span>
+<span class="text-on-surface">SNAPSHOT_VERIFIED: 14 claims and 6 drafted achievements serialized in RAM.</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-primary font-semibold">Integrity OK</span>
+</div>
+</div>
+</section>
+<!-- Notification Toast (Hidden by default) -->
+<div class="fixed bottom-6 right-6 hidden z-50 rounded-xl bg-surface-container-lowest p-space-md shadow-xl flex items-center gap-space-sm max-w-md transition-all transform duration-300" id="statusToast">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface" id="toastTitle">State Updated</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="toastMessage">Clarification saved. In-flight build resumed.</p>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Option Reveal for Custom Note
+  const radioButtons = document.querySelectorAll('input[name="credential_choice"]');
+  const customField = document.getElementById('customNoteField');
+
+  radioButtons.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      if (e.target.value === 'custom') {
+        customField.classList.remove('hidden');
+      } else {
+        customField.classList.add('hidden');
+      }
+    });
+  });
+
+  // Action Button Micro-Interactions
+  function triggerToast(title, msg) {
+    const toast = document.getElementById('statusToast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastMessage').textContent = msg;
+    toast.classList.remove('hidden');
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 3800);
+  }
+
+  document.getElementById('saveClarificationBtn')?.addEventListener('click', () => {
+    triggerToast('Clarification Committed', 'Draft bullet refined as "Contributed to migration alongside senior engineers". Resuming pipeline.');
+  });
+
+  document.getElementById('excludeClarificationBtn')?.addEventListener('click', () => {
+    triggerToast('Claim Excluded', 'Migration claim cleanly removed from target draft page.');
+  });
+
+  document.getElementById('globalExportBtn')?.addEventListener('click', () => {
+    triggerToast('In-Memory Export Saved', 'Downloaded secure proofapply-session-snapshot.json to local filesystem.');
+  });
+
+  // Countdown timer simulation for State B
+  let seconds = 28;
+  const countdownEl = document.getElementById('countdownTimer');
+  setInterval(() => {
+    if (seconds > 1) {
+      seconds--;
+      if (countdownEl) countdownEl.textContent = seconds + 's';
+    } else {
+      seconds = 30;
+    }
+  }, 1000);
+
+  // Smooth Focus State Navigation
+  function focusState(elementId) {
+    const el = document.getElementById(elementId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('bg-surface-container-low');
+      setTimeout(() => {
+        el.classList.remove('bg-surface-container-low');
+      }, 1200);
+    }
+  }
+
+  function clearLogs() {
+    const log = document.getElementById('logContainer');
+    if (log) {
+      log.innerHTML = '<div class="p-space-sm rounded-lg bg-surface-container-low text-secondary text-center">Ledger history cleared for current session.</div>';
+    }
+  }
+</script></div></main><footer class="w-full bg-surface-container-lowest py-space-lg shadow-[0_-1px_8px_rgba(0,0,0,0.02)]"><div class="max-w-7xl mx-auto px-gutter lg:px-gutter-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px] text-secondary">lock</span><span>Temporary session. Contact information excluded from model requests. No external credential verification.</span></div><div class="font-label-sm text-label-sm text-secondary">© ProofApply Editorial Assistant</div></div></footer></body></html>

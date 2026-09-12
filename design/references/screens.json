@@ -1,0 +1,134 @@
+[
+  {
+    "name": "projects/11030537791420483270/screens/bfed38206ead4c6793320614a552d9a7",
+    "title": "01 - Prepare Application",
+    "width": "2560",
+    "height": "3646",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/01.png",
+      "bytes": 76379,
+      "sha256": "afeb579685876582b1fefc4310f6903320498c62e23837e3b435faee3634fff9",
+      "pixel_width": 359,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/01.html",
+      "bytes": 33502,
+      "sha256": "1f57cd8f2c919c42c7b656a548f3148470ddfffd9f2966179cb80ab2b708635c"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  },
+  {
+    "name": "projects/11030537791420483270/screens/8459d6aa0eda466f94832be42688f654",
+    "title": "06 - Attention & Recovery States",
+    "width": "2560",
+    "height": "3856",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/06.png",
+      "bytes": 86388,
+      "sha256": "73858119b68d71bc577a076243b4593f7cabcf6ae04a0f3afd09409bac8d9763",
+      "pixel_width": 340,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/06.html",
+      "bytes": 33832,
+      "sha256": "e7993f420d6f466aa06eb2de17c7c4f6238d9eb7f75f7c6ed5cd1ac6661194d7"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  },
+  {
+    "name": "projects/11030537791420483270/screens/c2ca20efbba54fc29c7e60d1e591966a",
+    "title": "02 - Review Evidence",
+    "width": "2560",
+    "height": "2900",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/02.png",
+      "bytes": 104814,
+      "sha256": "19195f6678a926253de7712d3df6367ddcf8e82f14b183fdc22f0480fb2e52f2",
+      "pixel_width": 452,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/02.html",
+      "bytes": 34721,
+      "sha256": "0da7019b3b7068be39b1cc4563961a51b74f3e876ad7732c4349fdbc19a1b651"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  },
+  {
+    "name": "projects/11030537791420483270/screens/0b2f9475162745b4ae7bd8fb7e1fe88d",
+    "title": "03 - Building Application",
+    "width": "2560",
+    "height": "2620",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/03.png",
+      "bytes": 128540,
+      "sha256": "334f6eb6da2a3d2962d0e934c7b5e17af97d9815bfe9d629695c193789771500",
+      "pixel_width": 500,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/03.html",
+      "bytes": 27930,
+      "sha256": "ae7f6a951d0878835fded05098cce355cac41cabb56af2b0a3b61b0df7925565"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  },
+  {
+    "name": "projects/11030537791420483270/screens/a7c67cd9cae84557adcf4bdea0209d34",
+    "title": "05 - Source Comparison",
+    "width": "2560",
+    "height": "2884",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/05.png",
+      "bytes": 101596,
+      "sha256": "74732e0c88e318597e24a74ba7fcf2d3ec5d7e8488320c6858c5fc5ca9a67fbe",
+      "pixel_width": 454,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/05.html",
+      "bytes": 24739,
+      "sha256": "1005463bf5b757978fd9dbbac432badbfefc8f5857816abefd76cbb0d1cfe2c4"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  },
+  {
+    "name": "projects/11030537791420483270/screens/4602bbc2da594aa39e0d42f8b6e00865",
+    "title": "04 - Results Workspace",
+    "width": "2560",
+    "height": "3018",
+    "deviceType": "DESKTOP",
+    "screenshot": {
+      "status": "retrieved",
+      "path": "design/references/04.png",
+      "bytes": 112990,
+      "sha256": "d27de67060756cb548773876d142181c8563424f7cd957faa8eb6356c49c5185",
+      "pixel_width": 434,
+      "pixel_height": 512
+    },
+    "htmlCode": {
+      "status": "retrieved",
+      "path": "design/references/04.html",
+      "bytes": 39490,
+      "sha256": "32884b79d88108d36711e625902cf0746d74a89bb2a9cc1e219cf45174798bd5"
+    },
+    "retrieved_at": "2026-09-12T22:01:51.821774+00:00"
+  }
+]

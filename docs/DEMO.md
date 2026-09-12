@@ -1,4 +1,4 @@
-﻿# Demo and presentation handoff
+# Demo and presentation handoff
 
 ## What is available now
 
@@ -35,6 +35,6 @@ The test injects an invented 40% saving attached to a real evidence ID. It verif
 
 **5. Measured local results.** Normal fixture: 92.31% source coverage with Docker missing. Platform fixture: 11.11% with four required qualifications missing. Both produce actual checked PDFs in explicit offline mode. Show the test results in BUILD_STATUS.md, including any remaining blockers.
 
-**6. Honest limitations and next gate.** No live Gemini package yet; billing-disabled free-tier confirmation and capability probes remain necessary. Stitch screen references and Linux/Docker execution are unavailable. Deployment files are prepared, not published. Same-model review can share errors and self-reported sources are not independently verified.
+**6. Honest limitations and next gate.** No live Gemini package yet; billing-disabled free-tier confirmation and capability probes remain necessary. All six Stitch desktop references are retrieved and adapted; Linux/Docker execution remains unverified. Deployment files are prepared, not published. Same-model review can share errors and self-reported sources are not independently verified.
 
-The team must supply its real team name and organizer-required submission naming. Do not substitute ProofApply for the team's identity. A finished presentation deck and narrated competition video can build on this summary after the live/design gates are resolved.
+The team must supply its real team name and organizer-required submission naming. Do not substitute ProofApply for the team's identity. A finished presentation deck and narrated competition video can build on this summary after the live validation gate is resolved.

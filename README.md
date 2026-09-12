@@ -2,7 +2,7 @@
 
 Truthful resume preparation for Tech Zephyr 4.0, Problem Statement 11. One FastAPI service serves a Next.js static export and runs a bounded LangGraph workflow. The result is an A4, single-column resume PDF plus source-linked Markdown and JSON reports.
 
-**Local offline flow works. Live Gemini generation, Stitch fidelity and Linux container execution remain unverified. This is not marked acceptance-complete or deployed.** See [BUILD_STATUS.md](BUILD_STATUS.md) for the latest measured results.
+**Local offline flow works. The six Stitch desktop designs are retrieved and adapted. Live Gemini generation and Linux container execution remain unverified. This is not marked acceptance-complete or deployed.** See [BUILD_STATUS.md](BUILD_STATUS.md) for the latest measured results.
 
 ## Start on this Windows workspace
 
@@ -57,7 +57,7 @@ backend/.venv/Scripts/python.exe backend/scripts/capability_probe.py --list
 backend/.venv/Scripts/python.exe backend/scripts/capability_probe.py --model gemini-3.8-flash --confirm-free-tier
 ```
 
-The second command performs fictional structured-output and explicit function-call round-trip checks and a separate public URL Context probe. It saves a sanitized `capabilities.json`. A failed probe stays failed. Search grounding is disabled; no zero-cost search configuration has been verified. The current unprobed configuration uses supplied company knowledge. URL Context is enabled only for a model whose separate probe passed. The temporary UI uses the KB path; approved URLs can also be added through the source API.
+The second command performs fictional structured-output and explicit function-call round-trip checks and a separate public URL Context probe. It saves a sanitized `capabilities.json`. A failed probe stays failed. Search grounding is disabled; no zero-cost search configuration has been verified. The current unprobed configuration uses supplied company knowledge. URL Context is enabled only for a model whose separate probe passed. The UI uses the KB path; approved URLs can also be added through the source API.
 
 Only after structured output and the custom function probe pass, configure these values without changing the key:
 
@@ -109,7 +109,7 @@ Its private outputs are excluded from Git under `output/private/`. It never call
 
 ## Design and deployment readiness
 
-The requested Stitch project is `11030537791420483270`. No callable Stitch connector or screen exports were available in this session. [design/STITCH-MANIFEST.md](design/STITCH-MANIFEST.md) lists the six missing frames. The responsive interface is temporary; design fidelity is unverified.
+All six screens from Stitch project `11030537791420483270` were retrieved through its MCP connection, including screenshots and HTML exports. The UI adapts their horizontal navigation, mint palette, paired workspace panels and source comparison. [design/STITCH-MANIFEST.md](design/STITCH-MANIFEST.md) records actual screen IDs, assets, inspection and deliberate differences. Desktop and mobile browser captures were compared with the references. No separate mobile frame was returned; the app uses a system-font fallback and makes no pixel-perfect claim. Raw design exports remain reference files and are not served by the app.
 
 `Dockerfile` builds the static frontend in a Node stage and serves it with FastAPI/one Uvicorn worker in Python 3.11. `render.yaml` explicitly selects one Free web service and provisions no disk, worker, paid database or domain. **Docker is absent on the build machine, so this Linux image has not been built or executed.**
 

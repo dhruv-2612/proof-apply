@@ -11,7 +11,7 @@ await page.getByRole('button',{name:'Load fictional sample',exact:true}).click()
 await page.locator('.source-link').first().click();await page.waitForTimeout(1800);await page.keyboard.press('Escape');
 await page.getByRole('button',{name:'Approve supported excerpts'}).click();
 await page.getByRole('button',{name:'Build my resume'}).click();
-await page.getByRole('heading',{name:'A resume you can stand behind.'}).waitFor({timeout:30000});
+await page.getByRole('heading',{name:'Your application package is ready.'}).waitFor({timeout:30000});
 await page.waitForTimeout(1800);
 await page.getByRole('button',{name:'Claim sources',exact:true}).click();await page.waitForTimeout(1500);
 await page.getByRole('button',{name:'Changes',exact:true}).click();await page.waitForTimeout(1300);
