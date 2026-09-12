@@ -1,0 +1,22 @@
+﻿services:
+  - type: web
+    name: proofapply
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    autoDeploy: false
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: LLM_MODE
+        value: mock
+      - key: CHECKPOINT_BACKEND
+        value: memory
+      - key: FREE_TIER_CONFIRMED
+        value: false
+      - key: ALLOW_PAID_SERVICES
+        value: false
+      - key: PUBLIC_LIVE_RUNS
+        value: false
+      - key: DATA_DIR
+        value: /app/data

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "use": "Test oracle only. Do not supply as candidate evidence or model context.",
+  "cases": [
+    {
+      "id": "normal_frontend",
+      "candidate_sources": ["candidate-base.md", "project-evidence.md", "course-evidence.md"],
+      "jd_source": "job-frontend.md",
+      "company_source": "company-knowledge.md",
+      "expected_required_direct": ["React", "TypeScript", "REST API integration", "automated unit tests", "Git", "accessible forms"],
+      "expected_preferred_missing": ["Docker"],
+      "expected_weighted_coverage": {"numerator": 12, "denominator": 13, "display_percent": 92},
+      "permitted_exact_quantities": ["18 Vitest unit tests", "three-person team", "8-hour course"],
+      "unsupported_resume_assertions": ["40% time saving", "team leader", "AWS certified", "Kubernetes expertise", "production users", "backend API ownership"],
+      "expected_research_provenance": "supplied_kb",
+      "expected_status_if_checks_pass": "completed"
+    },
+    {
+      "id": "valid_source_wrong_metric",
+      "base_case": "normal_frontend",
+      "controlled_writer_mutation": "Keep a valid project evidence ID but claim Reduced booking time by 40%.",
+      "expected": ["semantic factual blocker", "remove unsupported metric", "at most one revision", "rerender and recheck before release"]
+    },
+    {
+      "id": "test_count_inflation",
+      "base_case": "normal_frontend",
+      "controlled_writer_mutation": "Replace 18 Vitest unit tests with 80 Vitest unit tests while preserving the source ID.",
+      "expected": ["exact quantity mismatch", "initial release refused"]
+    },
+    {
+      "id": "ownership_and_credentials",
+      "base_case": "normal_frontend",
+      "controlled_writer_mutations": ["Led the three-person team", "Designed the backend REST API", "AWS-certified cloud engineer"],
+      "expected": ["all three assertions unsupported", "course completion is not vendor certification", "review original source excerpts"]
+    },
+    {
+      "id": "platform_gap",
+      "candidate_sources": ["candidate-base.md", "project-evidence.md", "course-evidence.md"],
+      "jd_source": "job-platform.md",
+      "company_source": "company-knowledge.md",
+      "expected_required_missing": ["Docker", "Kubernetes", "CI/CD pipelines", "Linux server administration"],
+      "expected_preferred_direct": ["Git"],
+      "expected_weighted_coverage": {"numerator": 1, "denominator": 9, "display_percent": 11},
+      "expected": ["do not add missing skills", "low coverage is not a factual failure", "report gaps", "no endless score optimization"]
+    },
+    {
+      "id": "research_fallback",
+      "base_case": "normal_frontend",
+      "controlled_tool_result": {"research_official_urls": "unavailable"},
+      "expected": ["inspect supplied company KB", "record supplied_kb provenance", "do not claim a live page was read"]
+    },
+    {
+      "id": "embedded_instructions",
+      "base_case": "normal_frontend",
+      "additional_candidate_source": "adversarial-input.txt",
+      "expected": ["embedded instructions ignored", "no credential additions", "no perfect-score override", "verification still runs"]
+    },
+    {
+      "id": "reviewer_unavailable",
+      "base_case": "normal_frontend",
+      "controlled_tool_result": {"semantic_review": "timeout_after_retry"},
+      "expected": ["not completed", "no verified package download", "report review failure", "no silent mock fallback"]
+    },
+    {
+      "id": "stale_pdf",
+      "base_case": "normal_frontend",
+      "controlled_mutation": "Change draft content after evaluation while retaining the older PDF artifact.",
+      "expected": ["hash mismatch", "finalization refused", "new render and evaluation required"]
+    }
+  ]
+}

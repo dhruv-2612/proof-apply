@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-09-12",
+  "model": null,
+  "sdk_version": "2.23.0",
+  "model_listing": "passed: metadata-only request",
+  "available_pricing_inspected_models": [
+    "gemini-3.8-flash",
+    "gemini-3.7-flash",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash",
+    "gemini-3.1-flash-lite"
+  ],
+  "free_tier_attested": false,
+  "structured_output": "not_tested: free-tier confirmation pending",
+  "custom_function": "not_tested: free-tier confirmation pending",
+  "url_context": "not_tested: free-tier confirmation pending",
+  "search_grounding": "disabled: no verified zero-cost configuration",
+  "notes": "A model listing is not a generation, tool, quota, or billing entitlement check. No generation calls made."
+}

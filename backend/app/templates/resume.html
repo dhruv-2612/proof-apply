@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Resume</title><style>
+@page { size: A4; margin: 16mm; }
+body { font-family: Arial, "DejaVu Sans", sans-serif; color: #18211f; font-size: 11pt; line-height: 1.3; }
+h1 { font-size: 23pt; margin: 0 0 5pt; letter-spacing: -.5pt; }
+.contact { font-size: 10.5pt; margin: 0 0 14pt; }
+h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 1pt; margin: 13pt 0 6pt; padding-bottom: 4pt; border-bottom: .6pt solid #7c8882; break-after: avoid; }
+p { margin: 0 0 6pt; orphans: 2; widows: 2; }
+.statement { break-inside: avoid; }
+</style></head><body><h1>{{header.name}}</h1>{% if header.contact %}<p class="contact">{{header.contact}}</p>{% endif %}{% for section in sections %}{% if section.statements %}<h2>{{section.title}}</h2>{% for statement in section.statements %}<p class="statement">{{statement.text}}</p>{% endfor %}{% endif %}{% endfor %}</body></html>

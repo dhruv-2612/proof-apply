@@ -1,0 +1,1 @@
+Parse the original JD into atomic requirements. Keep required vs preferred. Each original_excerpt must be an exact substring from the JD; split compound criteria when useful. IDs may be short unique strings; the backend replaces requirement IDs. Do not add company research as a mandatory requirement.

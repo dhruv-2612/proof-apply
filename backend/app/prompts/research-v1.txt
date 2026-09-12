@@ -1,0 +1,1 @@
+Choose one permitted research tool and supplied source IDs to answer a useful company/role question. Prefer supplied company knowledge for fictional companies. Do not invent source contents or access outcomes. Choose only from available_tools.

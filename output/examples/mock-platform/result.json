@@ -1,0 +1,388 @@
+{
+  "run_id": "37f6adb214524b198712f578af92549b",
+  "mode": "mock",
+  "target": {
+    "role": "Junior Platform Engineer",
+    "company": "CedarWorks Labs"
+  },
+  "draft_id": "aba94645ec3d4decab66ecdc3a871098",
+  "draft_hash": "b1534dd5cd5fe250befc71355028519e484f4f4760b9c7b4cbe627c6ebd5f446",
+  "pdf_hash": "7f3c48b6b0897e3355720d59012c6526c076adeeb9e0623ab1d98eda2c956b29",
+  "generated_at": "2026-09-12T16:12:05.328861+00:00",
+  "revision_count": 0,
+  "model_attempts": 0,
+  "mock_calls": 10,
+  "research": [
+    {
+      "id": "de67d677989c48958e6feccf0d855fa4",
+      "statement": "# CedarWorks Labs company knowledge\nFictional company knowledge base for ProofApply testing. Supplied knowledge, not a live web page. Illustrative site: https://cedarworks.example. The .example domain is not an actual employer website.\n## Product context\nCedarWorks Labs creates scheduling and booking software for small organizations. Its frontend team prioritizes clear forms, visible error states and interfaces that work with a keyboard.\n## Engineering context\nThe frontend team values readable TypeScript, component tests and collaborative Git workflows. Docker appears as a preferred qualification in the fictional frontend opening. Some separate platform roles use Kubernetes. These company facts do not imply any candidate has those skills.\n## Research question supported by this source\nWhich parts of a campus booking-interface project are relevant to the frontend opening? Form design, REST integration, error handling, tests, keyboard access and collaborative changes align with the product/team description.\nNo company headcount, salary, growth, customer counts or employment outcomes are supplied. Do not invent them.",
+      "source_refs": [
+        "a82e9b0ee3f34808a181ed3ea0c23295"
+      ],
+      "provenance": "supplied_kb",
+      "retrieval_status": "ok",
+      "observed_at": "2026-09-12T16:12:04.604631+00:00",
+      "uncertainty": "Supplied knowledge; no live site verification."
+    }
+  ],
+  "sources": [
+    {
+      "id": "d32f7bc32ca9461e9f872674435101b9",
+      "display_name": "candidate-base.md",
+      "role": "candidate",
+      "sha256": "7e061371f453727986dd99dbfb9849ba194cf225c13895b6a5427467e5c4b3ed",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "5cb398631fb04427b7937f54fabf4299",
+      "display_name": "project-evidence.md",
+      "role": "candidate",
+      "sha256": "2277b37c3ec6ec877a2f24504932cda422164f54a021adeb5a97d677cc9c2108",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "b11a0fcc8cd24da3bdcb36984d5be08c",
+      "display_name": "course-evidence.md",
+      "role": "candidate",
+      "sha256": "7b15156c693278c290b3a93a032ca67eafe809336077a46694c80030f9e17d8b",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "7d2bffac57ee46bba8c48de85007bec0",
+      "display_name": "job-platform.md",
+      "role": "job",
+      "sha256": "385d2ac38c9a8f36fe3f85dca15a841d585384ecfd4e34a46912d0bfdcb2966d",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "a82e9b0ee3f34808a181ed3ea0c23295",
+      "display_name": "company-knowledge.md",
+      "role": "company",
+      "sha256": "b5a8028cf3e519760870d20f3753c55baa393da2b2cbcd4bfaf098fb34a761df",
+      "retrieval_status": "provided"
+    }
+  ],
+  "claims": [
+    {
+      "statement_id": "587bbedc27e04148b93ce286e86c3014",
+      "text": "B.Tech in Computer Science, Meadow Institute of Technology.",
+      "section": "Education",
+      "evidence": [
+        {
+          "id": "bf9eb50a994c440da24c8dcd1bc074ab",
+          "source_id": "d32f7bc32ca9461e9f872674435101b9",
+          "exact_excerpt": "B.Tech in Computer Science, Meadow Institute of Technology.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "f46b87e8e0324ccd91c21bbc16e4f2e7",
+      "text": "August 2023 to May 2027, expected graduation.",
+      "section": "Education",
+      "evidence": [
+        {
+          "id": "c157dece160e4b338dcf7745db102244",
+          "source_id": "d32f7bc32ca9461e9f872674435101b9",
+          "exact_excerpt": "August 2023 to May 2027, expected graduation.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "4c5a41f2055e47cd85728714c7876661",
+      "text": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "section": "Skills",
+      "evidence": [
+        {
+          "id": "a111f981e1814747b48a0ab69c2c4e2c",
+          "source_id": "d32f7bc32ca9461e9f872674435101b9",
+          "exact_excerpt": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+          "locator": "line 17",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "0424f787051d4cbc86495c441c2f97db",
+      "text": "Campus Room Booker \u2014 January 2026 to April 2026.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "a7426f163862438fb68c8a2451e501ac",
+          "source_id": "d32f7bc32ca9461e9f872674435101b9",
+          "exact_excerpt": "Campus Room Booker \u2014 January 2026 to April 2026.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "6b827525a927444b849f10a35b025918",
+      "text": "Mira used Git branches and pull requests to submit her changes.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "156b4e08372b44f99d8910a8addd7b3f",
+          "source_id": "5cb398631fb04427b7937f54fabf4299",
+          "exact_excerpt": "Mira used Git branches and pull requests to submit her changes.",
+          "locator": "line 23",
+          "support_status": "self_reported"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "f8918758f1f3461d83cf65f8cfd94803",
+      "jd_source_id": "7d2bffac57ee46bba8c48de85007bec0",
+      "text": "Hands-on Docker containerization.",
+      "original_excerpt": "1. Hands-on Docker containerization.",
+      "importance": "required",
+      "normalized_terms": [
+        "docker"
+      ]
+    },
+    {
+      "id": "d466b2c67f5e487aab79e604226bc603",
+      "jd_source_id": "7d2bffac57ee46bba8c48de85007bec0",
+      "text": "Hands-on Kubernetes deployment and troubleshooting.",
+      "original_excerpt": "2. Hands-on Kubernetes deployment and troubleshooting.",
+      "importance": "required",
+      "normalized_terms": [
+        "kubernetes"
+      ]
+    },
+    {
+      "id": "b8d287c0ad994e8ebb8e201f5ec71743",
+      "jd_source_id": "7d2bffac57ee46bba8c48de85007bec0",
+      "text": "Experience creating CI/CD pipelines.",
+      "original_excerpt": "3. Experience creating CI/CD pipelines.",
+      "importance": "required",
+      "normalized_terms": [
+        "ci/cd"
+      ]
+    },
+    {
+      "id": "bc32afee2b1b4e94ba169ddb81ce744c",
+      "jd_source_id": "7d2bffac57ee46bba8c48de85007bec0",
+      "text": "Linux server administration.",
+      "original_excerpt": "4. Linux server administration.",
+      "importance": "required",
+      "normalized_terms": [
+        "linux"
+      ]
+    },
+    {
+      "id": "26e8cb9c68804e378ffdf7e384da8ad7",
+      "jd_source_id": "7d2bffac57ee46bba8c48de85007bec0",
+      "text": "Familiarity with Git workflows.",
+      "original_excerpt": "5. Familiarity with Git workflows.",
+      "importance": "preferred",
+      "normalized_terms": [
+        "git"
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "requirement_id": "f8918758f1f3461d83cf65f8cfd94803",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No eligible candidate evidence establishes this qualification.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "d466b2c67f5e487aab79e604226bc603",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No eligible candidate evidence establishes this qualification.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "b8d287c0ad994e8ebb8e201f5ec71743",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No eligible candidate evidence establishes this qualification.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "bc32afee2b1b4e94ba169ddb81ce744c",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No eligible candidate evidence establishes this qualification.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "26e8cb9c68804e378ffdf7e384da8ad7",
+      "evidence_ids": [
+        "a111f981e1814747b48a0ab69c2c4e2c",
+        "156b4e08372b44f99d8910a8addd7b3f"
+      ],
+      "status": "direct",
+      "explanation": "Original candidate excerpt documents this requirement.",
+      "included_in_draft": true
+    }
+  ],
+  "coverage": {
+    "numerator": 1,
+    "denominator": 9,
+    "percent": 11.11111111111111,
+    "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+  },
+  "changes": [
+    {
+      "before": "B.Tech in Computer Science, Meadow Institute of Technology.",
+      "after": "B.Tech in Computer Science, Meadow Institute of Technology.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "bf9eb50a994c440da24c8dcd1bc074ab"
+      ]
+    },
+    {
+      "before": "August 2023 to May 2027, expected graduation.",
+      "after": "August 2023 to May 2027, expected graduation.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "c157dece160e4b338dcf7745db102244"
+      ]
+    },
+    {
+      "before": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "after": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "a111f981e1814747b48a0ab69c2c4e2c"
+      ]
+    },
+    {
+      "before": "Campus Room Booker \u2014 January 2026 to April 2026.",
+      "after": "Campus Room Booker \u2014 January 2026 to April 2026.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "a7426f163862438fb68c8a2451e501ac"
+      ]
+    },
+    {
+      "before": "Mira used Git branches and pull requests to submit her changes.",
+      "after": "Mira used Git branches and pull requests to submit her changes.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "156b4e08372b44f99d8910a8addd7b3f"
+      ]
+    }
+  ],
+  "base_omissions": [
+    {
+      "text": "Worked on the frontend of a college project using React and TypeScript.",
+      "evidence_id": "7da3cfdcab284918b3984e17a73086b9",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The application helps students view room availability and request a room.",
+      "evidence_id": "6dce07412c364c8db98fea80f6b24178",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "Wrote tests and worked with a three-person project group.",
+      "evidence_id": "9a223a7170a14edba3394bfe115dfa5c",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "Completed an introductory cloud foundations course in June 2026.",
+      "evidence_id": "18e91134136e4256a952e83e8ea496df",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The additional project report describes my own contributions.",
+      "evidence_id": "41615c11c2ca43b187ba3ca36374ac45",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    }
+  ],
+  "draft_versions": [
+    "aba94645ec3d4decab66ecdc3a871098"
+  ],
+  "dropped_claims": [],
+  "evaluations": {
+    "draft_id": "aba94645ec3d4decab66ecdc3a871098",
+    "draft_hash": "b1534dd5cd5fe250befc71355028519e484f4f4760b9c7b4cbe627c6ebd5f446",
+    "pdf_hash": "7f3c48b6b0897e3355720d59012c6526c076adeeb9e0623ab1d98eda2c956b29",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "7f3c48b6b0897e3355720d59012c6526c076adeeb9e0623ab1d98eda2c956b29"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 1,
+      "denominator": 9,
+      "percent": 11.11111111111111,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "offline_exact_excerpt",
+    "verdicts": [
+      {
+        "statement_id": "587bbedc27e04148b93ce286e86c3014",
+        "status": "supported",
+        "reason": "Exact approved candidate excerpt preserved."
+      },
+      {
+        "statement_id": "f46b87e8e0324ccd91c21bbc16e4f2e7",
+        "status": "supported",
+        "reason": "Exact approved candidate excerpt preserved."
+      },
+      {
+        "statement_id": "4c5a41f2055e47cd85728714c7876661",
+        "status": "supported",
+        "reason": "Exact approved candidate excerpt preserved."
+      },
+      {
+        "statement_id": "0424f787051d4cbc86495c441c2f97db",
+        "status": "supported",
+        "reason": "Exact approved candidate excerpt preserved."
+      },
+      {
+        "statement_id": "6b827525a927444b849f10a35b025918",
+        "status": "supported",
+        "reason": "Exact approved candidate excerpt preserved."
+      }
+    ],
+    "writing_notes": [
+      "Offline extractive reviewer; no live semantic assessment was performed."
+    ],
+    "evaluated_at": "2026-09-12T16:12:05.198799+00:00",
+    "id": "02b7568a2a4a4874b37bb41c8a4ab39e"
+  },
+  "uncertainty": [
+    "Explicit offline run. Extractive rules only; no live semantic assessment.",
+    "Source support is not independent verification."
+  ],
+  "status": "completed",
+  "artifacts": [
+    {
+      "id": "ae4e98fe626847eca72bb5a74fad33d7",
+      "kind": "pdf",
+      "href": "/api/artifacts/ae4e98fe626847eca72bb5a74fad33d7"
+    },
+    {
+      "id": "8710394bbcfb441e9f466f8335be1003",
+      "kind": "json",
+      "href": "/api/artifacts/8710394bbcfb441e9f466f8335be1003"
+    },
+    {
+      "id": "f7c8d57aaf7d494cb6fed10a07c92a7d",
+      "kind": "markdown",
+      "href": "/api/artifacts/f7c8d57aaf7d494cb6fed10a07c92a7d"
+    }
+  ],
+  "preview_url": "/api/runs/37f6adb214524b198712f578af92549b/preview"
+}

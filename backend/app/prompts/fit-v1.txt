@@ -1,0 +1,1 @@
+Match each requirement exactly once to eligible candidate evidence: direct, partial, missing or unclear. Company facts cannot supply qualifications. TypeScript is not proof of React; Git is not CI/CD; coursework is not professional certification. Use exact evidence IDs. Explain scope. Missing qualifications must remain missing. Return selected relevant evidence IDs.

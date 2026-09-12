@@ -1,0 +1,14 @@
+[project]
+name = "proofapply"
+version = "0.1.0"
+description = "Evidence-grounded resume preparation for Tech Zephyr 4.0"
+requires-python = ">=3.11,<3.12"
+dependencies = ["fastapi", "uvicorn", "pydantic>=2,<3", "pydantic-settings", "langgraph", "langgraph-checkpoint-sqlite", "google-genai", "sqlmodel", "python-docx", "pymupdf", "jinja2", "weasyprint", "python-multipart", "httpx", "python-dotenv"]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "zstandard", "psutil"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"

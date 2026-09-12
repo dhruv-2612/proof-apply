@@ -1,0 +1,13 @@
+.git
+.env
+.env.*
+.tools
+data
+tmp
+sample-docs
+all-problem-statements
+backend/.venv
+**/__pycache__
+frontend/node_modules
+frontend/.next
+frontend/out
