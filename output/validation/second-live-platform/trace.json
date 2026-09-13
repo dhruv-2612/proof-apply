@@ -1,0 +1,354 @@
+{
+  "run": {
+    "id": "aee66ce2b5384629a9e3424950026083",
+    "status": "completed",
+    "graph_stage": "release_gate",
+    "mode": "gemini",
+    "version": 1,
+    "pending_question": null,
+    "error": null,
+    "created_at": "2026-09-13T06:04:32.790557+00:00",
+    "updated_at": "2026-09-13T06:04:58.340107+00:00",
+    "model_attempts": 11,
+    "mock_calls": 0,
+    "revision_count": 0,
+    "research_calls": 1,
+    "clarification_count": 0,
+    "execution_elapsed_seconds": 25.55,
+    "capability_snapshot": {
+      "mode": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "live_processing_enabled": true,
+      "research_options": [
+        "provided_kb"
+      ],
+      "temporary_storage": true,
+      "synthetic_only_live": true,
+      "prompt_version": "v1; writer/reviewer v2",
+      "sdk_version": "2.23.0",
+      "url_context_enabled": true,
+      "limitations": [
+        "Stitch desktop references adapted; mobile layout uses the same design system.",
+        "Personal documents are local/offline only."
+      ]
+    },
+    "role_title": "Junior Platform Engineer",
+    "company_name": "CedarWorks Labs",
+    "header": {
+      "name": "Mira Rao",
+      "contact": "mira@example.com"
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:32.845162+00:00",
+        "actor": "system",
+        "action": "start",
+        "summary": "Started an explicit gemini run.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "39415f7d35f044a6a70275296d077fa4"
+      },
+      {
+        "seq": 2,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:35.186581+00:00",
+        "actor": "requirements",
+        "action": "model_result",
+        "summary": "Requirements returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "a60436a1e8df4798bb609a1a9646e568"
+      },
+      {
+        "seq": 3,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:36.926721+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "d3335ba8b020435a8cbce86aac3f2380"
+      },
+      {
+        "seq": 4,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:36.950905+00:00",
+        "actor": "coordinator",
+        "action": "research",
+        "summary": "The candidate's profile lacks evidence for the required technical skills (Docker, Kubernetes, CI/CD, Linux administration) and preferred Git experience. I need to search the candidate's provided materials to identify any projects, roles, or certifications that demonstrate these competencies.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "edb46f3c66614a2a980dcd481894c2e0"
+      },
+      {
+        "seq": 5,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:37.933220+00:00",
+        "actor": "research",
+        "action": "model_result",
+        "summary": "Research returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "c5f1d24a44a649728aced552f5deadda"
+      },
+      {
+        "seq": 6,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:37.957250+00:00",
+        "actor": "researcher",
+        "action": "inspect_company_kb",
+        "summary": "Inspected supplied company knowledge.",
+        "source_ids": [
+          "67b495facec5424ab2e03d045d14b6da"
+        ],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "b1d93de205f74bff9ea67edc63769ac7"
+      },
+      {
+        "seq": 7,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:39.436468+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "2e00019b1dbb497f8f31e2cf5b7ac07e"
+      },
+      {
+        "seq": 8,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:39.466063+00:00",
+        "actor": "coordinator",
+        "action": "assess_fit",
+        "summary": "The candidate's profile and evidence have not yet been mapped against the job requirements to determine the current fit status.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "82eba2905f094d8eaf6bb42c593fad26"
+      },
+      {
+        "seq": 9,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:41.943671+00:00",
+        "actor": "fit",
+        "action": "model_result",
+        "summary": "Fit returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "55bc84f044c04568aed3b516c30ba063"
+      },
+      {
+        "seq": 10,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:41.965539+00:00",
+        "actor": "fit_analyst",
+        "action": "coverage",
+        "summary": "Mapped 5 requirements; 4 have no supporting evidence.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "9fc722389afb45a987cd034f2ec3265c"
+      },
+      {
+        "seq": 11,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:43.757281+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "2053e4af4846412b83e2c26e42d3891d"
+      },
+      {
+        "seq": 12,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:43.784782+00:00",
+        "actor": "coordinator",
+        "action": "inspect_evidence",
+        "summary": "The candidate's profile lacks evidence for four required technical skills (Docker, Kubernetes, CI/CD, Linux). I need to review the full candidate evidence set to determine if these skills are present but currently unlinked or if they are genuinely missing before proceeding to draft.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "ce11b83421a74b25945c1f6446b82c32"
+      },
+      {
+        "seq": 13,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:43.805515+00:00",
+        "actor": "evidence_specialist",
+        "action": "read_evidence",
+        "summary": "Read 1 original excerpts relevant to observed gaps. Excluded, negated or unclear material cannot establish proficiency.",
+        "source_ids": [
+          "2e721496792f44d99fdf3e37446a56bb"
+        ],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "03e31dced13f4e4f83bb371c250f0607"
+      },
+      {
+        "seq": 14,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:45.014050+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "3b10ce3ec61e42c0b8a093678aaf4537"
+      },
+      {
+        "seq": 15,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:45.041023+00:00",
+        "actor": "coordinator",
+        "action": "draft",
+        "summary": "The candidate lacks the required technical experience in Docker, Kubernetes, CI/CD pipelines, and Linux administration. As these are core requirements for the role and no evidence exists to support them, I cannot proceed with a draft that meets the job description's needs.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "47c602ce253449d9a1da97a0f5a9c10c"
+      },
+      {
+        "seq": 16,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:49.731211+00:00",
+        "actor": "provider",
+        "action": "schema_rejected",
+        "summary": "writer response failed strict schema validation.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "error",
+        "mode": "gemini",
+        "id": "b6bb5eec93be462792c76ef4ff317de0"
+      },
+      {
+        "seq": 17,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:54.333238+00:00",
+        "actor": "writer",
+        "action": "model_result",
+        "summary": "Writer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "cfc784293192471fa78bf27f78640f72"
+      },
+      {
+        "seq": 18,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:54.436792+00:00",
+        "actor": "renderer",
+        "action": "render_resume",
+        "summary": "Rendered draft 1; 1 A4 page(s).",
+        "source_ids": [],
+        "result_ids": [
+          "17f80484728342ccba55545cb265c96b"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "6fbf1a5d21cd472e82a3260c5a3c0e73"
+      },
+      {
+        "seq": 19,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:56.791167+00:00",
+        "actor": "reviewer",
+        "action": "model_result",
+        "summary": "Reviewer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "a70ccede1c3c4d54b675f2ceaec1bd39"
+      },
+      {
+        "seq": 20,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:56.830832+00:00",
+        "actor": "reviewer",
+        "action": "evaluation",
+        "summary": "Source and PDF checks passed.",
+        "source_ids": [],
+        "result_ids": [
+          "ec10a91b72b147b087ed27dce24821b3"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "e94a483e7c1f42769e21eae079ad336a"
+      },
+      {
+        "seq": 21,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:58.210274+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "b35ec3297d4c4cdeb6745f2121c529cd"
+      },
+      {
+        "seq": 22,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:58.235446+00:00",
+        "actor": "coordinator",
+        "action": "finalize",
+        "summary": "The candidate lacks the required technical qualifications (Docker, Kubernetes, CI/CD, Linux administration) for the role. As these are core requirements and no further evidence is available to support them, the application cannot be successfully completed.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "f0e8ecb6357d4a01b0f53e605a63a31c"
+      },
+      {
+        "seq": 23,
+        "run_id": "aee66ce2b5384629a9e3424950026083",
+        "time": "2026-09-13T06:04:58.350916+00:00",
+        "actor": "release_gate",
+        "action": "finalize",
+        "summary": "Released the checked PDF and matching reports.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "50f5e67e42fd43c4a72b7544551a8ee2"
+      }
+    ],
+    "next_cursor": 23
+  }
+}

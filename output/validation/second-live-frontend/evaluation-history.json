@@ -1,0 +1,149 @@
+[
+  {
+    "draft_id": "eeed54b822004d4fb3580366951773ed",
+    "draft_hash": "54eefe575556b050cd1706e217282316b7d19fae76331f3e3fb2fd4465e44282",
+    "pdf_hash": "f161a0db7d75a02e7454e79ebf0b954e4ad611c44cdcd65d0d6cad8ae2a31ba6",
+    "checks": {
+      "passed": false,
+      "source_rules": false,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "f161a0db7d75a02e7454e79ebf0b954e4ad611c44cdcd65d0d6cad8ae2a31ba6"
+      }
+    },
+    "issues": [
+      {
+        "id": "f048986117c64d868ac2d287ffe14bdb",
+        "category": "qualification_status",
+        "severity": "blocker",
+        "statement_ids": [
+          "education_01"
+        ],
+        "evidence_ids": [
+          "e47495d83c3a42538f569d6a5c230aee",
+          "c4561cc8b0a047b8bc75095f2a6276d3"
+        ],
+        "explanation": "An expected qualification lost its expected/in-progress status.",
+        "suggested_action": "Remove or correct using eligible original evidence, then rerender and recheck."
+      }
+    ],
+    "coverage": {
+      "numerator": 12,
+      "denominator": 13,
+      "percent": 92.3076923076923,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "summary_01",
+        "status": "supported",
+        "reason": "The statement accurately reflects the candidate's education status and technical skills as supported by the provided evidence."
+      },
+      {
+        "statement_id": "education_01",
+        "status": "supported",
+        "reason": "The statement correctly identifies the degree, institution, and expected graduation date as supported by the evidence."
+      },
+      {
+        "statement_id": "skills_01",
+        "status": "supported",
+        "reason": "The skills listed are directly supported by the candidate's self-reported skills evidence."
+      },
+      {
+        "statement_id": "project_01",
+        "status": "supported",
+        "reason": "The project name, dates, and core technologies are supported by the project evidence."
+      },
+      {
+        "statement_id": "project_02",
+        "status": "supported",
+        "reason": "The specific contributions regarding form validation, API integration, and error handling are supported by the project contribution report."
+      },
+      {
+        "statement_id": "project_03",
+        "status": "supported",
+        "reason": "The number of unit tests and the use of Git workflows are supported by the project contribution report."
+      },
+      {
+        "statement_id": "project_04",
+        "status": "supported",
+        "reason": "The accessibility work and manual verification are supported by the project contribution report."
+      },
+      {
+        "statement_id": "coursework_01",
+        "status": "supported",
+        "reason": "The course completion details are supported by the provided course evidence."
+      }
+    ],
+    "writing_notes": [
+      "The education statement was previously flagged for missing the 'expected' qualifier; it has been verified as supported by the original evidence which includes the 'expected graduation' status.",
+      "All project claims are supported by the provided contribution report.",
+      "The coursework is correctly identified as a student-club completion, not a professional certification."
+    ],
+    "evaluated_at": "2026-09-13T06:03:15.935040+00:00",
+    "id": "31e4d785331a414b9a74d226c3e69ef6"
+  },
+  {
+    "draft_id": "081568e9dfea41e1814750123f985f1b",
+    "draft_hash": "518ddc6eb58802e9840ab87dc4f96b1c509674db71048be155f10cf9a3cb0598",
+    "pdf_hash": "8e361f2e508fca8f0392dce5e792f2446df26b6a41a1b0cd12c4b299594ec220",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "8e361f2e508fca8f0392dce5e792f2446df26b6a41a1b0cd12c4b299594ec220"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 12,
+      "denominator": 13,
+      "percent": 92.3076923076923,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "summary_01",
+        "status": "supported",
+        "reason": "The education details and expected graduation date are supported by the provided evidence. Frontend experience is supported by the project descriptions."
+      },
+      {
+        "statement_id": "skills_01",
+        "status": "supported",
+        "reason": "The listed skills are explicitly supported by the candidate's skills section in the resume."
+      },
+      {
+        "statement_id": "project_01",
+        "status": "supported",
+        "reason": "The project details, including the timeline, technologies used, and specific frontend tasks, are supported by the project contribution report."
+      },
+      {
+        "statement_id": "project_02",
+        "status": "supported",
+        "reason": "The accessibility work, unit testing, and Git workflow usage are all supported by the project contribution report."
+      },
+      {
+        "statement_id": "coursework_01",
+        "status": "supported",
+        "reason": "The coursework completion date and content are supported by the provided course-completion evidence."
+      }
+    ],
+    "writing_notes": [
+      "All statements are well-supported by the provided evidence.",
+      "The candidate correctly identifies the cloud foundations course as coursework rather than a professional certification."
+    ],
+    "evaluated_at": "2026-09-13T06:03:24.733835+00:00",
+    "id": "d1e37672f86646698aae85b5ce14dcc1"
+  }
+]

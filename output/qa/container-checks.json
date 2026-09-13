@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "health": true,
+    "static_page": true,
+    "completed_result_after_restart": true,
+    "pdf_download_after_restart": true,
+    "same_pdf_hash_after_restart": true,
+    "json_download_after_restart": true,
+    "markdown_download_after_restart": true,
+    "private_path_/.env": true,
+    "private_path_/sample-docs": true,
+    "private_path_/data/proofapply.db": true,
+    "cross_session_run_404": true,
+    "cross_session_artifact_404": true,
+    "pdf_upload_extracted": false,
+    "cleared_session_unavailable": true
+  },
+  "memory_limit_mib": 512,
+  "observed_memory": "149.4 MiB after fictional run; not peak",
+  "oom_killed": false,
+  "mode": "mock",
+  "model_attempts": 0,
+  "linux_pytest": "not run: runtime image intentionally excludes pytest"
+}

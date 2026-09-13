@@ -183,7 +183,7 @@ class Jobs:
             event('renderer','render_resume',f'Rendered draft {draft["version"]}; {pdf_check["page_count"]} A4 page(s).',result_ids=[draft['id']])
             semantic='failed';verdicts=[];notes=[]
             try:
-                review=provider.call('reviewer',Review,{'statements':draft['statements'],'evidence':es,'original_candidate_context':[source_context(s) for s in sources() if s['role']=='candidate'],'requirements':run['requirements'],'deterministic_issues':issues,'pdf_checks':pdf_check})
+                review=provider.call('reviewer',Review,{'statements':draft['statements'],'evidence':es,'statement_evidence':{statement['id']:[e for e in es if e['id'] in statement['evidence_ids']] for statement in draft['statements']},'original_candidate_context':[source_context(s) for s in sources() if s['role']=='candidate'],'requirements':run['requirements'],'deterministic_issues':issues,'pdf_checks':pdf_check})
                 verdicts=[v.model_dump() for v in review.verdicts];notes=review.writing_notes
                 if len(verdicts)!=len(draft['statements']) or {v['statement_id'] for v in verdicts}!={s['id'] for s in draft['statements']}: issues.append(issue('incomplete_semantic_review','Reviewer did not assess every statement exactly once.'))
                 else:

@@ -2,9 +2,14 @@
 import argparse,json,time
 from pathlib import Path
 import httpx
-p=argparse.ArgumentParser();p.add_argument('--mode',choices=['mock','gemini'],default='mock');p.add_argument('--scenario',choices=['frontend','platform'],default='frontend');p.add_argument('--url',default='http://127.0.0.1:8000');args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--mode',choices=['mock','gemini'],default='mock');p.add_argument('--scenario',choices=['frontend','platform'],default='frontend');p.add_argument('--url',default='http://127.0.0.1:8000');p.add_argument('--output-label');args=p.parse_args()
 root=Path(__file__).resolve().parents[2]
-out=root/'output/examples'/(args.mode+'-'+args.scenario);out.mkdir(parents=True,exist_ok=True)
+label=args.output_label or args.mode+'-'+args.scenario
+if not label or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in label):p.error('Output label must use lowercase letters, numbers and hyphens.')
+out=root/'output/examples'/label;out.mkdir(parents=True,exist_ok=True)
+# Keep historical attempts in a separate label; never pair a failed new run
+# with stale artifacts from a previous success.
+if (out/'trace.json').exists():p.error('Output label already contains a run. Archive it or choose a fresh --output-label.')
 with httpx.Client(base_url=args.url,timeout=30) as client:
     client.post('/api/sessions',json={'demo':True}).raise_for_status()
     demo=client.post('/api/demo',json={'scenario':args.scenario});demo.raise_for_status();info=demo.json()
@@ -13,7 +18,8 @@ with httpx.Client(base_url=args.url,timeout=30) as client:
         client.post('/api/evidence/decisions',json={'evidence_id':e['id'],'decision':'include' if e['support_status']=='self_reported' else 'exclude'}).raise_for_status()
     version=client.get('/api/evidence').json()['session']['input_version']
     response=client.post('/api/runs',headers={'Idempotency-Key':'example-'+str(time.time_ns())},json={**info,'mode':args.mode,'page_limit':1,'expected_input_version':version});response.raise_for_status();run=response.json()
-    while run['status'] in ('queued','running'):
+    deadline=time.monotonic()+650
+    while run['status'] in ('queued','running') and time.monotonic()<deadline:
         time.sleep(2);run=client.get('/api/runs/'+run['id']).json()
         print(run['graph_stage'],run['status'],flush=True)
     result=client.get('/api/runs/'+run['id']+'/result').json()

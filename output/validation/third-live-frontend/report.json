@@ -1,0 +1,567 @@
+{
+  "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+  "mode": "gemini",
+  "target": {
+    "role": "Junior Frontend Developer",
+    "company": "CedarWorks Labs"
+  },
+  "draft_id": "6179b60d2aae49309080043561548242",
+  "draft_hash": "1e33ce4bca0336f62f0b69b3e949a54ce27bb52c12ff5d08b8c5eb07f775e2f6",
+  "pdf_hash": "59669a2900e6c83d173377df17dde36218a79a6af5e15c794ad1cb0f76bdf1c6",
+  "generated_at": "2026-09-13T06:14:50.373260+00:00",
+  "revision_count": 0,
+  "model_attempts": 9,
+  "mock_calls": 0,
+  "research": [
+    {
+      "id": "a218b97371ec4370a6bdf82c0c7517b3",
+      "statement": "# CedarWorks Labs company knowledge\nFictional company knowledge base for ProofApply testing. Supplied knowledge, not a live web page. Illustrative site: https://cedarworks.example. The .example domain is not an actual employer website.\n## Product context\nCedarWorks Labs creates scheduling and booking software for small organizations. Its frontend team prioritizes clear forms, visible error states and interfaces that work with a keyboard.\n## Engineering context\nThe frontend team values readable TypeScript, component tests and collaborative Git workflows. Docker appears as a preferred qualification in the fictional frontend opening. Some separate platform roles use Kubernetes. These company facts do not imply any candidate has those skills.\n## Research question supported by this source\nWhich parts of a campus booking-interface project are relevant to the frontend opening? Form design, REST integration, error handling, tests, keyboard access and collaborative changes align with the product/team description.\nNo company headcount, salary, growth, customer counts or employment outcomes are supplied. Do not invent them.",
+      "source_refs": [
+        "0cb347e2765649c98e8d9033e4c6a268"
+      ],
+      "provenance": "supplied_kb",
+      "retrieval_status": "ok",
+      "observed_at": "2026-09-13T06:14:31.841517+00:00",
+      "uncertainty": "Supplied knowledge; no live site verification."
+    }
+  ],
+  "sources": [
+    {
+      "id": "c25ce2a094dd4896827474a2e3b2ce9b",
+      "display_name": "candidate-base.md",
+      "role": "candidate",
+      "sha256": "7e061371f453727986dd99dbfb9849ba194cf225c13895b6a5427467e5c4b3ed",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+      "display_name": "project-evidence.md",
+      "role": "candidate",
+      "sha256": "2277b37c3ec6ec877a2f24504932cda422164f54a021adeb5a97d677cc9c2108",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "9c8707d0de3240549b2a84956ff6c3ea",
+      "display_name": "course-evidence.md",
+      "role": "candidate",
+      "sha256": "7b15156c693278c290b3a93a032ca67eafe809336077a46694c80030f9e17d8b",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "f9f1fecd87b84d418ca2090d63547c27",
+      "display_name": "job-frontend.md",
+      "role": "job",
+      "sha256": "6479922101b42e79ce0a3974652f58060adb31c52122b4f8c515f5ad379d4b7c",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "0cb347e2765649c98e8d9033e4c6a268",
+      "display_name": "company-knowledge.md",
+      "role": "company",
+      "sha256": "b5a8028cf3e519760870d20f3753c55baa393da2b2cbcd4bfaf098fb34a761df",
+      "retrieval_status": "provided"
+    }
+  ],
+  "claims": [
+    {
+      "statement_id": "s1",
+      "text": "B.Tech in Computer Science, Meadow Institute of Technology, August 2023 to May 2027 (expected graduation).",
+      "section": "Education",
+      "evidence": [
+        {
+          "id": "d3543b4fd66243b2bf65becc5a3975c8",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "B.Tech in Computer Science, Meadow Institute of Technology.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "2aa519c9da654cadbc8b99795bbc0775",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "August 2023 to May 2027, expected graduation.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s2",
+      "text": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "section": "Skills",
+      "evidence": [
+        {
+          "id": "b9234ec63b184976b4a09520d1d37564",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+          "locator": "line 17",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s3",
+      "text": "Campus Room Booker (January 2026 to April 2026): Built room-availability and booking-form screens using React and TypeScript.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "6fc4cb9a8bc54e7bbb75f9c17fbb46c6",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "Campus Room Booker — January 2026 to April 2026.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "00f48f3323794bf3a2883ae01774a9f5",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "Mira built the room-availability view and booking-form screens using React and TypeScript.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s4",
+      "text": "Implemented client-side form validation, loading indicators, and inline error messages; connected screens to existing REST endpoints for listing rooms and creating booking requests.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "bda0e5433c174c6e88826fe1e34f1071",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "She implemented client-side form validation, loading indicators and inline error messages.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "6983b07215d74d42bf571c3e4ae9939e",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "Mira connected these screens to the team's existing REST endpoints for listing rooms and creating booking requests.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s5",
+      "text": "Handled unsuccessful API responses in the interface and authored 18 Vitest unit tests for booking form validation and error states.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "82c63703326c44ecb7468d1f7f871e82",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "She handled unsuccessful API responses in the interface.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "9128113c7f0c4d9aa13660338ae78e78",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "Mira authored 18 Vitest unit tests for the booking form's validation and error states.",
+          "locator": "line 15",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s6",
+      "text": "Added visible keyboard focus states, associated input labels, and accessible inline error text to the booking form; manually checked keyboard flow.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "24ad2d3f638143459e1445a59b82a1dd",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "Mira added visible keyboard focus states, associated input labels and accessible inline error text to the booking form.",
+          "locator": "line 19",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "daa4e98395104a13a7dda935c9a2089e",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "She manually checked the keyboard flow.",
+          "locator": "line 19",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s7",
+      "text": "Used Git branches and pull requests to submit changes within a three-person project group.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "a7f21512c1bb4f8f8237bf7f1abae1ef",
+          "source_id": "4d5962b82c2a40d9ac362cfbfc6ed031",
+          "exact_excerpt": "Mira used Git branches and pull requests to submit her changes.",
+          "locator": "line 23",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "47d657a28dfb40698ae4aaa865b05b49",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "Wrote tests and worked with a three-person project group.",
+          "locator": "line 13",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "s8",
+      "text": "Completed an introductory cloud foundations course (Meadow Learning Club) in June 2026.",
+      "section": "Coursework",
+      "evidence": [
+        {
+          "id": "98d17473209a4db78b54104724187ff8",
+          "source_id": "c25ce2a094dd4896827474a2e3b2ce9b",
+          "exact_excerpt": "Completed an introductory cloud foundations course in June 2026.",
+          "locator": "line 21",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "1fd11c8df2b64ea98fca9dd3b5854550",
+          "source_id": "9c8707d0de3240549b2a84956ff6c3ea",
+          "exact_excerpt": "Completion: June 2026.",
+          "locator": "line 5",
+          "support_status": "self_reported"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "2cd119305ff04f75a2e981e4e2a40d1c",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience building interfaces with React.",
+      "original_excerpt": "Experience building interfaces with React.",
+      "importance": "required",
+      "normalized_terms": [
+        "React",
+        "frontend development"
+      ]
+    },
+    {
+      "id": "173ac43b1e54414485141f0d070f434f",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Ability to write TypeScript.",
+      "original_excerpt": "Ability to write TypeScript.",
+      "importance": "required",
+      "normalized_terms": [
+        "TypeScript"
+      ]
+    },
+    {
+      "id": "428a3629f445403692ac679d06a579b5",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience integrating a frontend with REST APIs.",
+      "original_excerpt": "Experience integrating a frontend with REST APIs",
+      "importance": "required",
+      "normalized_terms": [
+        "REST API",
+        "API integration"
+      ]
+    },
+    {
+      "id": "7b84fc501680448d96eb3e7b53e18a5e",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience handling API errors.",
+      "original_excerpt": "and handling API errors.",
+      "importance": "required",
+      "normalized_terms": [
+        "API error handling"
+      ]
+    },
+    {
+      "id": "7ba02706a56f47ccb22e7357aca566c0",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience writing automated unit tests.",
+      "original_excerpt": "Experience writing automated unit tests.",
+      "importance": "required",
+      "normalized_terms": [
+        "unit testing",
+        "automated testing"
+      ]
+    },
+    {
+      "id": "39752dd5207e490d8f0ba44cbf14eb0d",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Familiarity with Git workflows.",
+      "original_excerpt": "Familiarity with Git workflows.",
+      "importance": "required",
+      "normalized_terms": [
+        "Git",
+        "version control"
+      ]
+    },
+    {
+      "id": "ec0ae08472f54276aaf76091e73b991c",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience implementing accessible form interfaces.",
+      "original_excerpt": "Experience implementing accessible form interfaces.",
+      "importance": "required",
+      "normalized_terms": [
+        "web accessibility",
+        "forms"
+      ]
+    },
+    {
+      "id": "1ea20a96a28f4d10b3b535e7dc5944a4",
+      "jd_source_id": "f9f1fecd87b84d418ca2090d63547c27",
+      "text": "Experience using Docker.",
+      "original_excerpt": "Experience using Docker.",
+      "importance": "preferred",
+      "normalized_terms": [
+        "Docker"
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "requirement_id": "2cd119305ff04f75a2e981e4e2a40d1c",
+      "evidence_ids": [
+        "e7c48b98ed8e40fca19954c26e59763f",
+        "00f48f3323794bf3a2883ae01774a9f5"
+      ],
+      "status": "direct",
+      "explanation": "Candidate has experience building frontend interfaces with React as part of a college project.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "173ac43b1e54414485141f0d070f434f",
+      "evidence_ids": [
+        "e7c48b98ed8e40fca19954c26e59763f",
+        "00f48f3323794bf3a2883ae01774a9f5"
+      ],
+      "status": "direct",
+      "explanation": "Candidate demonstrated the ability to write TypeScript in a project context.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "428a3629f445403692ac679d06a579b5",
+      "evidence_ids": [
+        "6983b07215d74d42bf571c3e4ae9939e"
+      ],
+      "status": "direct",
+      "explanation": "Candidate has experience connecting frontend screens to existing REST endpoints.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "7b84fc501680448d96eb3e7b53e18a5e",
+      "evidence_ids": [
+        "82c63703326c44ecb7468d1f7f871e82"
+      ],
+      "status": "direct",
+      "explanation": "Candidate has experience handling unsuccessful API responses in the interface.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "7ba02706a56f47ccb22e7357aca566c0",
+      "evidence_ids": [
+        "9128113c7f0c4d9aa13660338ae78e78"
+      ],
+      "status": "direct",
+      "explanation": "Candidate authored 18 Vitest unit tests for form validation and error states.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "39752dd5207e490d8f0ba44cbf14eb0d",
+      "evidence_ids": [
+        "a7f21512c1bb4f8f8237bf7f1abae1ef"
+      ],
+      "status": "direct",
+      "explanation": "Candidate has experience using Git branches and pull requests for collaborative work.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "ec0ae08472f54276aaf76091e73b991c",
+      "evidence_ids": [
+        "24ad2d3f638143459e1445a59b82a1dd",
+        "daa4e98395104a13a7dda935c9a2089e"
+      ],
+      "status": "direct",
+      "explanation": "Candidate implemented accessible form features including keyboard focus states and labels.",
+      "included_in_draft": true
+    },
+    {
+      "requirement_id": "1ea20a96a28f4d10b3b535e7dc5944a4",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No evidence of Docker experience provided.",
+      "included_in_draft": false
+    }
+  ],
+  "coverage": {
+    "numerator": 14,
+    "denominator": 15,
+    "percent": 93.33333333333333,
+    "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+  },
+  "changes": [
+    {
+      "before": "B.Tech in Computer Science, Meadow Institute of Technology. | August 2023 to May 2027, expected graduation.",
+      "after": "B.Tech in Computer Science, Meadow Institute of Technology, August 2023 to May 2027 (expected graduation).",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "d3543b4fd66243b2bf65becc5a3975c8",
+        "2aa519c9da654cadbc8b99795bbc0775"
+      ]
+    },
+    {
+      "before": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "after": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "reason": "Retained/reordered exact evidence",
+      "evidence_ids": [
+        "b9234ec63b184976b4a09520d1d37564"
+      ]
+    },
+    {
+      "before": "Campus Room Booker — January 2026 to April 2026. | Mira built the room-availability view and booking-form screens using React and TypeScript.",
+      "after": "Campus Room Booker (January 2026 to April 2026): Built room-availability and booking-form screens using React and TypeScript.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "6fc4cb9a8bc54e7bbb75f9c17fbb46c6",
+        "00f48f3323794bf3a2883ae01774a9f5"
+      ]
+    },
+    {
+      "before": "She implemented client-side form validation, loading indicators and inline error messages. | Mira connected these screens to the team's existing REST endpoints for listing rooms and creating booking requests.",
+      "after": "Implemented client-side form validation, loading indicators, and inline error messages; connected screens to existing REST endpoints for listing rooms and creating booking requests.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "bda0e5433c174c6e88826fe1e34f1071",
+        "6983b07215d74d42bf571c3e4ae9939e"
+      ]
+    },
+    {
+      "before": "She handled unsuccessful API responses in the interface. | Mira authored 18 Vitest unit tests for the booking form's validation and error states.",
+      "after": "Handled unsuccessful API responses in the interface and authored 18 Vitest unit tests for booking form validation and error states.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "82c63703326c44ecb7468d1f7f871e82",
+        "9128113c7f0c4d9aa13660338ae78e78"
+      ]
+    },
+    {
+      "before": "Mira added visible keyboard focus states, associated input labels and accessible inline error text to the booking form. | She manually checked the keyboard flow.",
+      "after": "Added visible keyboard focus states, associated input labels, and accessible inline error text to the booking form; manually checked keyboard flow.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "24ad2d3f638143459e1445a59b82a1dd",
+        "daa4e98395104a13a7dda935c9a2089e"
+      ]
+    },
+    {
+      "before": "Mira used Git branches and pull requests to submit her changes. | Wrote tests and worked with a three-person project group.",
+      "after": "Used Git branches and pull requests to submit changes within a three-person project group.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "a7f21512c1bb4f8f8237bf7f1abae1ef",
+        "47d657a28dfb40698ae4aaa865b05b49"
+      ]
+    },
+    {
+      "before": "Completed an introductory cloud foundations course in June 2026. | Completion: June 2026.",
+      "after": "Completed an introductory cloud foundations course (Meadow Learning Club) in June 2026.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "98d17473209a4db78b54104724187ff8",
+        "1fd11c8df2b64ea98fca9dd3b5854550"
+      ]
+    }
+  ],
+  "base_omissions": [
+    {
+      "text": "Worked on the frontend of a college project using React and TypeScript.",
+      "evidence_id": "e7c48b98ed8e40fca19954c26e59763f",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The application helps students view room availability and request a room.",
+      "evidence_id": "9da0447c257e48d3b2408d451051a204",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The additional project report describes my own contributions.",
+      "evidence_id": "ba65288bed3541428b7f19886cb22b6d",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    }
+  ],
+  "draft_versions": [
+    "6179b60d2aae49309080043561548242"
+  ],
+  "dropped_claims": [],
+  "evaluations": {
+    "draft_id": "6179b60d2aae49309080043561548242",
+    "draft_hash": "1e33ce4bca0336f62f0b69b3e949a54ce27bb52c12ff5d08b8c5eb07f775e2f6",
+    "pdf_hash": "59669a2900e6c83d173377df17dde36218a79a6af5e15c794ad1cb0f76bdf1c6",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "59669a2900e6c83d173377df17dde36218a79a6af5e15c794ad1cb0f76bdf1c6"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "s1",
+        "status": "supported",
+        "reason": "The education details, including the institution, degree, and expected graduation date, are supported by the provided evidence."
+      },
+      {
+        "statement_id": "s2",
+        "status": "supported",
+        "reason": "The listed skills are directly supported by the candidate's self-reported evidence."
+      },
+      {
+        "statement_id": "s3",
+        "status": "supported",
+        "reason": "The project name, dates, and core technologies used are supported by the project contribution report."
+      },
+      {
+        "statement_id": "s4",
+        "status": "supported",
+        "reason": "The implementation of form validation, loading indicators, error messages, and REST API integration is supported by the project contribution report."
+      },
+      {
+        "statement_id": "s5",
+        "status": "supported",
+        "reason": "The handling of API responses and the authorship of 18 Vitest unit tests are supported by the project contribution report."
+      },
+      {
+        "statement_id": "s6",
+        "status": "supported",
+        "reason": "The accessibility work, including focus states, labels, and manual testing, is supported by the project contribution report."
+      },
+      {
+        "statement_id": "s7",
+        "status": "supported",
+        "reason": "The use of Git branches and pull requests within a three-person team is supported by the project contribution report."
+      },
+      {
+        "statement_id": "s8",
+        "status": "supported",
+        "reason": "The completion of the cloud foundations course in June 2026 is supported by the provided evidence."
+      }
+    ],
+    "writing_notes": [
+      "All statements are supported by the provided evidence excerpts.",
+      "The candidate correctly identified the project as a student prototype and the course as a student-club completion, avoiding inflated claims."
+    ],
+    "evaluated_at": "2026-09-13T06:14:47.671471+00:00",
+    "id": "6f8faadbb28046f2bdb581114c35cbcc"
+  },
+  "uncertainty": [
+    "Source support is not independent verification of self-reported experience.",
+    "Same-model semantic review may share writer errors."
+  ]
+}

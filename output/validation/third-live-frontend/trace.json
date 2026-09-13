@@ -1,0 +1,300 @@
+{
+  "run": {
+    "id": "e902177f960c4fb4b497eddc392c1ccc",
+    "status": "completed",
+    "graph_stage": "release_gate",
+    "mode": "gemini",
+    "version": 1,
+    "pending_question": null,
+    "error": null,
+    "created_at": "2026-09-13T06:14:26.675549+00:00",
+    "updated_at": "2026-09-13T06:14:50.481693+00:00",
+    "model_attempts": 9,
+    "mock_calls": 0,
+    "revision_count": 0,
+    "research_calls": 1,
+    "clarification_count": 0,
+    "execution_elapsed_seconds": 23.8,
+    "capability_snapshot": {
+      "mode": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "live_processing_enabled": true,
+      "research_options": [
+        "provided_kb"
+      ],
+      "temporary_storage": true,
+      "synthetic_only_live": true,
+      "prompt_version": "v1; writer/reviewer v2",
+      "sdk_version": "2.23.0",
+      "url_context_enabled": true,
+      "limitations": [
+        "Stitch desktop references adapted; mobile layout uses the same design system.",
+        "Personal documents are local/offline only."
+      ]
+    },
+    "role_title": "Junior Frontend Developer",
+    "company_name": "CedarWorks Labs",
+    "header": {
+      "name": "Mira Rao",
+      "contact": "mira@example.com"
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:26.802542+00:00",
+        "actor": "system",
+        "action": "start",
+        "summary": "Started an explicit gemini run.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "6d692ea6ee264a9aaaa847de58696fa3"
+      },
+      {
+        "seq": 2,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:29.568585+00:00",
+        "actor": "requirements",
+        "action": "model_result",
+        "summary": "Requirements returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "7d8d35ff68894123a7820e24a9330c36"
+      },
+      {
+        "seq": 3,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:30.727290+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "ffc5803760194dabb23ecc6a46fca967"
+      },
+      {
+        "seq": 4,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:30.762669+00:00",
+        "actor": "coordinator",
+        "action": "research",
+        "summary": "The candidate's experience needs to be mapped against the specific technical requirements (React, TypeScript, REST APIs, unit testing, Git, accessibility, and Docker) to determine if they meet the job criteria.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "aebd0e0c3a8a4e6bbfdb76b93780432a"
+      },
+      {
+        "seq": 5,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:31.821650+00:00",
+        "actor": "research",
+        "action": "model_result",
+        "summary": "Research returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "1c1dfbe5603b41e2be2acae3e87acb3c"
+      },
+      {
+        "seq": 6,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:31.858639+00:00",
+        "actor": "researcher",
+        "action": "inspect_company_kb",
+        "summary": "Inspected supplied company knowledge.",
+        "source_ids": [
+          "0cb347e2765649c98e8d9033e4c6a268"
+        ],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "b842756daef846fb956c5fb680f392c9"
+      },
+      {
+        "seq": 7,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:32.922410+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "4810ade8d7e64c73afc35a3a75a65f99"
+      },
+      {
+        "seq": 8,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:32.957159+00:00",
+        "actor": "coordinator",
+        "action": "assess_fit",
+        "summary": "The candidate's profile needs to be evaluated against the specific technical requirements (React, TypeScript, REST APIs, testing, accessibility, Git, Docker) to determine if they meet the threshold for application.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "4ccf1e8000644b2ba3394131bd9dc207"
+      },
+      {
+        "seq": 9,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:36.807337+00:00",
+        "actor": "fit",
+        "action": "model_result",
+        "summary": "Fit returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "a126123af7f5459a9ea4cb0d76a6a762"
+      },
+      {
+        "seq": 10,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:36.837117+00:00",
+        "actor": "fit_analyst",
+        "action": "coverage",
+        "summary": "Mapped 8 requirements; 1 have no supporting evidence.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "5a692af1fe2b47f3aba7f06bb23f42fc"
+      },
+      {
+        "seq": 11,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:38.981732+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "a5e0063db6df4ba884f7c8dca5d679d0"
+      },
+      {
+        "seq": 12,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:39.019462+00:00",
+        "actor": "coordinator",
+        "action": "draft",
+        "summary": "All required qualifications are met with direct evidence, and the candidate's experience aligns well with the company's focus on accessible forms, REST integration, and testing. The preferred Docker qualification is missing, but the core requirements are fully supported.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "fbe2797ac00745ada9327c66e81c4bfc"
+      },
+      {
+        "seq": 13,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:44.489516+00:00",
+        "actor": "writer",
+        "action": "model_result",
+        "summary": "Writer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "7b7d7d183d7e4bd1ade26c5bb3806c89"
+      },
+      {
+        "seq": 14,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:45.322758+00:00",
+        "actor": "renderer",
+        "action": "render_resume",
+        "summary": "Rendered draft 1; 1 A4 page(s).",
+        "source_ids": [],
+        "result_ids": [
+          "6179b60d2aae49309080043561548242"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "45cae21c84634d6e9fce36680511d6ba"
+      },
+      {
+        "seq": 15,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:47.658307+00:00",
+        "actor": "reviewer",
+        "action": "model_result",
+        "summary": "Reviewer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "fd2ac93c16f14e85894a8bc7b6bc758a"
+      },
+      {
+        "seq": 16,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:47.698039+00:00",
+        "actor": "reviewer",
+        "action": "evaluation",
+        "summary": "Source and PDF checks passed.",
+        "source_ids": [],
+        "result_ids": [
+          "6f8faadbb28046f2bdb581114c35cbcc"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "30137d886ff140a1b7aadad24bc64ef7"
+      },
+      {
+        "seq": 17,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:50.292816+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "8a79e9d0a36a4f3db6965a169425dd1c"
+      },
+      {
+        "seq": 18,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:50.340751+00:00",
+        "actor": "coordinator",
+        "action": "finalize",
+        "summary": "All required qualifications are met with direct evidence. The missing preferred qualification (Docker) does not block the application as it is not a requirement.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "d25450eed4054662abcd60367b37f400"
+      },
+      {
+        "seq": 19,
+        "run_id": "e902177f960c4fb4b497eddc392c1ccc",
+        "time": "2026-09-13T06:14:50.498606+00:00",
+        "actor": "release_gate",
+        "action": "finalize",
+        "summary": "Released the checked PDF and matching reports.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "bf39188ff1ab49898a0b12535b56e1c6"
+      }
+    ],
+    "next_cursor": 19
+  }
+}

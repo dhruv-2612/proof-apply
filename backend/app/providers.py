@@ -9,6 +9,28 @@ from .models import *
 from .extraction import normalized
 
 PROMPTS=Path(__file__).parent/'prompts'
+
+def gemini_schema(schema):
+    """Portable generation shape; the original Pydantic schema owns ALL limits.
+
+    Observed API 400s for nested constrained schemas. Inline local definitions
+    and omit length/item limits from the transport only, never from validation.
+    Preserve property names even when they match a schema keyword.
+    """
+    raw = schema.model_json_schema()
+    definitions = raw.get('$defs', {})
+    omitted = {'$defs', 'title', 'default', 'minLength', 'maxLength', 'minItems', 'maxItems'}
+    def convert(value, trail=()):
+        if isinstance(value, list): return [convert(item, trail) for item in value]
+        if not isinstance(value, dict): return value
+        if '$ref' in value:
+            ref = value['$ref']
+            if not ref.startswith('#/$defs/') or ref in trail: raise ValueError('Unsupported schema reference')
+            return convert(definitions[ref.split('/')[-1]], (*trail, ref))
+        return {key: ({name: convert(item, trail) for name, item in child.items()} if key == 'properties' else convert(child, trail))
+                for key, child in value.items() if key not in omitted}
+    return convert(raw)
+
 class ProviderError(RuntimeError):
     def __init__(self,code='provider_unavailable',retryable=False):
         self.code=code; self.retryable=retryable
@@ -43,9 +65,12 @@ class GeminiProvider:
     def call(self,task,schema,payload):
         body=json.dumps(payload,ensure_ascii=False)
         if len(body)>90000: raise ProviderError('context_limit')
-        prompt=(PROMPTS/'shared-v1.txt').read_text()+'\n'+(PROMPTS/(task+'-v1.txt')).read_text()
+        prompt=(PROMPTS/'shared-v1.txt').read_text()+'\n'+(PROMPTS/(task+('-v2.txt' if task in ('writer','reviewer') else '-v1.txt'))).read_text(encoding='utf-8')
+        wire_schema=gemini_schema(schema)
+        if task=='coordinator':
+            wire_schema['properties']['action']['enum']=list(payload['allowed_actions'])
         for repair in range(2):
-            response=self._request(body,types.GenerateContentConfig(system_instruction=prompt,response_mime_type='application/json',response_json_schema=schema.model_json_schema(),temperature=0.1,max_output_tokens=10000,automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True)))
+            response=self._request(body,types.GenerateContentConfig(system_instruction=prompt,response_mime_type='application/json',response_json_schema=wire_schema,temperature=0.1,max_output_tokens=10000,automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True)))
             try: result=schema.model_validate_json(response.text or '')
             except (ValueError,ValidationError):
                 self.event('provider','schema_rejected',f'{task} response failed strict schema validation.',status='error')

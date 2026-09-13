@@ -1,0 +1,300 @@
+{
+  "run": {
+    "id": "85ec7932124b49e5b98f0fcf1813a241",
+    "status": "completed",
+    "graph_stage": "release_gate",
+    "mode": "gemini",
+    "version": 1,
+    "pending_question": null,
+    "error": null,
+    "created_at": "2026-09-13T05:57:25.612376+00:00",
+    "updated_at": "2026-09-13T05:57:50.474730+00:00",
+    "model_attempts": 9,
+    "mock_calls": 0,
+    "revision_count": 0,
+    "research_calls": 1,
+    "clarification_count": 0,
+    "execution_elapsed_seconds": 24.86,
+    "capability_snapshot": {
+      "mode": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "live_processing_enabled": true,
+      "research_options": [
+        "provided_kb"
+      ],
+      "temporary_storage": true,
+      "synthetic_only_live": true,
+      "prompt_version": "v1",
+      "sdk_version": "2.23.0",
+      "url_context_enabled": true,
+      "limitations": [
+        "Stitch desktop references adapted; mobile layout uses the same design system.",
+        "Personal documents are local/offline only."
+      ]
+    },
+    "role_title": "Junior Frontend Developer",
+    "company_name": "CedarWorks Labs",
+    "header": {
+      "name": "Mira Rao",
+      "contact": "mira@example.com"
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:25.686622+00:00",
+        "actor": "system",
+        "action": "start",
+        "summary": "Started an explicit gemini run.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "944642ae38464ea981b5ea5919033d9e"
+      },
+      {
+        "seq": 2,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:30.029230+00:00",
+        "actor": "requirements",
+        "action": "model_result",
+        "summary": "Requirements returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "910caf2707be41bda3d684fa369aa6bb"
+      },
+      {
+        "seq": 3,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:32.235022+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "9e81920bcdeb42edb20fc6739dda5b2e"
+      },
+      {
+        "seq": 4,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:32.272623+00:00",
+        "actor": "coordinator",
+        "action": "research",
+        "summary": "The candidate's profile has not yet been analyzed against the job requirements to identify relevant experience or gaps.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "263c66cca638415595b7935509f00f10"
+      },
+      {
+        "seq": 5,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:33.321154+00:00",
+        "actor": "research",
+        "action": "model_result",
+        "summary": "Research returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "8c700e52d10a408c90acaab9e12b7868"
+      },
+      {
+        "seq": 6,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:33.349720+00:00",
+        "actor": "researcher",
+        "action": "inspect_company_kb",
+        "summary": "Inspected supplied company knowledge.",
+        "source_ids": [
+          "399924a672b549a09fde0727e331609b"
+        ],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "cbab3591af9045109a3b1ad5719c2f13"
+      },
+      {
+        "seq": 7,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:35.013441+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "d20abc4b9fa24c6582b9c7df36c6d263"
+      },
+      {
+        "seq": 8,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:35.039720+00:00",
+        "actor": "coordinator",
+        "action": "assess_fit",
+        "summary": "All requirements have been identified and research on the company context is complete. I will now evaluate the candidate's profile against these requirements to determine the next step.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "2011b25d8b4f40748fe8964d4e191f7d"
+      },
+      {
+        "seq": 9,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:38.883106+00:00",
+        "actor": "fit",
+        "action": "model_result",
+        "summary": "Fit returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "5fc0c1521f004693b6ae71b63b568227"
+      },
+      {
+        "seq": 10,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:38.899189+00:00",
+        "actor": "fit_analyst",
+        "action": "coverage",
+        "summary": "Mapped 8 requirements; 1 have no supporting evidence.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "28d8f5565cbf4f4fbbf0ae8d93a5238d"
+      },
+      {
+        "seq": 11,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:41.134643+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "e2d5b0af10fd41a2816d6a92433a6c0f"
+      },
+      {
+        "seq": 12,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:41.165758+00:00",
+        "actor": "coordinator",
+        "action": "draft",
+        "summary": "All required qualifications are met with direct evidence, and the candidate's experience aligns well with the company's focus on accessible forms, robust error handling, and collaborative development. Docker is a preferred qualification and is missing, but the core requirements are fully supported.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "fd0d64b97ffd4535850dba79ef96d3ef"
+      },
+      {
+        "seq": 13,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:46.583884+00:00",
+        "actor": "writer",
+        "action": "model_result",
+        "summary": "Writer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "4c3d88d823a843218b624cd98abf64e8"
+      },
+      {
+        "seq": 14,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:47.075515+00:00",
+        "actor": "renderer",
+        "action": "render_resume",
+        "summary": "Rendered draft 1; 1 A4 page(s).",
+        "source_ids": [],
+        "result_ids": [
+          "c83f6c3992ca4ba59d4c70d2c460e5b1"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "68060d9a3f00458daa811d0af4b2a8d8"
+      },
+      {
+        "seq": 15,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:48.950787+00:00",
+        "actor": "reviewer",
+        "action": "model_result",
+        "summary": "Reviewer returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "7896eb180a474b41830ebc0178ed73a0"
+      },
+      {
+        "seq": 16,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:48.986860+00:00",
+        "actor": "reviewer",
+        "action": "evaluation",
+        "summary": "Source and PDF checks passed.",
+        "source_ids": [],
+        "result_ids": [
+          "8a4b05ed2441489db6ea40210b09052c"
+        ],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "160289c7372844f287023368351d2e14"
+      },
+      {
+        "seq": 17,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:50.332651+00:00",
+        "actor": "coordinator",
+        "action": "model_result",
+        "summary": "Coordinator returned validated structured output.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "cdf31d3a3ea142a28f4fd48e5bfe4c03"
+      },
+      {
+        "seq": 18,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:50.362758+00:00",
+        "actor": "coordinator",
+        "action": "finalize",
+        "summary": "All required qualifications are met with direct evidence. The missing preferred qualification (Docker) does not block finalization.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "ec4811b078f44564a8946c8db60c8912"
+      },
+      {
+        "seq": 19,
+        "run_id": "85ec7932124b49e5b98f0fcf1813a241",
+        "time": "2026-09-13T05:57:50.485355+00:00",
+        "actor": "release_gate",
+        "action": "finalize",
+        "summary": "Released the checked PDF and matching reports.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "5b67071e6f6c43bba06e896c00ac7a73"
+      }
+    ],
+    "next_cursor": 19
+  }
+}

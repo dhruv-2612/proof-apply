@@ -1,0 +1,482 @@
+{
+  "run_id": "aee66ce2b5384629a9e3424950026083",
+  "mode": "gemini",
+  "target": {
+    "role": "Junior Platform Engineer",
+    "company": "CedarWorks Labs"
+  },
+  "draft_id": "17f80484728342ccba55545cb265c96b",
+  "draft_hash": "4e2222d47d26e6a97b5742ad695e31cd4128c9f5f25269c6dbb081ed22123ee2",
+  "pdf_hash": "d6fd1bceb8c0b348ad398957f61fea1e9b73f7d6363b7b94214b5febcbe3279f",
+  "generated_at": "2026-09-13T06:04:58.256258+00:00",
+  "revision_count": 0,
+  "model_attempts": 11,
+  "mock_calls": 0,
+  "research": [
+    {
+      "id": "a9c84df2468e4afab081a75b6395cb13",
+      "statement": "# CedarWorks Labs company knowledge\nFictional company knowledge base for ProofApply testing. Supplied knowledge, not a live web page. Illustrative site: https://cedarworks.example. The .example domain is not an actual employer website.\n## Product context\nCedarWorks Labs creates scheduling and booking software for small organizations. Its frontend team prioritizes clear forms, visible error states and interfaces that work with a keyboard.\n## Engineering context\nThe frontend team values readable TypeScript, component tests and collaborative Git workflows. Docker appears as a preferred qualification in the fictional frontend opening. Some separate platform roles use Kubernetes. These company facts do not imply any candidate has those skills.\n## Research question supported by this source\nWhich parts of a campus booking-interface project are relevant to the frontend opening? Form design, REST integration, error handling, tests, keyboard access and collaborative changes align with the product/team description.\nNo company headcount, salary, growth, customer counts or employment outcomes are supplied. Do not invent them.",
+      "source_refs": [
+        "67b495facec5424ab2e03d045d14b6da"
+      ],
+      "provenance": "supplied_kb",
+      "retrieval_status": "ok",
+      "observed_at": "2026-09-13T06:04:37.943440+00:00",
+      "uncertainty": "Supplied knowledge; no live site verification."
+    }
+  ],
+  "sources": [
+    {
+      "id": "694ff472c2064a74b563cbeeb8a6b5e9",
+      "display_name": "candidate-base.md",
+      "role": "candidate",
+      "sha256": "7e061371f453727986dd99dbfb9849ba194cf225c13895b6a5427467e5c4b3ed",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "2e721496792f44d99fdf3e37446a56bb",
+      "display_name": "project-evidence.md",
+      "role": "candidate",
+      "sha256": "2277b37c3ec6ec877a2f24504932cda422164f54a021adeb5a97d677cc9c2108",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "d9819cefe0644c6f940baaf5a0e0242e",
+      "display_name": "course-evidence.md",
+      "role": "candidate",
+      "sha256": "7b15156c693278c290b3a93a032ca67eafe809336077a46694c80030f9e17d8b",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "display_name": "job-platform.md",
+      "role": "job",
+      "sha256": "385d2ac38c9a8f36fe3f85dca15a841d585384ecfd4e34a46912d0bfdcb2966d",
+      "retrieval_status": "provided"
+    },
+    {
+      "id": "67b495facec5424ab2e03d045d14b6da",
+      "display_name": "company-knowledge.md",
+      "role": "company",
+      "sha256": "b5a8028cf3e519760870d20f3753c55baa393da2b2cbcd4bfaf098fb34a761df",
+      "retrieval_status": "provided"
+    }
+  ],
+  "claims": [
+    {
+      "statement_id": "summary_001",
+      "text": "Computer Science student at Meadow Institute of Technology (expected graduation May 2027) with experience in frontend development, Git workflows, and testing.",
+      "section": "Summary",
+      "evidence": [
+        {
+          "id": "b0bf002872424c02aff633899ccb84be",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "B.Tech in Computer Science, Meadow Institute of Technology.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "b61889782c9a44a7971715cef78e54b3",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "August 2023 to May 2027, expected graduation.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "edu_001",
+      "text": "B.Tech in Computer Science, Meadow Institute of Technology, August 2023 to May 2027 (expected graduation).",
+      "section": "Education",
+      "evidence": [
+        {
+          "id": "b0bf002872424c02aff633899ccb84be",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "B.Tech in Computer Science, Meadow Institute of Technology.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "b61889782c9a44a7971715cef78e54b3",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "August 2023 to May 2027, expected graduation.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "skills_001",
+      "text": "Proficient in React, TypeScript, JavaScript, HTML, CSS, Git, and Vitest.",
+      "section": "Skills",
+      "evidence": [
+        {
+          "id": "5b8d173520e34ff3bbb82a0fd113c8a1",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+          "locator": "line 17",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "proj_001",
+      "text": "Campus Room Booker (January 2026 \u2013 April 2026): Developed frontend screens for room availability and booking forms using React and TypeScript. Implemented client-side form validation, loading indicators, and inline error messages. Connected interfaces to REST endpoints and authored 18 Vitest unit tests for validation and error states.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "d67fa11f801649109671368d5c3fa6f4",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "Campus Room Booker \u2014 January 2026 to April 2026.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "7f0c86cde34e43ea9391435b873f3109",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "Mira built the room-availability view and booking-form screens using React and TypeScript.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "4ea2663f98d94569a43b2fef1e702b0c",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "She implemented client-side form validation, loading indicators and inline error messages.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "8919ad4e03344d1c80d177574a844d93",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "Mira connected these screens to the team's existing REST endpoints for listing rooms and creating booking requests.",
+          "locator": "line 11",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "5d1e95527012407889f337c9bfe7ea1c",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "Mira authored 18 Vitest unit tests for the booking form's validation and error states.",
+          "locator": "line 15",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "proj_002",
+      "text": "Campus Room Booker: Improved accessibility by adding visible keyboard focus states, associated input labels, and accessible error text. Utilized Git branches and pull requests for collaborative development.",
+      "section": "Projects",
+      "evidence": [
+        {
+          "id": "1d7e875081534862ae4d7a3eafb053c8",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "Mira added visible keyboard focus states, associated input labels and accessible inline error text to the booking form.",
+          "locator": "line 19",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "a7d0ba4e34644f4bb6644ea35b729bd4",
+          "source_id": "2e721496792f44d99fdf3e37446a56bb",
+          "exact_excerpt": "Mira used Git branches and pull requests to submit her changes.",
+          "locator": "line 23",
+          "support_status": "self_reported"
+        }
+      ]
+    },
+    {
+      "statement_id": "course_001",
+      "text": "Completed introductory cloud foundations course (June 2026) covering cloud vocabulary, shared responsibility, and basic service categories.",
+      "section": "Coursework",
+      "evidence": [
+        {
+          "id": "93b41ba3193440039de0f7a400f106f7",
+          "source_id": "694ff472c2064a74b563cbeeb8a6b5e9",
+          "exact_excerpt": "Completed an introductory cloud foundations course in June 2026.",
+          "locator": "line 21",
+          "support_status": "self_reported"
+        },
+        {
+          "id": "7b31cc263b9046e49716c7694c8a6edd",
+          "source_id": "d9819cefe0644c6f940baaf5a0e0242e",
+          "exact_excerpt": "The course introduced cloud vocabulary, shared responsibility and basic service categories through lectures and quizzes.",
+          "locator": "line 7",
+          "support_status": "self_reported"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "ab9e60ece8824eb4a27103e58b88b478",
+      "jd_source_id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "text": "Hands-on Docker containerization",
+      "original_excerpt": "Hands-on Docker containerization.",
+      "importance": "required",
+      "normalized_terms": [
+        "Docker",
+        "containerization"
+      ]
+    },
+    {
+      "id": "df5595f8c5a3447e8ac4ff8cc24544c3",
+      "jd_source_id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "text": "Hands-on Kubernetes deployment and troubleshooting",
+      "original_excerpt": "Hands-on Kubernetes deployment and troubleshooting.",
+      "importance": "required",
+      "normalized_terms": [
+        "Kubernetes",
+        "deployment",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "7793e26eafbf4305bc23074e8dd5f941",
+      "jd_source_id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "text": "Experience creating CI/CD pipelines",
+      "original_excerpt": "Experience creating CI/CD pipelines.",
+      "importance": "required",
+      "normalized_terms": [
+        "CI/CD",
+        "pipelines"
+      ]
+    },
+    {
+      "id": "92b6ab13ed5d4c7e941e945018f76dad",
+      "jd_source_id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "text": "Linux server administration",
+      "original_excerpt": "Linux server administration.",
+      "importance": "required",
+      "normalized_terms": [
+        "Linux",
+        "server administration"
+      ]
+    },
+    {
+      "id": "bee74e76d47649b6a1aae3b7f1877b93",
+      "jd_source_id": "32dab7a3d7ff4d1aa383d037eb50c00f",
+      "text": "Familiarity with Git workflows",
+      "original_excerpt": "Familiarity with Git workflows.",
+      "importance": "preferred",
+      "normalized_terms": [
+        "Git",
+        "version control"
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "requirement_id": "ab9e60ece8824eb4a27103e58b88b478",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No evidence of hands-on Docker containerization experience.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "df5595f8c5a3447e8ac4ff8cc24544c3",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No evidence of hands-on Kubernetes deployment or troubleshooting.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "7793e26eafbf4305bc23074e8dd5f941",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No evidence of experience creating CI/CD pipelines.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "92b6ab13ed5d4c7e941e945018f76dad",
+      "evidence_ids": [],
+      "status": "missing",
+      "explanation": "No evidence of Linux server administration experience.",
+      "included_in_draft": false
+    },
+    {
+      "requirement_id": "bee74e76d47649b6a1aae3b7f1877b93",
+      "evidence_ids": [
+        "a7d0ba4e34644f4bb6644ea35b729bd4",
+        "5b8d173520e34ff3bbb82a0fd113c8a1"
+      ],
+      "status": "direct",
+      "explanation": "Candidate explicitly lists Git as a skill and describes using Git branches and pull requests in a project.",
+      "included_in_draft": true
+    }
+  ],
+  "coverage": {
+    "numerator": 1,
+    "denominator": 9,
+    "percent": 11.11111111111111,
+    "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+  },
+  "changes": [
+    {
+      "before": "B.Tech in Computer Science, Meadow Institute of Technology. | August 2023 to May 2027, expected graduation.",
+      "after": "Computer Science student at Meadow Institute of Technology (expected graduation May 2027) with experience in frontend development, Git workflows, and testing.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "b0bf002872424c02aff633899ccb84be",
+        "b61889782c9a44a7971715cef78e54b3"
+      ]
+    },
+    {
+      "before": "B.Tech in Computer Science, Meadow Institute of Technology. | August 2023 to May 2027, expected graduation.",
+      "after": "B.Tech in Computer Science, Meadow Institute of Technology, August 2023 to May 2027 (expected graduation).",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "b0bf002872424c02aff633899ccb84be",
+        "b61889782c9a44a7971715cef78e54b3"
+      ]
+    },
+    {
+      "before": "React, TypeScript, JavaScript, HTML, CSS, Git, Vitest.",
+      "after": "Proficient in React, TypeScript, JavaScript, HTML, CSS, Git, and Vitest.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "5b8d173520e34ff3bbb82a0fd113c8a1"
+      ]
+    },
+    {
+      "before": "Campus Room Booker \u2014 January 2026 to April 2026. | Mira built the room-availability view and booking-form screens using React and TypeScript. | She implemented client-side form validation, loading indicators and inline error messages. | Mira connected these screens to the team's existing REST endpoints for listing rooms and creating booking requests. | Mira authored 18 Vitest unit tests for the booking form's validation and error states.",
+      "after": "Campus Room Booker (January 2026 \u2013 April 2026): Developed frontend screens for room availability and booking forms using React and TypeScript. Implemented client-side form validation, loading indicators, and inline error messages. Connected interfaces to REST endpoints and authored 18 Vitest unit tests for validation and error states.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "d67fa11f801649109671368d5c3fa6f4",
+        "7f0c86cde34e43ea9391435b873f3109",
+        "4ea2663f98d94569a43b2fef1e702b0c",
+        "8919ad4e03344d1c80d177574a844d93",
+        "5d1e95527012407889f337c9bfe7ea1c"
+      ]
+    },
+    {
+      "before": "Mira added visible keyboard focus states, associated input labels and accessible inline error text to the booking form. | Mira used Git branches and pull requests to submit her changes.",
+      "after": "Campus Room Booker: Improved accessibility by adding visible keyboard focus states, associated input labels, and accessible error text. Utilized Git branches and pull requests for collaborative development.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "1d7e875081534862ae4d7a3eafb053c8",
+        "a7d0ba4e34644f4bb6644ea35b729bd4"
+      ]
+    },
+    {
+      "before": "Completed an introductory cloud foundations course in June 2026. | The course introduced cloud vocabulary, shared responsibility and basic service categories through lectures and quizzes.",
+      "after": "Completed introductory cloud foundations course (June 2026) covering cloud vocabulary, shared responsibility, and basic service categories.",
+      "reason": "Supported paraphrase for role relevance",
+      "evidence_ids": [
+        "93b41ba3193440039de0f7a400f106f7",
+        "7b31cc263b9046e49716c7694c8a6edd"
+      ]
+    }
+  ],
+  "base_omissions": [
+    {
+      "text": "Worked on the frontend of a college project using React and TypeScript.",
+      "evidence_id": "527d4c1d8e9f421ba8b997660bf3fb87",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The application helps students view room availability and request a room.",
+      "evidence_id": "b5e07074845749cb89f856187130c453",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "Wrote tests and worked with a three-person project group.",
+      "evidence_id": "2cb6cb23e6de44578e2fb1091ed260df",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    },
+    {
+      "text": "The additional project report describes my own contributions.",
+      "evidence_id": "22caa562aee94e7fb1ee2c219def8e16",
+      "reason": "Omitted from final selection; original source remains unchanged."
+    }
+  ],
+  "draft_versions": [
+    "17f80484728342ccba55545cb265c96b"
+  ],
+  "dropped_claims": [],
+  "evaluations": {
+    "draft_id": "17f80484728342ccba55545cb265c96b",
+    "draft_hash": "4e2222d47d26e6a97b5742ad695e31cd4128c9f5f25269c6dbb081ed22123ee2",
+    "pdf_hash": "d6fd1bceb8c0b348ad398957f61fea1e9b73f7d6363b7b94214b5febcbe3279f",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "d6fd1bceb8c0b348ad398957f61fea1e9b73f7d6363b7b94214b5febcbe3279f"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 1,
+      "denominator": 9,
+      "percent": 11.11111111111111,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "summary_001",
+        "status": "supported",
+        "reason": "The education details and expected graduation date are supported by the resume. Frontend development, Git, and testing experience are supported by the project evidence."
+      },
+      {
+        "statement_id": "edu_001",
+        "status": "supported",
+        "reason": "The degree, institution, and expected graduation date are supported by the resume."
+      },
+      {
+        "statement_id": "skills_001",
+        "status": "supported",
+        "reason": "The listed skills are supported by the resume."
+      },
+      {
+        "statement_id": "proj_001",
+        "status": "supported",
+        "reason": "The project details, including dates, technologies, specific frontend tasks, and test count, are supported by the project contribution report."
+      },
+      {
+        "statement_id": "proj_002",
+        "status": "supported",
+        "reason": "The accessibility improvements and use of Git workflows are supported by the project contribution report."
+      },
+      {
+        "statement_id": "course_001",
+        "status": "supported",
+        "reason": "The course completion date and content description are supported by the course evidence."
+      }
+    ],
+    "writing_notes": [
+      "All statements are supported by the provided evidence.",
+      "The candidate correctly identifies the cloud course as coursework rather than a professional certification.",
+      "The project descriptions accurately reflect the scope of the student prototype as described in the evidence."
+    ],
+    "evaluated_at": "2026-09-13T06:04:56.805228+00:00",
+    "id": "ec10a91b72b147b087ed27dce24821b3"
+  },
+  "uncertainty": [
+    "Source support is not independent verification of self-reported experience.",
+    "Same-model semantic review may share writer errors."
+  ],
+  "status": "completed",
+  "artifacts": [
+    {
+      "id": "94be3bfb6a1b4e79a59879313ace5abf",
+      "kind": "pdf",
+      "href": "/api/artifacts/94be3bfb6a1b4e79a59879313ace5abf"
+    },
+    {
+      "id": "54bf11bd1df64ee28eedb5339dd499d7",
+      "kind": "json",
+      "href": "/api/artifacts/54bf11bd1df64ee28eedb5339dd499d7"
+    },
+    {
+      "id": "241f81a69cb0439ba58aa5513a67aefc",
+      "kind": "markdown",
+      "href": "/api/artifacts/241f81a69cb0439ba58aa5513a67aefc"
+    }
+  ],
+  "preview_url": "/api/runs/aee66ce2b5384629a9e3424950026083/preview"
+}

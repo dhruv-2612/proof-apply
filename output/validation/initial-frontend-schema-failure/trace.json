@@ -1,0 +1,89 @@
+{
+  "run": {
+    "id": "f22c82b19a774f7793088c3cd08ecfae",
+    "status": "blocked",
+    "graph_stage": "requirements",
+    "mode": "gemini",
+    "version": 1,
+    "pending_question": null,
+    "error": {
+      "code": "provider_unavailable",
+      "message": "Model request unavailable. Check free quota/model access; no fallback was used."
+    },
+    "created_at": "2026-09-12T22:34:37.620869+00:00",
+    "updated_at": "2026-09-12T22:34:40.916046+00:00",
+    "model_attempts": 1,
+    "mock_calls": 0,
+    "revision_count": 0,
+    "research_calls": 0,
+    "clarification_count": 0,
+    "execution_elapsed_seconds": 3.28,
+    "capability_snapshot": {
+      "mode": "mock",
+      "model": "gemini-3.8-flash",
+      "live_processing_enabled": true,
+      "research_options": [
+        "provided_kb"
+      ],
+      "temporary_storage": true,
+      "synthetic_only_live": true,
+      "prompt_version": "v1",
+      "sdk_version": "2.23.0",
+      "url_context_enabled": false,
+      "limitations": [
+        "Stitch references unavailable; temporary design.",
+        "Personal documents are local/offline only."
+      ]
+    },
+    "role_title": "Junior Frontend Developer",
+    "company_name": "CedarWorks Labs",
+    "header": {
+      "name": "Mira Rao",
+      "contact": "mira@example.com"
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "f22c82b19a774f7793088c3cd08ecfae",
+        "time": "2026-09-12T22:34:37.734536+00:00",
+        "actor": "system",
+        "action": "start",
+        "summary": "Started an explicit gemini run.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "gemini",
+        "id": "594d2b95ac8c4ff491ff18da83ef28b6"
+      },
+      {
+        "seq": 2,
+        "run_id": "f22c82b19a774f7793088c3cd08ecfae",
+        "time": "2026-09-12T22:34:40.898570+00:00",
+        "actor": "provider",
+        "action": "request_failed",
+        "summary": "Model attempt failed (400); no more retries.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "error",
+        "mode": "gemini",
+        "id": "f815d4947fc347f7895f5355b0d62f28"
+      },
+      {
+        "seq": 3,
+        "run_id": "f22c82b19a774f7793088c3cd08ecfae",
+        "time": "2026-09-12T22:34:40.931597+00:00",
+        "actor": "system",
+        "action": "stopped",
+        "summary": "Run stopped: provider_unavailable. No verified artifacts released.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "error",
+        "mode": "gemini",
+        "id": "94e529aeb50d4e89986c5b24b4819a25"
+      }
+    ],
+    "next_cursor": 3
+  }
+}

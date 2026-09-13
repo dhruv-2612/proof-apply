@@ -52,6 +52,11 @@ def inspect_pdf(path,draft):
 
 def check_statements(draft,evidence,sources,requirements):
     issues=[];emap={e['id']:e for e in evidence};smap={s['id']:s for s in sources};rids={r['id'] for r in requirements}
+    # Multiword proper names found in approved evidence must retain their own
+    # citation (institutions, course providers, project names). This is a narrow
+    # literal safeguard, not general entity recognition or semantic proof.
+    name_pattern=r'\b[A-Z][A-Za-z]+(?:\s+(?:(?:of|the|and)\s+)?[A-Z][A-Za-z]+){1,5}\b'
+    source_names={name for e in evidence for name in re.findall(name_pattern,e['exact_excerpt'])}
     # Conflicting exact values for the same explicitly named fact remain blockers.
     anchored_values={}
     for e in evidence:
@@ -81,6 +86,15 @@ def check_statements(draft,evidence,sources,requirements):
             chunks={c['locator']:c['text'] for c in source['locator_map']}
             if normalized(e['exact_excerpt']) not in normalized(chunks.get(e['locator'],'')): issues.append(issue('invalid_excerpt','Evidence excerpt/locator does not match original source.',s))
         excerpts=' '.join(e['exact_excerpt'] for e in cited)
+        if s['section']=='Education' and 'expected graduation' in excerpts.lower() and not re.search(r'\b(expected|anticipated|pursuing|in.progress)\b',s['text'],re.I):
+            issues.append(issue('qualification_status','An expected qualification lost its expected/in-progress status.',s))
+        # Literal technical/credential names cannot borrow support from another
+        # statement's citations. Semantic review still checks proficiency/scope.
+        literal_terms=source_names | {'React','TypeScript','JavaScript','HTML','CSS','Git','Vitest','Docker','Kubernetes','Linux','Computer Science','B.Tech'}
+        for term in literal_terms:
+            pattern=r'(?<!\w)'+re.escape(term)+r'(?!\w)'
+            if re.search(pattern,s['text'],re.I) and not re.search(pattern,excerpts,re.I):
+                issues.append(issue('uncited_named_fact','Named fact '+term+' is absent from this statement\'s own cited excerpts. Remove the statement or cite the correct approved source and recheck.',s))
         numbers=set(re.findall(r'\d+(?:\.\d+)?%?',s['text']))
         if not numbers<=set(re.findall(r'\d+(?:\.\d+)?%?',excerpts)): issues.append(issue('exact_quantity','A number, date or percentage is absent from its cited excerpt.',s))
         # Conservative high-risk expansions also fail in deterministic code. Reviewer checks other semantics.
@@ -128,6 +142,8 @@ def release_gate(run,draft,evaluation,artifacts,store):
     if run['status'] in ('cancelled','expired') or not store.get(run['session_id']): errors.append('inactive_session_or_run')
     if not run.get('research_ok') or not run.get('matches'): errors.append('prerequisites_missing')
     if run['revision_count']>1 or run['model_attempts']>18: errors.append('budget_exceeded')
+    from .extraction import eligible_evidence
+    if check_statements(draft,eligible_evidence(store,run['session_id'],run['source_ids']),[s for s in store.list('source',run['session_id']) if s['id'] in run['source_ids']],run['requirements']): errors.append('current_source_checks_failed')
     current=draft_hash(draft)
     if draft['sha256']!=current or evaluation['draft_hash']!=current or evaluation['draft_id']!=draft['id']: errors.append('draft_hash_mismatch')
     if not evaluation['checks'].get('passed') or evaluation['semantic_review_status']!='passed' or any(i['severity']=='blocker' for i in evaluation['issues']): errors.append('evaluation_blocked')

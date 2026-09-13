@@ -60,3 +60,72 @@ def test_https_origin_works_behind_production_proxy(tmp_path):
         assert 'Secure' in response.headers['set-cookie']
         rejected=client.post('/api/sessions',json={'demo':True},headers={'Origin':'https://another.example'})
         assert rejected.status_code==403
+
+
+def test_portable_model_schema_keeps_strict_local_limits():
+    import json
+    from pydantic import ValidationError
+    from app.models import Requirements
+    from app.providers import gemini_schema
+    wire=gemini_schema(Requirements)
+    assert '$ref' not in json.dumps(wire) and '$defs' not in wire
+    assert wire['properties']['requirements']['items']['additionalProperties'] is False
+    data={'requirements':[{'id':'r','jd_source_id':'jd','text':'React','original_excerpt':'React','importance':'required','normalized_terms':[]}]}
+    Requirements.model_validate(data)
+    data['requirements'][0]['text']='x'*501
+    with pytest.raises(ValidationError): Requirements.model_validate(data)
+    data['requirements']=[]
+    with pytest.raises(ValidationError): Requirements.model_validate(data)
+
+
+def test_portable_schema_preserves_fields_named_like_keywords():
+    from pydantic import Field
+    from app.models import Strict
+    from app.providers import gemini_schema
+    class Named(Strict):
+        title:str=Field(max_length=10)
+        default:str
+    assert set(gemini_schema(Named)['properties'])=={'title','default'}
+
+
+def test_coordinator_generation_schema_limits_action_to_current_choices():
+    from types import SimpleNamespace
+    provider=GeminiProvider.__new__(GeminiProvider);provider.event=lambda *a,**k:None
+    schemas=[]
+    def request(body,config):
+        schemas.append(config.response_json_schema)
+        return SimpleNamespace(text='{"action":"draft","reason":"Render supported evidence with honest gaps."}')
+    provider._request=request
+    provider.call('coordinator',Decision,{'allowed_actions':['draft']})
+    assert schemas[0]['properties']['action']['enum']==['draft']
+
+
+def test_expected_qualification_cannot_become_unqualified_degree(client):
+    from app.artifacts import check_statements
+    from app.extraction import eligible_evidence
+    run=start(client,prepare(client));store=client.app.state.store;r=store.get(run['id'])
+    draft=store.get(r['draft_ids'][-1]);statement=next(s for s in draft['statements'] if 'expected graduation' in s['text'])
+    statement['text']=statement['text'].replace(', expected graduation','')
+    errors=check_statements(draft,eligible_evidence(store,r['session_id'],r['source_ids']),store.list('source',r['session_id']),r['requirements'])
+    assert any(e['category']=='qualification_status' for e in errors)
+
+
+def test_summary_cannot_borrow_technology_from_other_claims(client):
+    from app.artifacts import check_statements
+    from app.extraction import eligible_evidence
+    run=start(client,prepare(client));store=client.app.state.store;r=store.get(run['id'])
+    draft=store.get(r['draft_ids'][-1]);statement=next(s for s in draft['statements'] if 'B.Tech' in s['text'])
+    statement['text']+=' Practical React and TypeScript experience.'
+    errors=check_statements(draft,eligible_evidence(store,r['session_id'],r['source_ids']),store.list('source',r['session_id']),r['requirements'])
+    assert any(e['category']=='uncited_named_fact' for e in errors)
+
+
+def test_course_provider_requires_its_own_citation():
+    from app.artifacts import check_statements
+    evidence=[{'id':'completion','claim_id':'c1','source_id':'source','locator':'1','exact_excerpt':'Completed an introductory course.','context_excerpt':'Completed an introductory course.'},
+              {'id':'provider','claim_id':'c2','source_id':'source','locator':'2','exact_excerpt':'Provider: Acorn Learning Academy.','context_excerpt':'Provider: Acorn Learning Academy.'}]
+    sources=[{'id':'source','role':'candidate','locator_map':[{'locator':e['locator'],'text':e['exact_excerpt']} for e in evidence]}]
+    statement={'id':'s','section':'Coursework','text':'Completed an introductory course through Acorn Learning Academy.','evidence_ids':['completion'],'claim_ids':['c1'],'requirement_ids':[]}
+    assert any(e['category']=='uncited_named_fact' for e in check_statements({'statements':[statement]},evidence,sources,[]))
+    statement.update(evidence_ids=['completion','provider'],claim_ids=['c1','c2'])
+    assert check_statements({'statements':[statement]},evidence,sources,[])==[]

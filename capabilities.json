@@ -1,19 +1,37 @@
 {
-  "checked_at": "2026-09-13",
-  "model": null,
+  "model": "gemini-3.1-flash-lite",
   "sdk_version": "2.23.0",
-  "model_listing": "passed: metadata-only request repeated 2026-09-13",
-  "available_pricing_inspected_models": [
-    "gemini-3.8-flash",
-    "gemini-3.7-flash",
-    "gemini-3.6-flash",
-    "gemini-3.5-flash",
-    "gemini-3.1-flash-lite"
-  ],
-  "free_tier_attested": false,
-  "structured_output": "not_tested: free-tier confirmation pending",
-  "custom_function": "not_tested: free-tier confirmation pending",
-  "url_context": "not_tested: free-tier confirmation pending",
-  "search_grounding": "disabled: no verified zero-cost configuration",
-  "notes": "A model listing is not a generation, tool, quota, or billing entitlement check. No generation calls made."
+  "checked_at": "2026-09-13T05:56:33.673685+00:00",
+  "free_tier_attested": true,
+  "structured_output": "passed",
+  "custom_function": "passed",
+  "url_context": "passed",
+  "search_grounding": "disabled: inspected model pricing does not list free API search",
+  "known_quota_restrictions": "Account quotas apply; no paid fallback. Capability is not a billing guarantee.",
+  "schema_validation": "Actual nested Requirements schema; all local Pydantic bounds enforced.",
+  "structured_sample": {
+    "requirements": [
+      {
+        "id": "req-001",
+        "jd_source_id": "fixture-jd",
+        "text": "Experience with React.",
+        "original_excerpt": "Experience with React.",
+        "importance": "required",
+        "normalized_terms": [
+          "React",
+          "Frontend Development"
+        ]
+      }
+    ]
+  },
+  "url_metadata": [
+    {
+      "url_metadata": [
+        {
+          "retrieved_url": "https://ai.google.dev/gemini-api/docs",
+          "url_retrieval_status": "URL_RETRIEVAL_STATUS_SUCCESS"
+        }
+      ]
+    }
+  ]
 }

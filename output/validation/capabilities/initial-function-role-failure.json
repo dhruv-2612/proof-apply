@@ -1,0 +1,22 @@
+{
+  "model": "gemini-3.8-flash",
+  "sdk_version": "2.23.0",
+  "checked_at": "2026-09-12T22:32:24.001048+00:00",
+  "free_tier_attested": true,
+  "structured_output": "passed",
+  "custom_function": "failed: 400",
+  "url_context": "unverified: no successful retrieval metadata",
+  "search_grounding": "disabled: inspected model pricing does not list free API search",
+  "known_quota_restrictions": "Account quotas apply; no paid fallback. Capability is not a billing guarantee.",
+  "custom_function_error": "400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': \"Role 'tool' is not supported. Please use a valid role: SYSTEM, SYSTEM_1, USER, ASSISTANT, DEVELOPER, CONTEXT, USER_CONTEXT, MODEL, USER.\", 'status': 'INVALID_ARGUMENT'}}",
+  "url_metadata": [
+    {
+      "url_metadata": [
+        {
+          "retrieved_url": "https://about.google/",
+          "url_retrieval_status": "URL_RETRIEVAL_STATUS_ERROR"
+        }
+      ]
+    }
+  ]
+}
