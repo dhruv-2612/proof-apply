@@ -209,7 +209,7 @@ def create_app(config=settings, directory=None, provider_factory=None):
             name=line.lstrip('# ').strip()
             break
         head='\n'.join(lines[:12])
-        email=re.search(r'[\w.+-]+@[\w-]+\.[\w.]+',head)
+        email=re.search(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+',head)
         phone=''
         for match in re.finditer(r'\+?[\d][\d\s().-]{6,}[\d]',head):
             if len(re.sub(r'\D','',match.group(0)))>=10:
