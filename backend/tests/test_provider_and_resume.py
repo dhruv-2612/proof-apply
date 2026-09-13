@@ -129,3 +129,20 @@ def test_course_provider_requires_its_own_citation():
     assert any(e['category']=='uncited_named_fact' for e in check_statements({'statements':[statement]},evidence,sources,[]))
     statement.update(evidence_ids=['completion','provider'],claim_ids=['c1','c2'])
     assert check_statements({'statements':[statement]},evidence,sources,[])==[]
+
+
+def test_pdf_contact_header_does_not_discard_page_evidence(client):
+    import pymupdf
+    with pymupdf.open() as pdf:
+        page=pdf.new_page()
+        page.insert_text((50,50),'Mira Rao\nmira@example.com\nEDUCATION\nB.Tech in Computer Science.\nSKILLS\nReact, TypeScript, Git.\nPROJECTS\nAuthored 18 unit tests.')
+        data=pdf.tobytes()
+    client.post('/api/sessions',json={'demo':False})
+    response=client.post('/api/sources',data={'slot':'resume'},files={'file':('resume.pdf',data,'application/pdf')})
+    assert response.status_code==201
+    ledger=client.get('/api/evidence').json()
+    evidence=ledger['evidence']
+    assert any(e['category']=='Skills' and 'React' in e['exact_excerpt'] for e in evidence)
+    assert any('18 unit tests' in e['exact_excerpt'] for e in evidence)
+    assert all('@' not in e['exact_excerpt'] and e['locator']=='page 1' for e in evidence)
+    assert 'mira@example.com' in ledger['sources'][0]['extracted_text']

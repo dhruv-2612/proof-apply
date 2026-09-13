@@ -85,7 +85,11 @@ def add_source(store,session,slot,data,filename):
 def propose_evidence(store,session,source):
     section='Projects'
     current_entry=None
-    for chunk in source['locator_map']:
+    # PDF locators cover whole pages. Filter contact/header lines individually
+    # so one email address cannot discard every qualification on that page.
+    segments=({'locator':chunk['locator'],'text':line,'context':chunk['text']}
+              for chunk in source['locator_map'] for line in chunk['text'].splitlines() if line.strip())
+    for chunk in segments:
         txt=chunk['text']
         if txt.startswith('#') or (txt.isupper() and len(txt)<55):
             heading=txt.lstrip('# ').lower()
@@ -98,13 +102,13 @@ def propose_evidence(store,session,source):
         for sentence in re.split(r'(?<!\b[A-Z]\.)(?<=[.!?])\s+(?=[A-Z])|\n',txt):
             sentence=sentence.strip()
             if len(sentence)<10: continue
-            suspicious=bool(re.search(r'ignore .*rules|system (prompt|instruction)|give full marks|perfect ATS score|skip verification|api.key|follow these instructions',txt,re.I))
+            suspicious=bool(re.search(r'ignore .*rules|system (prompt|instruction)|give full marks|perfect ATS score|skip verification|api.key|follow these instructions',chunk['context'],re.I))
             negative=bool(re.search(r'\b(no |not |never |does not|did not|do not|unknown|unavailable|different teammate)',sentence,re.I))
             category=section
             if 'B.Tech' in sentence or 'graduation' in sentence.lower(): category='Education'
             if 'course' in sentence.lower(): category='Coursework'
             claim=uid()
-            store.add('evidence',session['id'],dict(source_id=source['id'],category=category,subject='candidate',entry_title=current_entry if category=='Experience' else None,atomic_claim=sentence,exact_excerpt=sentence,context_excerpt=txt,locator=chunk['locator'],support_status='unclear' if suspicious or negative else 'self_reported',support_basis='Exact local excerpt; candidate approval is not independent verification.',claim_id=claim,quantities=re.findall(r'\d+(?:\.\d+)?%?',sentence),created_at=now()))
+            store.add('evidence',session['id'],dict(source_id=source['id'],category=category,subject='candidate',entry_title=current_entry if category=='Experience' else None,atomic_claim=sentence,exact_excerpt=sentence,context_excerpt=chunk['context'],locator=chunk['locator'],support_status='unclear' if suspicious or negative else 'self_reported',support_basis='Exact local excerpt; candidate approval is not independent verification.',claim_id=claim,quantities=re.findall(r'\d+(?:\.\d+)?%?',sentence),created_at=now()))
 
 def decision_map(store,sid):
     result={}

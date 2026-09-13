@@ -1,0 +1,300 @@
+{
+  "run": {
+    "id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+    "status": "completed",
+    "graph_stage": "release_gate",
+    "mode": "mock",
+    "version": 1,
+    "pending_question": null,
+    "error": null,
+    "created_at": "2026-09-13T07:35:12.614301+00:00",
+    "updated_at": "2026-09-13T07:35:13.369225+00:00",
+    "model_attempts": 0,
+    "mock_calls": 9,
+    "revision_count": 0,
+    "research_calls": 1,
+    "clarification_count": 0,
+    "execution_elapsed_seconds": 0.75,
+    "capability_snapshot": {
+      "mode": "mock",
+      "model": null,
+      "live_processing_enabled": false,
+      "research_options": [
+        "provided_kb"
+      ],
+      "temporary_storage": true,
+      "synthetic_only_live": true,
+      "prompt_version": "v1; writer/reviewer v2",
+      "sdk_version": "2.23.0",
+      "url_context_enabled": false,
+      "limitations": [
+        "Stitch desktop references adapted; mobile layout uses the same design system.",
+        "Personal documents are local/offline only."
+      ]
+    },
+    "role_title": "Junior Frontend Developer",
+    "company_name": "CedarWorks Labs",
+    "header": {
+      "name": "Mira Rao",
+      "contact": "mira@example.com"
+    }
+  },
+  "events": {
+    "events": [
+      {
+        "seq": 1,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.642165+00:00",
+        "actor": "system",
+        "action": "start",
+        "summary": "Started an explicit mock run.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "fb4c0f6bd664457785c09d10978d328c"
+      },
+      {
+        "seq": 2,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.667000+00:00",
+        "actor": "requirements",
+        "action": "mock_result",
+        "summary": "Explicit offline requirements result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "9301bac5b1324e08992f33476a45ef80"
+      },
+      {
+        "seq": 3,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.696177+00:00",
+        "actor": "coordinator",
+        "action": "mock_result",
+        "summary": "Explicit offline coordinator result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "48d0ca3fcdb74dc8a36f38f2597c39f6"
+      },
+      {
+        "seq": 4,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.708004+00:00",
+        "actor": "coordinator",
+        "action": "research",
+        "summary": "Prerequisites permit research.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "c9ea9b8394494b22a8606478eff03da8"
+      },
+      {
+        "seq": 5,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.728998+00:00",
+        "actor": "research",
+        "action": "mock_result",
+        "summary": "Explicit offline research result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "b8f38c25a2e04723866d2fddfb2119b1"
+      },
+      {
+        "seq": 6,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.743121+00:00",
+        "actor": "researcher",
+        "action": "inspect_company_kb",
+        "summary": "Inspected supplied company knowledge.",
+        "source_ids": [
+          "02f6a24bb8c9438d9050295d6bb8ab70"
+        ],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "19fb66c7f3ca48cd84240aceb22320dc"
+      },
+      {
+        "seq": 7,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.765476+00:00",
+        "actor": "coordinator",
+        "action": "mock_result",
+        "summary": "Explicit offline coordinator result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "7b5fb49dcd73460da1c02f3ffe4be8b1"
+      },
+      {
+        "seq": 8,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.778649+00:00",
+        "actor": "coordinator",
+        "action": "assess_fit",
+        "summary": "Prerequisites permit assess fit.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "0b64ec02991f4807b3d11da2e5112b2d"
+      },
+      {
+        "seq": 9,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.800332+00:00",
+        "actor": "fit",
+        "action": "mock_result",
+        "summary": "Explicit offline fit result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "c4b291f174af4fc4ab15f9b374b0c087"
+      },
+      {
+        "seq": 10,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.813019+00:00",
+        "actor": "fit_analyst",
+        "action": "coverage",
+        "summary": "Mapped 7 requirements; 1 have no supporting evidence.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "7ea578f74c9d4efab101be1b340a0fd5"
+      },
+      {
+        "seq": 11,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.836498+00:00",
+        "actor": "coordinator",
+        "action": "mock_result",
+        "summary": "Explicit offline coordinator result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "dd51f300254e4548a1fb02158592e9aa"
+      },
+      {
+        "seq": 12,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.852143+00:00",
+        "actor": "coordinator",
+        "action": "draft",
+        "summary": "Prerequisites permit draft.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "f619119503fc48e8b7071cd191519e7f"
+      },
+      {
+        "seq": 13,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:12.873067+00:00",
+        "actor": "writer",
+        "action": "mock_result",
+        "summary": "Explicit offline writer result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "0e324ca034de41b8a47d8154ceadf408"
+      },
+      {
+        "seq": 14,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.217157+00:00",
+        "actor": "renderer",
+        "action": "render_resume",
+        "summary": "Rendered draft 1; 1 A4 page(s).",
+        "source_ids": [],
+        "result_ids": [
+          "a61e7644c7354b758b1b45c4a848a993"
+        ],
+        "status": "ok",
+        "mode": "mock",
+        "id": "98f7c874445848859f90bbfbf7a91717"
+      },
+      {
+        "seq": 15,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.248820+00:00",
+        "actor": "reviewer",
+        "action": "mock_result",
+        "summary": "Explicit offline reviewer result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "b55146710e9f4859bca48f59db67f754"
+      },
+      {
+        "seq": 16,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.270194+00:00",
+        "actor": "reviewer",
+        "action": "evaluation",
+        "summary": "Source and PDF checks passed.",
+        "source_ids": [],
+        "result_ids": [
+          "b263399136de4096bd632e44bab62205"
+        ],
+        "status": "ok",
+        "mode": "mock",
+        "id": "c40c677b2c4e447e9ab36ef610b96057"
+      },
+      {
+        "seq": 17,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.292741+00:00",
+        "actor": "coordinator",
+        "action": "mock_result",
+        "summary": "Explicit offline coordinator result generated. No model request.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "45e4c90dca774e859f5330ce1b64f94c"
+      },
+      {
+        "seq": 18,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.307640+00:00",
+        "actor": "coordinator",
+        "action": "finalize",
+        "summary": "Evaluated draft is ready for the independent release gate.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "ff2c8a98abbf475bae9dfdc3e3ecd6b8"
+      },
+      {
+        "seq": 19,
+        "run_id": "11cc8cae4a8143338c4cb4b47bf13ec7",
+        "time": "2026-09-13T07:35:13.377344+00:00",
+        "actor": "release_gate",
+        "action": "finalize",
+        "summary": "Released the checked PDF and matching reports.",
+        "source_ids": [],
+        "result_ids": [],
+        "status": "ok",
+        "mode": "mock",
+        "id": "cebeb77072b64abeacfa9a9fab03696a"
+      }
+    ],
+    "next_cursor": 19
+  }
+}

@@ -12,13 +12,19 @@
     "private_path_/data/proofapply.db": true,
     "cross_session_run_404": true,
     "cross_session_artifact_404": true,
-    "pdf_upload_extracted": false,
-    "cleared_session_unavailable": true
+    "pdf_upload_extracted": true,
+    "cleared_session_unavailable": true,
+    "old_session_unavailable_after_replacement": true
   },
   "memory_limit_mib": 512,
   "observed_memory": "149.4 MiB after fictional run; not peak",
   "oom_killed": false,
   "mode": "mock",
   "model_attempts": 0,
-  "linux_pytest": "not run: runtime image intentionally excludes pytest"
+  "linux_pytest": "not run: runtime image intentionally excludes pytest",
+  "pdf_upload_evidence_count": 12,
+  "regression_fixed": "PDF email header previously skipped an entire page; line-level filtering now preserves page locators, original context and non-contact evidence.",
+  "final_image": "sha256:ffcf918be342463a55617847e01fa73c886694573b233cf98683e0fcbed7de35",
+  "final_image_secret_exclusion": "passed",
+  "validation_container": "removed after checks; image retained"
 }

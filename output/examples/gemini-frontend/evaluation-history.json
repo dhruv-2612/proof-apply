@@ -1,0 +1,70 @@
+[
+  {
+    "draft_id": "eb9f37637ff94151beb815b023dd5ef5",
+    "draft_hash": "149eab56f5e703c0a509dcc5afa532cf8bc1080c8c0a30cdac7996c983e094ff",
+    "pdf_hash": "88098198b9f064805b6b9d35e8427392fdb3a5ee583767030c45387a06cfd771",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "88098198b9f064805b6b9d35e8427392fdb3a5ee583767030c45387a06cfd771"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "edu_01",
+        "status": "supported",
+        "reason": "The education details, including the degree, institution, and expected graduation date, are supported by the provided evidence."
+      },
+      {
+        "statement_id": "skill_01",
+        "status": "supported",
+        "reason": "The listed skills are directly supported by the candidate's self-reported skills evidence."
+      },
+      {
+        "statement_id": "proj_01",
+        "status": "supported",
+        "reason": "The project name, dates, and core technologies used are supported by the project contribution report."
+      },
+      {
+        "statement_id": "proj_02",
+        "status": "supported",
+        "reason": "The implementation of form validation, loading indicators, error messages, and REST API integration is supported by the project contribution report."
+      },
+      {
+        "statement_id": "proj_03",
+        "status": "supported",
+        "reason": "The number of unit tests, accessibility features, and manual verification are supported by the project contribution report."
+      },
+      {
+        "statement_id": "proj_04",
+        "status": "supported",
+        "reason": "The use of Git workflows and the nature of the project as a student prototype are supported by the project contribution report."
+      },
+      {
+        "statement_id": "course_01",
+        "status": "supported",
+        "reason": "The course completion, provider, and date are supported by the provided course evidence."
+      }
+    ],
+    "writing_notes": [
+      "All statements are supported by the provided evidence.",
+      "The candidate correctly identified the project as a student prototype and the course as a student-club completion, avoiding inflated claims."
+    ],
+    "evaluated_at": "2026-09-13T06:18:37.927294+00:00",
+    "id": "3b4ef97a573a484aa4503635032fe748"
+  }
+]

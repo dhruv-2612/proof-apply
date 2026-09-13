@@ -1,0 +1,59 @@
+[
+  {
+    "case": "frontend",
+    "model": "gemini-3.1-flash-lite",
+    "model_attempts": 9,
+    "mock_calls": 0,
+    "revisions": 0,
+    "research_calls": 1,
+    "source_count": 5,
+    "statement_count": 7,
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "manual_claim_review": "passed",
+    "manual_pdf_review": "passed",
+    "final_gate_rechecked": "passed"
+  },
+  {
+    "case": "platform",
+    "model": "gemini-3.1-flash-lite",
+    "model_attempts": 10,
+    "mock_calls": 0,
+    "revisions": 0,
+    "research_calls": 1,
+    "source_count": 5,
+    "statement_count": 4,
+    "coverage": {
+      "numerator": 1,
+      "denominator": 9,
+      "percent": 11.11111111111111,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "manual_claim_review": "passed",
+    "manual_pdf_review": "passed",
+    "final_gate_rechecked": "passed"
+  },
+  {
+    "case": "feedback",
+    "model": "gemini-3.1-flash-lite",
+    "model_attempts": 12,
+    "mock_calls": 0,
+    "revisions": 1,
+    "research_calls": 1,
+    "source_count": 5,
+    "statement_count": 4,
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "manual_claim_review": "passed",
+    "manual_pdf_review": "passed",
+    "final_gate_rechecked": "passed"
+  }
+]

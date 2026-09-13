@@ -2,7 +2,7 @@
 
 Truthful resume preparation for Tech Zephyr 4.0, Problem Statement 11. One FastAPI service serves a Next.js static export and runs a bounded LangGraph workflow. The result is an A4, single-column resume PDF plus source-linked Markdown and JSON reports.
 
-**Local offline flow works. The six Stitch desktop designs are retrieved and adapted. Live Gemini generation and Linux container execution remain unverified. This is not marked acceptance-complete or deployed.** See [BUILD_STATUS.md](BUILD_STATUS.md) for the latest measured results.
+**Local acceptance passes: three inspected real-Gemini packages, six retrieved/adapted Stitch designs, and a working Linux Docker container. Public deployment is deferred.** See [BUILD_STATUS.md](BUILD_STATUS.md) for the latest measured results.
 
 ## Start on this Windows workspace
 
@@ -10,7 +10,7 @@ Double-click `start-local.cmd`, or run it from a terminal. Open **http://127.0.0
 
 1. Choose **Load fictional sample**.
 2. Inspect the original excerpts in **Evidence**. **Approve supported excerpts** includes the extracted positive statements and excludes unclear/context excerpts; individual decisions are also available.
-3. Select the explicitly labeled **Offline · mock provider** mode and choose **Build my resume**.
+3. Select **Live Gemini · fictional data** for the verified model, or the explicitly labeled **Offline · mock provider** mode and choose **Build my resume**.
 4. Inspect the actual activity, checks, role gaps and original claim sources. Download the PDF and both reports.
 5. Use **Clear temporary session** to start again. No accounts or permanent history are provided.
 
@@ -46,29 +46,29 @@ Use the exported UI through FastAPI for one-origin operation. `next dev` alone h
 
 ## Gemini and zero-cost policy
 
-The existing `.env` is preserved and ignored by Git. Secrets never enter the frontend bundle. [Google's pricing](https://ai.google.dev/gemini-api/docs/pricing), [official SDK](https://googleapis.github.io/python-genai/), and model metadata were inspected. The configured key successfully listed models. **A metadata listing does not prove free generation quota, tool access, or billing status.** No generation calls have been made in the recorded build so far.
+The existing `.env` is preserved and ignored by Git. Secrets never enter the frontend bundle. [Google's pricing](https://ai.google.dev/gemini-api/docs/pricing), [official SDK](https://googleapis.github.io/python-genai/), and model metadata were inspected. The user confirmed this workspace key is Free tier with no payment method or credits. Gemini 3.1 Flash-Lite passed actual structured-output, function and URL Context probes, plus three manually accepted end-to-end cases. **A metadata listing alone does not prove free generation quota, tool access, or billing status.**
 
-Before any generation probe, confirm in Google AI Studio that the project associated with the key is on the **Free tier with billing disabled**. No code flag can guarantee Google's billing state. Never enable billing or try a paid fallback.
+For a different key/account, confirm in Google AI Studio that its project is on the **Free tier with billing disabled** before generation. No code flag can guarantee Google's billing state. Never enable billing or try a paid fallback.
 
 After that confirmation, select a currently free, available model from the probe's inspected allowlist and run:
 
 ```powershell
 backend/.venv/Scripts/python.exe backend/scripts/capability_probe.py --list
-backend/.venv/Scripts/python.exe backend/scripts/capability_probe.py --model gemini-3.8-flash --confirm-free-tier
+backend/.venv/Scripts/python.exe backend/scripts/capability_probe.py --model gemini-3.1-flash-lite --confirm-free-tier
 ```
 
-The second command performs fictional structured-output and explicit function-call round-trip checks and a separate public URL Context probe. It saves a sanitized `capabilities.json`. A failed probe stays failed. Search grounding is disabled; no zero-cost search configuration has been verified. The current unprobed configuration uses supplied company knowledge. URL Context is enabled only for a model whose separate probe passed. The UI uses the KB path; approved URLs can also be added through the source API.
+The second command performs fictional structured-output and explicit function-call round-trip checks and a separate public URL Context probe. It saves a sanitized `capabilities.json`. A failed probe stays failed. Search grounding is disabled; no zero-cost search configuration has been verified. The verified demonstration uses supplied company knowledge. URL Context is enabled only for a model whose separate probe passed. The UI uses the KB path; approved URLs can also be added through the source API.
 
 Only after structured output and the custom function probe pass, configure these values without changing the key:
 
 ```dotenv
-GEMINI_MODEL=gemini-3.8-flash
+GEMINI_MODEL=gemini-3.1-flash-lite
 FREE_TIER_CONFIRMED=true
-LLM_MODE=gemini
+LLM_MODE=mock
 ALLOW_PAID_SERVICES=false
 ```
 
-Restart the service, explicitly select live mode in the UI, and run the server-verified fictional fixtures. Prove at least a normal and a missing-qualification journey, then inspect the resulting claim/source pairs and PDF. The official SDK supports the `models.generate_content` response-schema interface used here; built-in tools are probed separately. No automatic mode or model fallback exists.
+Restart the service, explicitly select live mode in the UI, and run the server-verified fictional fixtures. Accepted normal, missing-qualification and controlled-feedback packages are under `output/examples/gemini-*/`, with actual traces and manual review records. The official SDK supports the `models.generate_content` response-schema interface used here; built-in tools are probed separately. No automatic mode or model fallback exists.
 
 **Real personal resumes are local/offline only.** The unpaid Gemini processing restrictions apply to the whole personal history, not merely email removal. The live API refuses non-fixture candidate/company sources even if the browser claims they are fictional. Header name/contact fields are copied locally by the renderer and excluded from model requests. On a hosted service, those fields temporarily reside on that server.
 
@@ -79,7 +79,7 @@ Restart the service, explicitly select live mode in the UI, and run the server-v
 - A conditional LangGraph coordinator receives code-owned legal actions. Successful research and fit are prerequisites to writing. The platform fixture performs an additional exact-source lookup. Research failure can fall back to a supplied KB or pause for clarification.
 - Local checkpoints use SQLite; Render uses memory. Human replies check question ID, run version and idempotency key. One worker executes one run at a time; there is no durable queue.
 - Gemini tasks use separate prompts for coordination, requirements, research choice, fit, writing and independent semantic review. Tools, rendering, storage and release checks are ordinary Python code. The mock provider is an explicit extractive demonstration, not a semantic substitute for live AI.
-- Hard gates validate evidence/claim/requirement relations, source roles, quantities, high-risk wording, detected conflicts, reviewer completeness, page count, selectable PDF text, bounds, font size and exact content/order. Same-model review can still share errors; source support is not external fact verification.
+- Hard gates validate evidence/claim/requirement relations, source roles, quantities, expected qualification status, per-statement technology/proper-name citations, high-risk wording, detected conflicts, reviewer completeness, page count, selectable PDF text, bounds, font size and exact content/order. Same-model review can still share errors; source support is not external fact verification.
 - At most 18 model attempts, two research actions, two human pauses, one rewrite and 600 active seconds. Every rewrite gets a new hash, PDF and evaluation. Factual/layout uncertainty produces `needs_review` with downloads disabled.
 - Reports record research provenance, matches/gaps, final claim links, edits, base omissions, dropped draft claims, counters and final hashes. The download route rechecks artifact integrity. A cancelled or expired run cannot release late results.
 - Cookies are opaque, HttpOnly and SameSite Strict. Source/run/artifact access is session-scoped. Cross-origin writes are rejected. Sessions expire after two hours; a periodic in-process cleanup deletes temporary files/records. Hosting restarts can interrupt runs.
@@ -93,11 +93,11 @@ npm.cmd --prefix frontend run build
 $env:PLAYWRIGHT_BROWSERS_PATH="$PWD/.tools/browsers"
 npx.cmd --prefix frontend playwright install chromium
 npm.cmd --prefix frontend run test:ui
-backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode mock --scenario frontend
-backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode mock --scenario platform
+backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode mock --scenario frontend --output-label mock-frontend-rehearsal-01
+backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode mock --scenario platform --output-label mock-platform-rehearsal-01
 ```
 
-Start FastAPI before browser/example checks. UI tests cover 1440px and 390px, keyboard entry and drawer dismissal, source review, real generation/downloads, refresh recovery and invalid upload errors. `output/qa/` contains captured screenshots; `output/examples/` contains explicitly labeled fictional outputs and traces. Failure-injection tests demonstrate application behavior, not spontaneous Gemini hallucinations.
+Start FastAPI before browser/example checks. Run browser tests when the single worker is idle. Example scripts refuse to overwrite an existing trace: choose a new `--output-label` for each rehearsal. UI tests cover 1440px and 390px, keyboard entry and drawer dismissal, source review, real generation/downloads, refresh recovery and invalid upload errors. `output/qa/` contains captured screenshots; `output/examples/` contains explicitly labeled fictional outputs and traces. Failure-injection tests demonstrate application behavior, not spontaneous Gemini hallucinations.
 
 The supplied real DOCX and Amazon JD also parse locally. To reproduce their local-only parser/layout rehearsal:
 
@@ -111,13 +111,13 @@ Its private outputs are excluded from Git under `output/private/`. It never call
 
 All six screens from Stitch project `11030537791420483270` were retrieved through its MCP connection, including screenshots and HTML exports. The UI adapts their horizontal navigation, mint palette, paired workspace panels and source comparison. [design/STITCH-MANIFEST.md](design/STITCH-MANIFEST.md) records actual screen IDs, assets, inspection and deliberate differences. Desktop and mobile browser captures were compared with the references. No separate mobile frame was returned; the app uses a system-font fallback and makes no pixel-perfect claim. Raw design exports remain reference files and are not served by the app.
 
-`Dockerfile` builds the static frontend in a Node stage and serves it with FastAPI/one Uvicorn worker in Python 3.11. `render.yaml` explicitly selects one Free web service and provisions no disk, worker, paid database or domain. **Docker is absent on the build machine, so this Linux image has not been built or executed.**
+`Dockerfile` builds the static frontend in a Node stage and serves it with FastAPI/one Uvicorn worker in Python 3.11. `render.yaml` explicitly selects one Free web service and provisions no disk, worker, paid database or domain. **The Linux image was built and tested locally under a 512 MiB memory limit.** Health, PDF upload, full mock generation, downloads, isolation, restart and container replacement passed; no Gemini key was placed in that validation container.
 
-When Docker is available, first test locally:
+To reproduce the local container (use port 8001 alongside the Windows service):
 
 ```sh
 docker build -t proofapply .
-docker run --rm -p 8000:8000 -e APP_ENV=development -e CHECKPOINT_BACKEND=memory proofapply
+docker run --rm -p 127.0.0.1:8001:8000 --memory=512m -e APP_ENV=development -e CHECKPOINT_BACKEND=memory proofapply
 ```
 
 Repeat health, fixture, download and restart checks. Only publish after the team supplies its Render account/destination and explicitly requests deployment. Verify the then-current free plan and actual URL; a YAML file is not deployment evidence. Render Free storage is temporary and idle services sleep. Keep the local app and downloaded outputs ready. Hosted live runs default to disabled; a server-side `DEMO_ACCESS_CODE` or deliberate `PUBLIC_LIVE_RUNS` configuration is required in addition to the free-tier/probe gates.
@@ -127,3 +127,17 @@ Repeat health, fixture, download and restart checks. Only publish after the team
 PyMuPDF uses AGPL/commercial licensing; it is **not MIT**. Review upstream and project distribution obligations before publication. Other key libraries include WeasyPrint (BSD), python-docx (MIT), FastAPI (MIT), LangGraph (MIT) and google-genai (Apache-2.0); transitive dependencies retain their own licenses. No project-wide license is invented for the team's submission.
 
 No OCR, arbitrary repository crawling, paid search, accounts, application submission or cover letters. The offline matcher recognizes the fictional technology vocabulary and conservatively reports other requirements as missing; it is not a general natural-language fit model. Deterministic conflict rules are conservative and narrow; live review remains essential for arbitrary paraphrases. One-page content cuts may omit relevant source details, all visible in the report. The UI intentionally exposes only the user-requested one-page layout, although the backend accepts a two-page cap.
+
+## Live validation record
+
+The accepted Gemini 3.1 Flash-Lite cases made 9, 10 and 12 model attempts respectively (normal, platform gaps, controlled feedback), with zero mock calls. The feedback case rejected a deliberately injected 40% claim and rerendered/rechecked its only revision. Manual review caught citation problems in earlier attempts; those are archived as not accepted under `output/validation/`. See [docs/EVALUATION.md](docs/EVALUATION.md) and [BUILD_STATUS.md](BUILD_STATUS.md).
+
+The live frontend case reports 93.33% because the model split REST integration and error handling into separate requirements; the fixed offline fixture reports 92.31%. Both disclose the same Docker gap. These small-example ratios are not hiring predictions.
+
+```powershell
+backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode gemini --scenario frontend --output-label live-frontend-rehearsal-01
+backend/.venv/Scripts/python.exe backend/scripts/run_example.py --mode gemini --scenario platform --output-label live-platform-rehearsal-01
+backend/.venv/Scripts/python.exe backend/scripts/run_live_feedback.py --output-label live-controlled-rehearsal-01
+```
+
+The final command is an explicitly controlled evaluation, not the normal product path. It appends an unsupported metric to the first actual model draft so the real reviewer/revision path can be evaluated. Use fictional fixtures only.

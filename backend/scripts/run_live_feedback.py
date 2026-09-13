@@ -1,5 +1,5 @@
 ﻿"""Explicit live evaluation with one controlled bad claim; never a normal demo mode."""
-import json, sys, time
+import argparse, json, sys, time
 from pathlib import Path
 from uuid import uuid4
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -18,9 +18,15 @@ class ControlledFeedback(GeminiProvider):
         return result
 
 if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-label',default='gemini-feedback')
+    args=parser.parse_args()
+    if not args.output_label or any(c not in 'abcdefghijklmnopqrstuvwxyz0123456789-' for c in args.output_label):parser.error('Output label must use lowercase letters, numbers and hyphens.')
+    out=ROOT/'output/examples'/args.output_label
+    if (out/'trace.json').exists():parser.error('Output label already contains a run. Choose a fresh --output-label.')
     if not settings.live_ready():raise SystemExit('Live free-tier capability gate is not ready. No request sent.')
     config=settings.model_copy(update={'data_dir':ROOT/'tmp'/('live-feedback-'+uuid4().hex),'checkpoint_backend':'memory'})
-    out=ROOT/'output/examples/gemini-feedback';out.mkdir(parents=True,exist_ok=True)
+    out.mkdir(parents=True,exist_ok=True)
     with TestClient(create_app(config,provider_factory=ControlledFeedback)) as client:
         client.post('/api/sessions',json={'demo':True}).raise_for_status()
         response=client.post('/api/demo',json={'scenario':'frontend'});response.raise_for_status();info=response.json()

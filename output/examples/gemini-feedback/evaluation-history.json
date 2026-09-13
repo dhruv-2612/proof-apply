@@ -1,0 +1,154 @@
+[
+  {
+    "draft_id": "7487fc6bd5fe4b85a0503c6eeacb2344",
+    "draft_hash": "95e750c703e70727d9f2a9221af31f31fe20f2aff20f7f25c362ffd02496a234",
+    "pdf_hash": "33f50a223903c3b3d01544991f2e1fb764cf3c7c0ffb29e6dffed21308507604",
+    "checks": {
+      "passed": false,
+      "source_rules": false,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "33f50a223903c3b3d01544991f2e1fb764cf3c7c0ffb29e6dffed21308507604"
+      }
+    },
+    "issues": [
+      {
+        "id": "253c0a3c74d5411e82e5055a10f25210",
+        "category": "exact_quantity",
+        "severity": "blocker",
+        "statement_ids": [
+          "s3"
+        ],
+        "evidence_ids": [
+          "8439f9e560aa43799b433a9abc863065",
+          "9df210b12589434bb375c33cfe256f38",
+          "a7708216f5754d8fa303fa42bf2069dc"
+        ],
+        "explanation": "A number, date or percentage is absent from its cited excerpt.",
+        "suggested_action": "Remove or correct using eligible original evidence, then rerender and recheck."
+      },
+      {
+        "id": "fc6755906f0440819f8d1b83345c13fb",
+        "category": "semantic_support",
+        "severity": "blocker",
+        "statement_ids": [
+          "s3"
+        ],
+        "evidence_ids": [
+          "8439f9e560aa43799b433a9abc863065",
+          "9df210b12589434bb375c33cfe256f38",
+          "a7708216f5754d8fa303fa42bf2069dc"
+        ],
+        "explanation": "The claim of a 40% reduction in booking time is not supported by the provided evidence; the evidence explicitly states that no measured time saving is claimed.",
+        "suggested_action": "Remove or correct using eligible original evidence, then rerender and recheck."
+      }
+    ],
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "failed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "s1",
+        "status": "supported",
+        "reason": "The education details, including the degree, institution, and expected graduation date, are supported by the provided evidence."
+      },
+      {
+        "statement_id": "s2",
+        "status": "supported",
+        "reason": "The listed skills are directly supported by the candidate's self-reported skills list."
+      },
+      {
+        "statement_id": "s3",
+        "status": "contradicted",
+        "reason": "The claim of a 40% reduction in booking time is not supported by the provided evidence; the evidence explicitly states that no measured time saving is claimed."
+      },
+      {
+        "statement_id": "s4",
+        "status": "supported",
+        "reason": "The implementation of form validation, loading indicators, error messages, and REST API integration is supported by the project contribution report."
+      },
+      {
+        "statement_id": "s5",
+        "status": "supported",
+        "reason": "The number of unit tests, the use of Vitest, and the accessibility work are supported by the project contribution report."
+      },
+      {
+        "statement_id": "s6",
+        "status": "supported",
+        "reason": "The use of Git branches and pull requests within a three-person group is supported by the project contribution report."
+      },
+      {
+        "statement_id": "s7",
+        "status": "supported",
+        "reason": "The completion of the cloud foundations course in June 2026 is supported by the provided evidence."
+      }
+    ],
+    "writing_notes": [
+      "Statement s3 contains an unsupported metric (40% reduction in booking time) which contradicts the evidence source explicitly stating no such claim is made.",
+      "All other statements are supported by the provided evidence excerpts."
+    ],
+    "evaluated_at": "2026-09-13T06:07:42.413740+00:00",
+    "id": "124ad848f2204667ac90253d5072ee75"
+  },
+  {
+    "draft_id": "1a65572e66f6408d9096403197f0ca52",
+    "draft_hash": "7ec091b5958c598d7b5642ed3510bc6c4c460a2c22d7697d09d4885c12ed4869",
+    "pdf_hash": "783ce5d290a925e0eddd604fcb0f4c764d4c5c6807e4319623d7043bedc56f73",
+    "checks": {
+      "passed": true,
+      "source_rules": true,
+      "pdf": {
+        "passed": true,
+        "issues": [],
+        "page_count": 1,
+        "selectable_text": true,
+        "sha256": "783ce5d290a925e0eddd604fcb0f4c764d4c5c6807e4319623d7043bedc56f73"
+      }
+    },
+    "issues": [],
+    "coverage": {
+      "numerator": 14,
+      "denominator": 15,
+      "percent": 93.33333333333333,
+      "meaning": "Documented source coverage; not hiring likelihood or a commercial ATS score."
+    },
+    "semantic_review_status": "passed",
+    "semantic_review_mode": "gemini",
+    "verdicts": [
+      {
+        "statement_id": "s1",
+        "status": "supported",
+        "reason": "The education details, including the B.Tech degree, institution, and expected graduation date, are supported by the provided evidence."
+      },
+      {
+        "statement_id": "s2",
+        "status": "supported",
+        "reason": "The listed skills are directly supported by the candidate's self-reported skills section."
+      },
+      {
+        "statement_id": "s3",
+        "status": "supported",
+        "reason": "All project details, including the timeline, specific technical contributions, testing, accessibility work, and Git usage, are supported by the project contribution report."
+      },
+      {
+        "statement_id": "s4",
+        "status": "supported",
+        "reason": "The course completion, provider, and date are supported by the provided course evidence."
+      }
+    ],
+    "writing_notes": [
+      "All statements are supported by the provided evidence.",
+      "The candidate correctly identified the cloud foundations course as coursework rather than a professional certification."
+    ],
+    "evaluated_at": "2026-09-13T06:07:51.953768+00:00",
+    "id": "2d6697621b844d7f9460679d86e26200"
+  }
+]
