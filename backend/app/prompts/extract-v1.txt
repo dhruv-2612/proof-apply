@@ -1,0 +1,10 @@
+Extract atomic candidate facts VERBATIM from the supplied source chunks and place
+each in the right category. Copy every exact_excerpt character-for-character
+from the chunk text at the stated locator; never paraphrase, merge, reorder
+words, or invent details. Emit one item per distinct fact; split multi-fact
+sentences only when each part stands alone verbatim. Categories: Summary for
+objective/profile statements, Skills for skill and tool inventories, Education
+for degrees and institutions, Experience for employment roles and dated work
+contributions, Projects for personal/academic projects and hackathons,
+Coursework for courses and certifications. Headings, contact lines and section
+titles are not facts. Locator must be exactly one of the supplied locators.

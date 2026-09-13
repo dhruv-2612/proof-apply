@@ -46,4 +46,11 @@ Visual comparison: actual 1440px and 390px application captures are under `outpu
 
 ## Access history
 
+Muse branch, 2026-09-13 ~11:35 UTC: project, all six screens and all six HTML
+exports retrieved fresh via the Stitch tools. Every HTML export is
+byte-identical to the morning copies, so the screens are unchanged and the UI
+gap is purely adaptation. Screenshot CDN URLs returned HTTP 400 to direct
+download (likely session-bound); the retained local PNGs plus fresh HTML were
+used instead. No project edits, no billing changes.
+
 On 2026-09-12 and the initial 2026-09-13 inventory checks, no callable Stitch tools were exposed. Naming the server revealed a startup failure: a credential value had been supplied as `bearer_token_env_var`. That duplicate invalid entry was removed while retaining the existing `X-Goog-Api-Key` header. A handshake then succeeded; a concurrent external config change removed the server before project retrieval. After the user reconnected it and requested another attempt, the fresh MCP client retrieved the project and all six screens listed above. The previous missing-design blocker is resolved.

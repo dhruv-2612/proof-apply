@@ -40,6 +40,10 @@ class Store:
             if row.kind in ('source','evidence','event','draft','evaluation','decision'): raise ValueError('Immutable record')
             row.payload={**payload,'id':id}; db.add(row); db.commit()
             return row.payload
+    def delete(self, id):
+        with self.lock, Session(self.engine) as db:
+            row=db.get(Record,id)
+            if row: db.delete(row); db.commit()
     def folder(self, session_id):
         # IDs always come from our session store, never filenames.
         if len(session_id)!=32 or any(c not in '0123456789abcdef' for c in session_id): raise ValueError('Invalid session')

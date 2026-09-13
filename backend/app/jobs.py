@@ -12,6 +12,13 @@ from .providers import MockProvider, GeminiProvider, ProviderError
 from .extraction import eligible_evidence, normalized, add_source
 from .artifacts import *
 
+def brief_substantive(brief):
+    """A model-knowledge company brief counts only when it says something real:
+    a non-trivial summary plus at least three substantial facts. Otherwise the
+    run must fall back to supplied KB or a manual clarification."""
+    facts=[f for f in brief.key_facts if len(f.strip())>=20]
+    return len(brief.summary.strip())>=100 and len(facts)>=3
+
 class GraphState(TypedDict):
     run_id: str
     next_action: str
@@ -83,6 +90,9 @@ class Jobs:
             remaining_sources=[s for s in sources() if s['role']=='company' and s['id'] not in run.get('attempted_research_sources',[])]
             if not run['research_ok']:
                 if remaining_sources and run['research_calls']<min(2,self.config.max_research_calls): return ['research']
+                # Muse: live runs may attempt one model-knowledge company brief before
+                # asking the user. Mock runs keep the manual path.
+                if run['mode']=='gemini' and not run.get('attempted_brief') and run['research_calls']<min(2,self.config.max_research_calls): return ['research','ask_user','blocked']
                 if run['clarification_count']<min(2,self.config.max_clarifications): return ['ask_user','blocked']
                 return ['blocked']
             if not run['matches']: return ['assess_fit']
@@ -104,6 +114,26 @@ class Jobs:
             return {'next_action':decision.action}
         def research(state):
             stage('research');available=[s for s in sources() if s['role']=='company' and s['id'] not in run.get('attempted_research_sources',[])]
+            if not available:
+                # No supplied company source: one model-knowledge brief attempt in live
+                # mode, honestly labeled. Thin or failed briefs keep research_ok False
+                # so the coordinator falls back to a manual clarification.
+                if run['mode']!='gemini' or run.get('attempted_brief'): raise ProviderError('research_budget_exhausted')
+                if run['research_calls']>=2: raise ProviderError('research_budget_exhausted')
+                run['research_calls']+=1;run['attempted_brief']=True
+                try:
+                    brief=provider.call('company_brief',CompanyBrief,{'role':run['role_title'],'company':run['company_name'],'requirements':[r['text'] for r in run['requirements']][:20]})
+                except ProviderError as exc:
+                    save();event('researcher','company_brief','Model company knowledge unavailable ('+exc.code+'); manual company input is needed.',status='error')
+                    return {}
+                if brief_substantive(brief):
+                    statement=brief.summary+'\n'+'\n'.join('- '+f for f in brief.key_facts)
+                    run['research_findings'].append({'id':uid(),'statement':statement,'source_refs':[],'provenance':'model_knowledge','retrieval_status':'ok','observed_at':now(),'uncertainty':'Parametric model knowledge; not verified against official company sources. Background only; never a candidate skill.'})
+                    run['research_ok']=True
+                    save();event('researcher','company_brief','Recorded a labeled model-knowledge company brief; supply official material if precision matters.')
+                else:
+                    save();event('researcher','company_brief','Model knowledge of this company is too thin; manual company input is needed.',status='error')
+                return {}
             choice=provider.call('research',ResearchChoice,{'sources':[{'id':s['id'],'slot':s['slot'],'display_name':s['display_name']} for s in available],'available_tools':['inspect_company_kb','research_official_urls'],'target_role':run['role_title']})
             chosen=[s for s in available if s['id'] in choice.source_ids]
             if not chosen or len(chosen)!=len(set(choice.source_ids)): raise ProviderError('invalid_research_source')
@@ -126,7 +156,11 @@ class Jobs:
             return {}
         def fit(state):
             stage('assess_fit');es=evidence()
-            result=provider.call('fit',Fit,{'requirements':run['requirements'],'evidence':es,'research':run['research_findings']})
+            # The fit decision cites evidence IDs only. claim_id values are withheld
+            # from this call because models confuse the two similar identifiers on
+            # larger evidence sets; the writer still receives full records.
+            slim=[{k:v for k,v in e.items() if k!='claim_id'} for e in es]
+            result=provider.call('fit',Fit,{'requirements':run['requirements'],'evidence':slim,'research':run['research_findings']})
             reqids={r['id'] for r in run['requirements']};eids={e['id'] for e in es}
             if len(result.matches)!=len(reqids) or {m.requirement_id for m in result.matches}!=reqids: raise ProviderError('incomplete_fit')
             for m in result.matches:

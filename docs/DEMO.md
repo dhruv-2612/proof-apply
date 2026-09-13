@@ -1,5 +1,14 @@
 # Demo and presentation handoff
 
+> Muse branch: the UI no longer preloads any sample. All flows below use data
+> entered manually through the Prepare inputs (paste or upload); the backend
+> `/api/demo` fixture endpoint and mock provider remain for tests and offline
+> use only. The UI suite (`frontend/tests/journey.spec.ts`) now drives the full
+> journey with fixture files entered manually and still asserts the 92% normal
+> coverage, proving parity with the old preloaded path.
+
+## What is available now
+
 ## What is available now
 
 - Actual silent recording: `output/demo/mock-workflow.webm`. The visible mode badge says offline/mock. It is not a live Gemini run or a simulated live replay.
@@ -9,7 +18,7 @@
 
 ## Four-minute rehearsal
 
-1. **0:00–0:30, goal:** Explain that ProofApply prepares one truthful resume and an evidence report. Choose the fictional frontend sample. State the processing mode before starting.
+1. **0:00–0:30, goal:** Explain that ProofApply prepares one truthful resume and an evidence report. Enter the resume, job description and company context manually through Prepare. State the processing engine before starting.
 2. **0:30–1:00, evidence:** Open the project contribution excerpt. Show original location and self-reported status. Approve supported excerpts, excluding unclear context.
 3. **1:00–2:00, work:** Start the run. Show actual research provenance, requirement matching, rendering and review events. The offline recording makes zero model calls. The accepted live normal run made 9 actual model attempts; select live mode explicitly for a new live rehearsal.
 4. **2:00–3:00, adaptation:** Show the platform fixture's extra evidence lookup and four missing requirements. For unsupported-claim recovery, run the clearly labeled fault-injection test below. Do not claim the injected error occurred spontaneously in Gemini.

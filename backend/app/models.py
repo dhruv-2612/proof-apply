@@ -90,3 +90,15 @@ class ToolResult(Strict):
     source_refs: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     error_code: str | None = None
+class EvidenceItem(Strict):
+    locator: str = Field(min_length=1, max_length=200)
+    exact_excerpt: str = Field(min_length=10, max_length=2000)
+    category: Literal['Summary','Skills','Education','Experience','Projects','Coursework']
+class EvidenceProposal(Strict):
+    items: list[EvidenceItem] = Field(min_length=1, max_length=150)
+class TargetDetect(Strict):
+    role_title: str = Field(min_length=1, max_length=160)
+    company_name: str = Field(min_length=1, max_length=160)
+class CompanyBrief(Strict):
+    summary: str = Field(min_length=1, max_length=2000)
+    key_facts: list[str] = Field(max_length=10)

@@ -35,7 +35,9 @@ def extract(data: bytes, filename: str):
                     if isinstance(item,Table):
                         for ri,row in enumerate(item.rows):
                             for ci,cell in enumerate(row.cells): walk(cell, f'{loc}, row {ri+1}, cell {ci+1}, paragraph')
-                    elif item.text.strip(): chunks.append({'locator':loc,'text':item.text.strip()})
+                    elif item.text.strip():
+                        style=getattr(getattr(item,'style',None),'name','') or ''
+                        chunks.append({'locator':loc,'text':item.text.strip(),'heading':style.startswith('Heading')})
             walk(doc,'paragraph')
         elif suffix in ('.txt','.md'):
             text=data.decode('utf-8-sig')
@@ -82,18 +84,81 @@ def add_source(store,session,slot,data,filename):
     session['input_version']+=1; store.update(session['id'],session)
     return source
 
-def propose_evidence(store,session,source):
+def add_evidence(store,session,source,sentence,context,locator,category,entry_title):
+    suspicious=bool(re.search(r'ignore .*rules|system (prompt|instruction)|give full marks|perfect ATS score|skip verification|api.key|follow these instructions',context,re.I))
+    negative=bool(re.search(r'\b(no |not |never |does not|did not|do not|unknown|unavailable|different teammate)',sentence,re.I))
+    claim=uid()
+    return store.add('evidence',session['id'],dict(source_id=source['id'],category=category,subject='candidate',entry_title=entry_title,atomic_claim=sentence,exact_excerpt=sentence,context_excerpt=context,locator=locator,support_status='unclear' if suspicious or negative else 'self_reported',support_basis='Exact local excerpt; candidate approval is not independent verification.',claim_id=claim,quantities=re.findall(r'\d+(?:\.\d+)?%?',sentence),created_at=now()))
+
+def entry_title_for(source,locator):
+    # Latest Experience entry header at or before the locator, in chunk order.
+    current=None
+    for chunk in source['locator_map']:
+        for line in chunk['text'].splitlines():
+            txt=line.strip()
+            if txt.startswith('#') or (txt.isupper() and len(txt)<55):
+                continue
+            if '|' in txt and len(txt)<180 and not re.match(r'^\d|^[\u2022\u2023-]',txt):
+                current=txt
+        if chunk['locator']==locator: break
+    return current
+
+def apply_proposal(store,session,source,items):
+    """Validate an LLM verbatim proposal; keep only locator-exact excerpts.
+
+    Returns (accepted, dropped). Accepted items become evidence records with the
+    model-assigned category. Anything not provably verbatim is dropped and the
+    caller falls back to the static splitter for uncovered sentences.
+    """
+    chunks={c['locator']:c['text'] for c in source['locator_map']}
+    accepted=dropped=0
+    for item in items:
+        chunk=chunks.get(item.locator)
+        if not chunk or normalized(item.exact_excerpt) not in normalized(chunk):
+            dropped+=1;continue
+        sentence=item.exact_excerpt.strip()
+        add_evidence(store,session,source,sentence,chunk,item.locator,item.category,
+                     entry_title_for(source,item.locator) if item.category=='Experience' else None)
+        accepted+=1
+    return accepted,dropped
+
+SECTION_HEADINGS = (
+    ('Education', ('education',)),
+    ('Skills', ('skill',)),
+    ('Experience', ('experience', 'employment', 'work history')),
+    ('Coursework', ('course', 'certification', 'training')),
+    ('Summary', ('summary', 'objective', 'profile')),
+)
+
+def is_heading(txt, styled=False):
+    """Headings carry no facts: DOCX heading styles, markdown `#`, ALL-CAPS
+    lines, or bare section labels in any case (`Experience`, not evidence)."""
+    if styled or txt.startswith('#'):
+        return True
+    if txt.isupper() and len(txt) < 55:
+        return True
+    return txt.strip().lower() in (
+        'summary', 'objective', 'profile', 'education', 'skills', 'experience',
+        'coursework', 'projects', 'project', 'work experience', 'employment')
+
+def section_for(heading):
+    lowered = heading.lstrip('# ').lower()
+    return next((section for section, keys in SECTION_HEADINGS
+                 if any(key in lowered for key in keys)), 'Projects')
+
+def propose_evidence(store,session,source,skip_covered=''):
+    """Static verbatim splitter. skip_covered is normalized accepted text: static
+    sentences already covered by an LLM proposal are not duplicated."""
     section='Projects'
     current_entry=None
     # PDF locators cover whole pages. Filter contact/header lines individually
     # so one email address cannot discard every qualification on that page.
-    segments=({'locator':chunk['locator'],'text':line,'context':chunk['text']}
+    segments=({'locator':chunk['locator'],'text':line,'styled':bool(chunk.get('heading')),'context':chunk['text']}
               for chunk in source['locator_map'] for line in chunk['text'].splitlines() if line.strip())
     for chunk in segments:
         txt=chunk['text']
-        if txt.startswith('#') or (txt.isupper() and len(txt)<55):
-            heading=txt.lstrip('# ').lower()
-            section=next((s for s in ('Education','Skills','Experience','Coursework') if s.lower() in heading),'Projects')
+        if is_heading(txt,chunk['styled']):
+            section=section_for(txt)
             continue
         if re.search(r'@|https?://|contact|fictional|evidence notes|unknowns',txt,re.I): continue
         if section=='Experience' and '|' in txt and len(txt)<180 and not re.match(r'^\d|^[\u2022\u2023-]',txt):
@@ -102,13 +167,11 @@ def propose_evidence(store,session,source):
         for sentence in re.split(r'(?<!\b[A-Z]\.)(?<=[.!?])\s+(?=[A-Z])|\n',txt):
             sentence=sentence.strip()
             if len(sentence)<10: continue
-            suspicious=bool(re.search(r'ignore .*rules|system (prompt|instruction)|give full marks|perfect ATS score|skip verification|api.key|follow these instructions',chunk['context'],re.I))
-            negative=bool(re.search(r'\b(no |not |never |does not|did not|do not|unknown|unavailable|different teammate)',sentence,re.I))
+            if skip_covered and normalized(sentence) in skip_covered: continue
             category=section
             if 'B.Tech' in sentence or 'graduation' in sentence.lower(): category='Education'
             if 'course' in sentence.lower(): category='Coursework'
-            claim=uid()
-            store.add('evidence',session['id'],dict(source_id=source['id'],category=category,subject='candidate',entry_title=current_entry if category=='Experience' else None,atomic_claim=sentence,exact_excerpt=sentence,context_excerpt=chunk['context'],locator=chunk['locator'],support_status='unclear' if suspicious or negative else 'self_reported',support_basis='Exact local excerpt; candidate approval is not independent verification.',claim_id=claim,quantities=re.findall(r'\d+(?:\.\d+)?%?',sentence),created_at=now()))
+            add_evidence(store,session,source,sentence,chunk['context'],chunk['locator'],category,current_entry if category=='Experience' else None)
 
 def decision_map(store,sid):
     result={}

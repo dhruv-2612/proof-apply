@@ -7,6 +7,7 @@ from google.genai import types, errors
 from .config import settings
 from .models import *
 from .extraction import normalized
+from .skills import skill_terms
 
 PROMPTS=Path(__file__).parent/'prompts'
 
@@ -105,11 +106,11 @@ class MockProvider:
             for line in source['text'].splitlines():
                 if 'preferred' in line.lower(): preferred=True
                 if re.match(r'^\d+\.',line.strip()):
-                    items.append(Requirement(id=uid(),jd_source_id=source['id'],text=re.sub(r'^\d+\.\s*','',line),original_excerpt=line,importance='preferred' if preferred else 'required',normalized_terms=terms(line)))
+                    items.append(Requirement(id=uid(),jd_source_id=source['id'],text=re.sub(r'^\d+\.\s*','',line),original_excerpt=line,importance='preferred' if preferred else 'required',normalized_terms=terms(line)[:15]))
             if not items:
                 for line in source['text'].splitlines():
                     if len(line)>20 and re.search(r'experience|ability|knowledge|degree|skill|qualification',line,re.I):
-                        items.append(Requirement(id=uid(),jd_source_id=source['id'],text=line[:500],original_excerpt=line[:2000],importance='required',normalized_terms=terms(line)))
+                        items.append(Requirement(id=uid(),jd_source_id=source['id'],text=line[:500],original_excerpt=line[:2000],importance='required',normalized_terms=terms(line)[:15]))
             if not items: raise ProviderError('no_requirements_detected')
             result=Requirements(requirements=items[:50])
         elif task=='research':
@@ -159,7 +160,11 @@ class MockProvider:
 
 def terms(text):
     value=text.lower();out=[]
-    mapping={'react':r'\breact\b','typescript':r'\btypescript\b','rest':r'\brest\b','tests':r'unit tests|automated.*tests|vitest','git':r'\bgit\b','accessible':r'accessible|keyboard|accessibility','docker':r'\bdocker\b','kubernetes':r'\bkubernetes\b','ci/cd':r'ci/cd|pipelines','linux':r'linux'}
+    mapping={'react':r'\breact\b','typescript':r'\btypescript\b','rest':r'\brest\b','tests':r'unit tests|automated.*tests|vitest','git':r'\bgit\b','accessible':r'accessible|keyboard|accessibility','docker':r'\bdocker\b','kubernetes':r'\bkubernetes\b','ci/cd':r'ci/cd|pipelines','linux':r'\blinux\b'}
     for term,pattern in mapping.items():
         if re.search(pattern,value): out.append(term)
+    # Shared literal skill vocabulary (excerpt-grounded only; no synonyms).
+    # Sorted for deterministic normalized_terms; capped by callers at 15.
+    for skill in sorted(set(skill_terms(text)) - set(out)):
+        out.append(skill)
     return out

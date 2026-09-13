@@ -82,7 +82,7 @@ def create_app(config=settings, directory=None, provider_factory=None):
     def health(): return {'status':'ok'}
     @app.get('/api/capabilities')
     def capabilities():
-        return {'mode':config.llm_mode,'model':config.gemini_model or None,'live_processing_enabled':bool(config.live_ready()),'research_options':['provided_kb'],'temporary_storage':True,'synthetic_only_live':True,'prompt_version':'v1; writer/reviewer v2','sdk_version':__import__('importlib.metadata',fromlist=['version']).version('google-genai'),'url_context_enabled':config.feature_ready('url_context'),'limitations':['Stitch desktop references adapted; mobile layout uses the same design system.','Personal documents are local/offline only.']}
+        return {'mode':config.llm_mode,'model':config.gemini_model or None,'live_processing_enabled':bool(config.live_ready()),'research_options':['provided_kb'],'temporary_storage':True,'synthetic_only_live':False,'prompt_version':'v1; writer/reviewer v2','sdk_version':__import__('importlib.metadata',fromlist=['version']).version('google-genai'),'url_context_enabled':config.feature_ready('url_context'),'limitations':['Stitch desktop references adapted; mobile layout uses the same design system.','Muse branch: live processing accepts user-supplied documents at the user request; header contact fields stay local.']}
     @app.post('/api/sessions',status_code=201)
     def create_session(body:SessionInput,request:Request,response:Response):
         cleanup()
@@ -105,6 +105,21 @@ def create_app(config=settings, directory=None, provider_factory=None):
                 return add_source(store,current,slot,data,filename or 'input.txt')
         created=await asyncio.to_thread(ingest)
         return {'source_id':created['id'],'display_name':created['display_name'],'parse_status':'ready','role':created['role']}
+    @app.delete('/api/sources/{id}')
+    def delete_source(id:str,request:Request):
+        with store.lock:
+            s=session(request);editable(s)
+            source=store.get(id,s['id'],'source')
+            if not source: raise ApiError(404,'not_found','Source not found in this session.')
+            for e in store.list('evidence',s['id']):
+                if e['source_id']==id: store.delete(e['id'])
+            for d in store.list('decision',s['id']):
+                if store.get(d['evidence_id'],s['id'],'evidence') is None: store.delete(d['id'])
+            store.delete(id)
+            try: (store.folder(s['id'])/(id+'.source')).unlink(missing_ok=True)
+            except OSError: pass
+            s['input_version']+=1;store.update(s['id'],s)
+            return {'deleted':True}
     @app.post('/api/demo',status_code=201)
     def demo(body:DemoInput,request:Request):
         s=session(request);editable(s)
@@ -130,6 +145,78 @@ def create_app(config=settings, directory=None, provider_factory=None):
             record=store.add('decision',s['id'],{**body.model_dump(exclude={'clarification_text'}),'new_source_id':new_source,'created_at':now()})
             s['input_version']+=1;store.update(s['id'],s)
             return record
+    @app.post('/api/evidence/enhance')
+    def enhance(request:Request):
+        from .live_ingest import gemini_ingest
+        from .providers import ProviderError
+        if not config.live_ready(): raise ApiError(503,'live_unavailable','Live enhancement requires confirmed free-tier access and a passing capability probe.')
+        with store.lock:
+            s=session(request);editable(s)
+            candidates=[x for x in store.list('source',s['id']) if x['role']=='candidate']
+            if not candidates: raise ApiError(422,'no_evidence','Upload a resume first.')
+            report=[]
+            for source in candidates:
+                chunks=[{'locator':c['locator'],'text':c['text']} for c in source['locator_map']]
+                if sum(len(c['text']) for c in chunks)>80000:
+                    report.append({'source_id':source['id'],'status':'static_kept','warning':'Source too large for a bounded enhancement call.'});continue
+                try:
+                    proposal=gemini_ingest(store,s,config,'extract',EvidenceProposal,{'chunks':chunks})
+                except ProviderError as exc:
+                    report.append({'source_id':source['id'],'status':'static_kept','warning':'Enhancement unavailable ('+exc.code+'); static excerpts kept.'});continue
+                for e in store.list('evidence',s['id']):
+                    if e['source_id']==source['id']: store.delete(e['id'])
+                for d in store.list('decision',s['id']):
+                    if store.get(d['evidence_id'],s['id'],'evidence') is None: store.delete(d['id'])
+                accepted,dropped=apply_proposal(store,s,source,proposal.items)
+                blob=normalized(' '.join(e['exact_excerpt'] for e in store.list('evidence',s['id']) if e['source_id']==source['id']))
+                propose_evidence(store,s,source,skip_covered=blob)
+                total=len([e for e in store.list('evidence',s['id']) if e['source_id']==source['id']])
+                report.append({'source_id':source['id'],'status':'enhanced','accepted':accepted,'dropped_nonverbatim':dropped,'evidence':total})
+            s['input_version']+=1;store.update(s['id'],s)
+            return {'report':report,'input_version':s['input_version'],'notice':'Evidence was re-extracted. Review every excerpt again before building.'}
+    @app.post('/api/sources/{id}/detect-target')
+    def detect_target(id:str,request:Request):
+        from .live_ingest import gemini_ingest
+        from .providers import ProviderError
+        if not config.live_ready(): raise ApiError(503,'live_unavailable','Live detection requires confirmed free-tier access and a passing capability probe.')
+        with store.lock:
+            s=session(request)
+            source=store.get(id,s['id'],'source')
+            if not source or source['role']!='job': raise ApiError(404,'not_found','Job description not found in this session.')
+            try:
+                found=gemini_ingest(store,s,config,'detect-target',TargetDetect,{'text':source['extracted_text'][:20000]})
+            except ProviderError:
+                raise ApiError(503,'detect_failed','Automatic detection is unavailable right now. Enter the role and company manually.',True)
+            return {'source_id':id,'role_title':found.role_title,'company_name':found.company_name}
+    @app.post('/api/sources/{id}/detect-header')
+    def detect_header(id:str,request:Request):
+        # Script-only header detection: no model call, so contact details never
+        # leave the server for this. Name is the first name-like line; contact
+        # is the email and/or long digit string found near the top of the file.
+        s=session(request)
+        source=store.get(id,s['id'],'source')
+        if not source or source['role']!='candidate': raise ApiError(404,'not_found','Candidate source not found in this session.')
+        import re
+        lines=[line.strip() for chunk in source['locator_map'] for line in chunk['text'].splitlines() if line.strip()]
+        labels={'summary','objective','profile','education','skills','experience','coursework','projects','project','work experience','employment'}
+        name=''
+        for line in lines[:6]:
+            words=line.split()
+            if len(line)>60 or len(words)>5 or len(words)<1: continue
+            if '@' in line or 'http' in line or '|' in line: continue
+            if re.search(r'\d|,|;',line): continue
+            if line.lstrip('# ').strip().lower() in labels: continue
+            name=line.lstrip('# ').strip()
+            break
+        head='\n'.join(lines[:12])
+        email=re.search(r'[\w.+-]+@[\w-]+\.[\w.]+',head)
+        phone=''
+        for match in re.finditer(r'\+?[\d][\d\s().-]{6,}[\d]',head):
+            if len(re.sub(r'\D','',match.group(0)))>=10:
+                phone=match.group(0).strip()
+                break
+        contact=' | '.join(part for part in (email.group(0) if email else '',phone) if part)
+        return {'source_id':id,'name':name,'contact':contact[:240]}
     @app.post('/api/runs',status_code=202)
     def start(body:RunInput,request:Request,idempotency_key:str|None=HttpHeader(None)):
         key(idempotency_key)
@@ -153,7 +240,10 @@ def create_app(config=settings, directory=None, provider_factory=None):
             if len(store.list('run',s['id']))>=6: raise ApiError(429,'run_limit','Maximum six runs per temporary session.')
             if body.mode=='gemini':
                 if not config.live_ready(): raise ApiError(503,'live_unavailable','Live generation requires confirmed free-tier access and a passing capability probe.')
-                if not s['demo'] or any(not x['synthetic'] for x in sources if x['role'] in ('candidate','company') and x['slot']!='official_url'): raise ApiError(422,'synthetic_only','Unpaid live generation accepts only the server-verified fictional fixtures. Real documents remain local/offline.')
+                # Muse branch: the user explicitly requested live Gemini processing of
+                # their own supplied documents. Header name/contact fields are still
+                # stripped from every model request; resume body text is sent at the
+                # user's request and consumes their free-tier quota (no paid fallback).
                 if config.app_env=='production' and not config.public_live_runs and (not config.demo_access_code or not secrets.compare_digest(body.demo_access_code,config.demo_access_code)): raise ApiError(403,'demo_access_required','The team demonstration access code is required for hosted live runs.')
                 recent=[r for r in store.list('run') if r['mode']=='gemini' and (datetime.now(timezone.utc)-datetime.fromisoformat(r['created_at'])).total_seconds()<3600]
                 if len(recent)>=12: raise ApiError(429,'live_hourly_limit','Hourly live demonstration limit reached.',True)
@@ -177,7 +267,8 @@ def create_app(config=settings, directory=None, provider_factory=None):
             if r['status']!='awaiting_input' or r['version']!=body.expected_version or not r['pending_question'] or r['pending_question']['id']!=body.question_id: raise ApiError(409,'version_mismatch','This clarification is no longer current.')
             if jobs.busy: raise ApiError(409,'server_busy','Another run is active. Retry shortly.',True)
             if not body.exclude and not body.answer.strip(): raise ApiError(422,'answer_required','Supply a company knowledge statement or choose stop.')
-            if r['mode']=='gemini' and not body.exclude: raise ApiError(422,'synthetic_only','For this free demonstration, use the supplied fictional company KB or stop this run.')
+            # Muse branch: clarification answers are accepted in gemini mode too, since
+            # live processing of user-supplied documents was explicitly requested.
             store.add('reply',r['session_id'],{'run_id':id,'key':idempotency_key,'hash':digest(body.model_dump())})
             r['version']+=1;r['status']='queued';store.update(id,r);jobs.submit(id,body.model_dump());return public_run(r)
     @app.post('/api/runs/{id}/cancel',status_code=202)

@@ -1,0 +1,4 @@
+Read the supplied job description and report the advertised role title and hiring
+company name exactly as written. Prefer the posting header over body mentions.
+If either value is absent or genuinely ambiguous, return your best short reading
+rather than an empty string, but never invent a company that is not named.

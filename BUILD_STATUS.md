@@ -1,5 +1,69 @@
 # Build status
 
+> **Muse branch deviations (2026-09-13, user-requested, NOT on main):**
+> live Gemini accepts user-supplied real documents (synthetic-only gate lifted in
+> `backend/app/main.py`; header contact fields still stripped from model calls);
+> offline matcher uses a ~600-skill literal vocabulary (`backend/app/skills.py`);
+> fit payload withholds `claim_id` to stop evidence/claim ID confusion;
+> resume template restyled within PDF gates. First real-data live package:
+> `output/private/live-pm-amazon-04/` (PM @ Amazon, 9 attempts, 0 revisions,
+> 87.5% honest coverage, manually inspected). Backend suite 57 passed;
+> frontend typecheck + static export rebuilt. Restart the local server to pick
+> up backend changes. Private outputs stay git-ignored.
+>
+> Main-line status below is unchanged.
+>
+> **Muse update 2 (2026-09-13):** JD auto-detect (`POST /api/sources/{id}/detect-target`,
+> auto-applied in UI after JD save); explicit **Enhance with Gemini** evidence action
+> (`POST /api/evidence/enhance`, verbatim-validated, static merge for the rest,
+> decisions reset for re-review); automatic model-knowledge company brief when no
+> company source exists, with code-enforced substance threshold and manual
+> clarification fallback; fit payload withholds `claim_id` (fixes evidence/claim ID
+> confusion on large sets). Verified live, no company KB supplied: detect returned
+> Product Manager @ Amazon exactly; enhance fixed categories (Projects 18→15,
+> Coursework 1→4, +Summary); run completed, 9 attempts, 0 revisions, honest 75%
+> coverage (`output/private/live-pm-amazon-06/`, inspected). Suite: 61 passed
+> (57 + 4 new); typecheck + static export rebuilt.
+>
+> **Muse update 5 (2026-09-13):** prepare-screen parity from the user-supplied 01
+> HTML: files-attached chip, per-file excerpt counts, full-width excerpt-spectrum
+> strip (real per-source counts), careers-URL input (`official_url` slot, feeds
+> URL-Context research), collapsible company notes, readiness checklist in the
+> footer, blocker list under the Evidence build button, Help & Docs dialog.
+> Fictional strip, fake counts/anchors, candidate IDs and the 1/2-page selector
+> deliberately not copied. Fixed a flex-specificity bug stretching file icons.
+> Verified 1440px screenshots. Suite: 64 backend + 7 UI (journey converted to
+> manual entry, still asserts 92%).
+>
+> **Muse update 6 (2026-09-13):** step-2 Evidence view rebuilt from the 02 HTML:
+> stage pill + file count, Review-Index donut (real decided ratio, never called
+> verification), status tabs with live counts, search + category chips, per-card
+> Clarify-claim inline form, amber unclear treatment, excluded strikethrough with
+> re-include, target panel with included chip + review-progress bar + unclear
+> guardrail, Back-to-inputs button, transparency card; build button renamed
+> "Build my application". Fabricated items not copied (78% index, 0.94
+> confidence, invented claim texts). Verified 1440px screenshot. Suite: 64
+> backend + 7 UI.
+>
+> **Muse update 3 (2026-09-13):** cross-format parity verified (txt/md/docx/pdf give
+> identical resume evidence and normalized-identical JD text). Fixed DOCX heading
+> detection: heading styles, any-case section labels and Summary mapping
+> (`is_heading`/`section_for`); static splitter remains verbatim-first, the LLM
+> enhance only recategorizes/adds validated excerpts. Confirmed division of labor:
+> scripts do text extraction + keyword spotting (`terms()`), Gemini does
+> requirements/fit/writing/review (5 clean requirements from unnumbered JD bullets
+> in 1 live call). Suite: 63 passed.
+>
+> **Muse update 4 (2026-09-13):** Stitch access reconfirmed; all 6 screens + HTML
+> exports retrieved fresh and byte-identical to morning copies (screens unchanged;
+> screenshot CDN refused direct download, local PNGs retained). UI rework on muse:
+> Inter bundled locally (OFL, offline @font-face), phase pills, session chip,
+> drag-drop resume zone, per-file remove (`DELETE /api/sources/{id}` with evidence
+> cascade), How-it-works card, value cards, design footer. All fictional/sample/
+> mock-facing UI removed (sample loader, mode selector → auto engine, fictional
+> labels); backend mock + fixtures stay for tests/offline only. Verified with
+> 1440px + 390px screenshots. Suite: 64 passed; typecheck + export rebuilt.
+
 Updated: 2026-09-13. **Local implementation acceptance passes.** The real Gemini, Stitch design and Linux container gates are verified. Public hosting is prepared, not deployed; the user deferred Render setup. No billing, paid fallback or purchase was enabled.
 
 ## Working locally
